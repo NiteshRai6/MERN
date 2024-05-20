@@ -36,7 +36,7 @@
 // const area = Math.sqrt(substance * (substance - side1) * (substance - side2) * (substance - side3));
 // alert(`The area of a traingle is ${area}`);
 
-// Q5. JavaScript Program to Swap Two Variables ?
+// Q5. JavaScript Program to Swap Two Variables ? **
 // Way 1 : Using a Temporary Variable : swap strings or other data types :
 // let a = prompt('Enter the first value for "a" ');
 // let b = prompt('Enter the second value for "b" ');

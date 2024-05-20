@@ -107,4 +107,272 @@
 // const largest = Math.max(number1, number2, number3);
 // console.log(`${largest} is Largest among these Three Numbers`);
 
-// Q5. JavaScript Program to Check Prime Number ?
+// Q5. JavaScript Program to Check Prime Number ? ***
+// const number = parseInt(prompt('Enter a positive number ?'));
+// let isPrime = true;
+// if (number == 1) {
+//     console.log('1 is neighter prime nor composite number.');
+// }
+// else if (number > 1) {
+//     for (let i = 2; i < number; i++) {
+//         if (number % i == 0) {
+//             isPrime = false;
+//             break;
+//         }
+//     }
+//     if (isPrime) {
+//         console.log(`${number} is a Prime number`);
+//     }
+//     else {
+//         console.log(`${number} is not a Prime number`);
+//     }
+// }
+// else {
+//     console.log(`${number} is not a Prime number`);
+// }
+
+// Q6. JavaScript Program to Print All Prime Numbers in an Interval ? **
+// const lowerNumber = parseInt(prompt('Enter a positive lower number ?'));
+// const higherNumber = parseInt(prompt('Enter a positive higher number ?'));
+// console.log(`All prime numbers between ${lowerNumber} and ${higherNumber} are :`);
+// for (let i = lowerNumber; i <= higherNumber; i++) {
+//     let flag = 0;
+//     for (let j = 2; j < i; j++) {
+//         if (i % j == 0) {
+//             flag = 1;
+//         }
+//     }
+//     if (i > 1 && flag == 0) {
+//         console.log(i);
+//     }
+// }
+
+// Q7. JavaScript Program to Find the Factorial of a Number ?
+// const number = parseInt(prompt('Enter a positive integer ?'));
+// if (number < 0) {
+//     console.log('Factorial is only for positive integer');
+// }
+// else if (number == 0) {
+//     console.log('Factorial of 0 is 1');
+// }
+// else {
+//     let fact = 1;
+//     for (let i = 1; i <= number; i++) {
+//         fact *= i;
+//     }
+//     console.log(`Factorial of ${number} is ${fact}`);
+// }
+
+// Q8. JavaScript Program to Display the Multiplication Table ?
+// const number = parseInt(prompt('Enter a positive integer ?'));
+// const range = parseInt(prompt('Enter a positive integer ?'));
+// for (let i = 1; i <= range; i++) {
+//     const result = number * i;
+//     console.log(`${number} * ${i} = ${result}`);
+// }
+
+// Q9. JavaScript Program to Print the Fibonacci Sequence ? **
+// The Fibonacci sequence is the integer sequence where the first two terms are 0 and 1. After that, the next term is defined as the sum of the previous two terms.
+// Way 1 : Fibonacci Series Up to n Terms :
+// const number = parseInt(prompt('Enter the number of terms ?'));
+// let n1 = 0, n2 = 1, nextTerm;
+// console.log('Fibonacci Series is :');
+// for (let i = 1; i <= number; i++) {
+//     console.log(n1);
+//     nextTerm = n1 + n2;
+//     n1 = n2;
+//     n2 = nextTerm;
+// }
+// Way 1 : Fibonacci Sequence Up to a Certain Number :
+// const number = parseInt(prompt('Enter a positive number ?'));
+// let n1 = 0, n2 = 1, nextTerm;
+// console.log(n1);
+// console.log(n2);
+// nextTerm = n1 + n2;
+// while (nextTerm <= number) {
+//     console.log(nextTerm);
+//     n1 = n2;
+//     n2 = nextTerm;
+//     nextTerm = n1 + n2;
+// }
+
+// Q10. JavaScript Program to Check Armstrong Number ? **
+// A positive integer is called an Armstrong number(of order n) if
+// abcd... = an + bn + cn + dn + ...
+// 153 = 1 * 1 * 1 + 5 * 5 * 5 + 3 * 3 * 3
+// program to check an Armstrong number of n digits
+// const number = prompt("Enter a positive integer");
+// const numberOfDigits = number.length;
+// let sum = 0;
+// let temp = number;
+// while (temp > 0) {
+//     let remainder = temp % 10;
+//     sum += remainder ** numberOfDigits;
+//     temp = parseInt(temp / 10);
+// }
+// if (sum == number) {
+//     console.log(`${number} is an Armstrong number`);
+// }
+// else {
+//     console.log(`${number} is not an Armstrong number.`);
+// }
+
+// Q11. JavaScript Program to Make a Simple Calculator ?
+//  Way 1 : Simple Calculator with if..else if...else :
+// const operator = prompt('Enter operator ( either +, -, * or / ): ');
+// const number1 = parseFloat(prompt('Enter first number: '));
+// const number2 = parseFloat(prompt('Enter second number: '));
+// let result;
+// if (operator == '+') {
+//     result = number1 + number2;
+// }
+// else if (operator == '-') {
+//     result = number1 - number2;
+// }
+// else if (operator == '*') {
+//     result = number1 * number2;
+// }
+// else {
+//     result = number1 / number2;
+// }
+// console.log(`${number1} ${operator} ${number2} = ${result}`);
+// Way 2 : Using Switch :
+// const operator = prompt('Enter operator ( either +, -, * or / ): ');
+// const number1 = parseFloat(prompt('Enter the First number'));
+// const number2 = parseFloat(prompt('Enter the second number'));
+// let result;
+// switch (operator) {
+//     case '+':
+//         result = number1 + number2;
+//         console.log(`${number1} + ${number2} = ${result}`);
+//         break;
+//     case '-':
+//         result = number1 - number2;
+//         console.log(`${number1} - ${number2} = ${result}`);
+//         break;
+//     case '*':
+//         result = number1 * number2;
+//         console.log(`${number1} * ${number2} = ${result}`);
+//         break;
+//     case '/':
+//         result = number1 / number2;
+//         console.log(`${number1} / ${number2} = ${result}`);
+//         break;
+//     default:
+//         console.log('Enter the valid operator and number.');
+// }
+
+// Q12. JavaScript Program to Find the Sum of Natural Number ? 
+// Way 1 : By For Loop :
+// const number = parseInt(prompt('Enter a positive Integer ?'));
+// let sum = 0;
+// for (let i = 1; i <= number; i++) {
+//     sum += i;
+// }
+// console.log(`Thes sum of ${number} is ${sum}`);
+// Way 2 : By While Loop :
+// const number = parseInt(prompt('Enter a positive Integer ?'));
+// let sum = 0, i = 1;
+// while (i <= number) {
+//     sum += i;
+//     i++
+// }
+// console.log(`Thes sum of ${number} is ${sum}`);
+// Way 3 : By Math Formila :
+// const number = parseInt(prompt('Enter a positive Integer ?'));
+// let sum = number * (number + 1) / 2;
+// console.log(`Thes sum of ${number} is ${sum}`);
+
+// Q14. JavaScript Program to Check if the Numbers Have Same Last Digit ?
+// const number1 = parseInt(prompt('Enter a first Integer ?'));
+// const number2 = parseInt(prompt('Enter a second Integer ?'));
+// const number3 = parseInt(prompt('Enter a third Integer ?'));
+// const result1 = number1 % 10;
+// const result2 = number2 % 10;
+// const result3 = number3 % 10;
+// if (result1 == result2 && result1 == result3) {
+//     console.log('Numbers Have Same Last Digit');
+// }
+// else {
+//     console.log('Numbers Does Have Same Last Digit');
+// }
+
+// Q15. JavaScript Program to Find HCF or GCD ?
+// The Highest Common Factor(HCF) or Greatest Common Divisor(GCD) of two integers is the largest integer that can exactly divide both integers(without a remainder).
+// For example, the HCF of 60 and 72 is 12.
+// Way 1 : By For Loop :
+// const number1 = parseInt(prompt('Enter a first positive Integer ?'));
+// const number2 = parseInt(prompt('Enter a second positive Integer ?'));
+// let hcf;
+// for (let i = 1; i <= number1 && i <= number2; i++) {
+//     if (number1 % i == 0 && number2 % i == 0) {
+//         hcf = i;
+//     }
+// }
+// console.log(`HCF Of ${number1} & ${number2} is ${hcf}`);
+// Way 2 : by While Loop :
+// let number1 = prompt('Enter a first positive integer: ');
+// let number2 = prompt('Enter a second positive integer: ');
+// while (number1 != number2) {
+//     if (number1 > number2) {
+//         number1 -= number2;
+//     }
+//     else {
+//         number2 -= number1;
+//     }
+// }
+// console.log(`HCF is ${number1}`);
+
+// Q16. JavaScript Program to Find LCM ?
+// The Least Common Multiple(LCM) of two integers is the smallest positive integer that is perfectly divisible by both integers.
+// For example, the LCM of 6 and 8 is 24.
+// Way 1 :
+// let number1 = prompt('Enter a first positive integer: ');
+// let number2 = prompt('Enter a second positive integer: ');
+// let max = (number1 > number2) ? number1 : number2;
+// while (true) {
+//     if (max % number1 == 0 && max % number2 == 0) {
+//         console.log(`The LCM of ${number1} & ${number2} is = ${max}`);
+//         break;
+//     }
+//     max++;
+// }
+// Way 2 : LCM Calculation Using HCF : LCM = (number1 * number2) / hcf;
+// const number1 = parseInt(prompt('Enter a first positive Integer ?'));
+// const number2 = parseInt(prompt('Enter a second positive Integer ?'));
+// let hcf;
+// for (let i = 1; i <= number1 && i <= number2; i++) {
+//     if (number1 % i == 0 && number2 % i == 0) {
+//         hcf = i;
+//     }
+// }
+// let lcm = (number1 * number2) / hcf;
+// console.log(`LCM Of ${number1} & ${number2} is ${lcm}`);
+
+// Q17. JavaScript Program to Find the Factors of a Number ?
+// const number = parseInt(prompt('Enter a positive number ?'));
+// console.log(`Factors of ${number} are : `);
+// for (let i = 1; i <= number; i++) {
+//     if (number % i == 0) {
+//         console.log(i);
+//     }
+// }
+
+// Q18.JavaScript Program to Display Fibonacci Sequence Using Recursion ?
+// function fibonacci(num) {
+//     if (num < 2) {
+//         return num;
+//     }
+//     else {
+//         return fibonacci(num - 1) + fibonacci(num - 2);
+//     }
+// }
+// const nTerms = prompt('Enter the number of terms: ');
+// if (nTerms <= 0) {
+//     console.log('Enter a positive integer.');
+// }
+// else {
+//     for (let i = 0; i < nTerms; i++) {
+//         console.log(fibonacci(i));
+//     }
+// }
