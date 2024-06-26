@@ -1,0 +1,7 @@
+To Read :
+1. Objects all methods with example.
+2. Array all methods with example.
+3. String all methods with example.
+4. Number all methods with example.
+4. Bitwise operator
+
