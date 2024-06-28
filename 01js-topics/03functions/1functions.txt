@@ -1,0 +1,69 @@
+*** Functions ***
+
+23. A function is an independent block of code that performs a specific task, while a function expression is a way to store functions in variables.
+
+A function argument is the value we pass to the function, while a function parameter is a placeholder that stores the argument passed to the function.
+
+We can pass different arguments in each call, making the function re-usable and dynamic.
+
+JavaScript Library Functions
+JavaScript provides some built-in functions that can be directly used in our program. We don't need to create these functions; we just need to call them.
+Example : console.log(), Math.sqrt()
+Like with functions, we need to use parentheses () with the variable name to call a function expression.
+
+Use a function expression when:
+you need a function that isn't hoisted. the function should only used when it is defined. the function is anonymous, or doesn't need a name for later use.
+
+A function declaration can not be called at the same time when it was created, while a function expression can be used as an IIFE which means we can call it immediately after defining it.
+
+In JavaScript, the scope of a variable determines where it can be accessed within the code.
+Variables can be declared in different scopes:
+Global Scope
+Local (Function) Scope
+Block-Level Scope
+
+The value of a global variable can be changed inside a function. 
+
+It is a good practice to avoid using global variables because the value of a global variable can change in different areas of the program. This can lead to unknown results.
+
+JavaScript has a strict mode in which a variable cannot be used without declaring it.
+
+24. JavaScript ES6 introduced block-level scoping with the let and const keywords.
+Block-level variables are accessible only within the block {} they are defined in, which can be smaller than a function's scope. 
+
+25. hoisting is a behavior in which a function or a variable can be used before declaration. There are generally two types of hoistings in JavaScript:
+Variable Hoisting
+Function Hoisting
+
+the behavior of hoisting varies depending on whether a variable is declared using var, let, or const.
+
+When we declare a variable using var, it is hoisted to the top of its current scope.
+console.log(test);
+var test = 5;
+// Output: undefined
+cause, variable is hoisted with the default value of undefined.
+
+26. When we declare a variable using let or const, it is hoisted to the top of its current scope. However, the variable does not have a default value when it is hoisted (unlike when declared using var).
+console.log(message);
+let message;
+Output : ReferenceError: Cannot access 'message' before initialization.
+
+Here, the error occurs because a variable declared with let is not assigned any default value when hoisted.
+We know the message variable was hoisted because the error message "Cannot access 'message' before initialization" indicates that JavaScript is aware that message exists.
+Had the variable not been hoisted, we'd get a different error, i.e., ReferenceError: message is not defined.
+Initializations Are Not Hoisted.
+
+27. function hoisting allows us to call the function before its declaration.
+Function Expressions are not hoisted.
+When we use a function expression, we cannot call it before its declaration. 
+
+28. Recursion is a programming technique where a function calls itself repeatedly to solve a problem. 
+JavaScript does have a recursion limit.
+The recursion limit prevents errors caused by too many nested function calls.
+However, the limit varies depending on the JavaScript engine and the environment in which the code is running.
+For instance, the maximum limit can differ between Firefox and Chrome. Whereas, devices with higher memory might have higher recursion limits than devices with less memory.
+
+29. When there is no base case in a recursive function, it runs infinitely, resulting in an infinite recursion. 
+
+*** End ***
+

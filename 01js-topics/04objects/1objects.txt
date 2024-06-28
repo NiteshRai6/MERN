@@ -1,0 +1,102 @@
+*** Objects ***
+
+
+30. javaScript object is a variable that can store multiple data in key-value pairs.
+the key-value pairs of an object are referred to as properties. 
+
+31. functions that are defined inside objects are called methods.
+Just like we use () to call a function, we must use () to call methods.
+
+32. We use this keyword in an object method to access a property of the same object. 
+JavaScript Built-In Methods : console.log(), prompt(), concat(), toFixed() etc..
+use the concat() method to concatenate (join) two strings. 
+use the toFixed() method to round off a number into a fixed number of digits.
+
+33. a constructor function is used to create and initialize objects.
+// constructor function
+function Person () {
+    this.name = "John",
+    this.age = 23
+}
+
+// create an object
+const person = new Person();
+
+// print object attributes
+console.log(person.name);
+
+Here, Person() is an object constructor function. And, we use the new keyword to create an object from a constructor function.
+
+when this keyword is used in a constructor function, this refers to the specific object in which it is created. 
+
+Object literals are used to create a single object.
+
+On the other hand, constructor functions are useful if you want to create multiple objects.
+
+Objects created from constructor functions are unique. Thus, you can add a new property to a particular object that isn't accessible to other objects.
+
+On the other hand, when an object is created with an object literal, any object variable derived from that object will act as a clone of the original object.
+
+34. JavaScript also has built-in constructors to create objects of various types.
+Constructor	Description
+Object()	Creates a new object with properties and methods.
+String()	Constructs a string object for manipulating and representing textual data.
+Number()	Constructs a number object for handling data and operations.
+Boolean()	Constructs a boolean object representing true or false values 
+             for logical operations.
+
+35. You should not declare strings, numbers, and boolean values as objects because they slow down the program. Instead, declare them as primitive types using code such as let name = "John", let number = 57, etc.
+
+36. In JavaScript, there are two kinds of object properties:
+Data properties
+Accessor properties
+
+37. Accessor properties are methods that get or set the value of an object. For that, we use these two keywords:
+get - to define a getter method to get the property value
+set - to define a setter method to set the property value
+
+const person = {
+    // data property
+    name: 'John',
+    age: 23,
+    // accessor property(getter)
+    get getName() {
+        return this.name;
+    },
+    //accessor property(setter)
+    set changeName(newName) {
+        this.name = newName;
+    }
+}
+
+you can also use Object.defineProperty() method to add getters and setters. 
+// getting property
+Object.defineProperty(student, "getName", {
+    get : function () {
+        return this.firstName;
+    }
+});
+// setting property
+Object.defineProperty(student, "changeName", {
+    set : function (value) {
+        this.firstName = value;
+    }
+});
+
+38. In JavaScript, prototypes allow properties and methods to be shared among instances of the function or object.
+Properties or methods added to the prototype of a constructor function are accessible to all objects derived from it. 
+/ add property
+Car.prototype.color = "Red";
+// add method
+Car.prototype.drive = function() {
+    console.log(`Driving ${this.model}`);
+};
+
+JavaScript always searches for properties in the objects of the constructor function first. Then, it searches in the prototype.
+This process is known as prototype chaining. 
+
+You should never modify the prototype property of standard JavaScript built-in objects like strings, arrays, etc. It can cause major errors in your program.
+
+The usage of the prototype has decreased significantly since the introduction of classes in ES6. However, you can still learn it to improve your understanding of JavaScript.
+
+*** End ***

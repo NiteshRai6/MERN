@@ -1,0 +1,382 @@
+ *** JS Types ***
+
+
+39. An array is an object that can store multiple values at once.
+Arrays allow us to organize related data by grouping them within a single variable.
+Unlike many other programming languages, JavaScript allows us to create arrays with mixed data types.
+Each element of an array is associated with a number called an index, which specifies its position inside the array.
+Array indexes always start with 0, not 1.
+
+40. The push() method adds zero or more elements to the end of the array.
+push() method changes the original array and its length.
+
+The unshift() method adds one or more elements to the beginning of an array and returns the new length of the array.
+unshift() method changes the original array and its length.
+
+41. We can add or change elements by accessing the index value. 
+You can also create an array using JavaScript's new keyword. 
+ It's better to create an array using an array literal [] for greater readability and execution speed.
+
+ 42. The pop() method removes the last element from an array and returns that element.
+Returns undefined if the array is empty.
+This method changes the original array and its length.
+
+The shift() method removes the first element from an array and returns that element.
+This method changes the original array and its length.
+
+43. The slice() method returns a shallow copy of a portion of an array into a new array object.
+The slice() method takes in:
+start (optional) - Starting index of the selection. If not provided, the selection starts at start 0.
+end (optional) - Ending index of the selection (exclusive). If not provided, the selection ends at the index of the last element.
+slice() Returns a new array containing the extracted elements.
+
+In JavaScript, you can also use negative start and end indices. The index of the last element is -1, the index of the second last element is -2, and so on.
+
+The slice() method shallow copies the elements of the array in the following way:
+
+It copies object references to the new array. (For example, a nested array) So if the referenced object is modified, the changes are visible in the returned new array.
+It copies the value of strings and numbers to the new array.
+
+44.  Shallow Copy vs Deep Copy :
+In JavaScript, there are two ways to copy objects: shallow copy and deep copy. Shallow copying creates a new object with references to the same memory locations as the original object, while deep copying creates a new object with new memory locations for all of its properties and nested objects or arrays.
+
+Shallow Copy Example :
+slice(), [].concat, ... , Array.from
+
+Deep Copy Example :
+JSON.parse(JSON.stringify(originalArray)) : only works for arrays / objects without functions or undefined values.
+._cloneDeep(originalArray);
+
+45. The splice() method modifies an array (adds, removes or replaces elements).
+arr.splice(start, deleteCount, item1, ..., itemN)
+start - The index from where the array is changed.
+deleteCount (optional) - The number of items to remove from start.
+item1, ..., itemN (optional) - The elements to add to the start index. If not specified, splice() will only remove elements from the array.
+
+Returns an array containing the deleted elements.
+Note: The splice() method changes the original array.
+
+If start > array.length, splice() does not delete anything and starts appending arguments to the end of the array.
+If start < 0, the index is counted from backward (array.length + start). For example, -1 is the last element.
+If array.length + start < 0, it will begin from index 0.
+
+If deleteCount is omitted or is greater than the number of elements left in the array, it deletes all elements from start to end of the array.
+If deleteCount is 0 or negative, no elements are removed. But, at least one new element should be specified.
+
+46. Array Methods :
+JavaScript Array length
+Returns the number of elements in an array
+
+JavaScript Array reverse()
+Returns the array in reverse order
+
+JavaScript Array sort()
+Sorts the elements of an array in specific order
+
+JavaScript Array fill()
+Returns array by filling elements with given value
+
+Javascript Array join()
+Concatenates the array elements to a string
+
+Javascript Array toString()
+Returns the string representation of an array
+
+JavaScript Array pop()
+Removes and returns the last array element
+
+JavaScript Array shift()
+Removes and returns the first array element
+
+JavaScript Array push()
+Adds elements to end of array & returns its length
+
+JavaScript Array unshift()
+Adds elements to start of array and returns length
+
+JavaScript Array concat()
+Returns array by merging given value and/or arrays
+
+JavaScript Array splice()
+Returns an array by changing its elements in place
+
+JavaScript Array lastIndexOf()
+Returns the last index of occurrence of an element
+
+JavaScript Array indexOf()
+Returns the first index of occurrence of element
+
+JavaScript Array of() Method
+Creates a new Array instance from given arguments
+
+JavaScript Array slice()
+Returns a shallow copy of a portion of an array
+
+JavaScript Array findIndex()
+Returns index of element that satisfies condition
+
+JavaScript Array find()
+Returns first element that satisfies a condition
+
+JavaScript Array includes()
+Checks if a value exists in an array
+
+Javascript Array reduceRight()
+Reduces array to single value from right to left
+
+Javascript Array reduce()
+Reduces array to single value from left to right
+
+Javascript Array isArray()
+Checks if the given value is a JavaScript Array
+
+Javascript Array filter()
+Returns array by filtering elements on given test
+
+JavaScript Array map()
+Returns array by mapping elements using given func
+
+Javascript Array forEach()
+Executes the given function on array elements
+
+Javascript Array some()
+Tests if any element passes given test function
+
+JavaScript Array.every()
+Tests if all elements pass the given test function
+
+Javascript Array entries()
+Returns iterator containing key/value pair array
+
+JavaScript Array keys()
+Returns an iterator containing keys of array items
+
+JavaScript Array values()
+Returns iterator containing values of array items
+
+Javascript Array.from()
+Creates a new Array from array-like object
+
+Javascript Array constructor
+Returns the constructor function for the array
+
+Javascript Array copyWithin()
+Copies and overwrites elements within the array
+
+JavaScript Array.toLocaleString()
+Returns string representing the elements of array
+
+JavaScript Array flat()
+Flattens the nested array to given depth
+
+JavaScript Array flatMap()
+Returns new array by mapping and flattening array
+
+47. Multidimensional arrays contain another array inside them.
+// contains 3 separate arrays as elements
+const data = [[1, 2, 3], [1, 3, 4], [4, 5, 6]];
+
+48. The JavaScript string is a primitive data type that represents textual data.
+Access String Characters :
+ 1. Using Indexes
+ 2. Using the charAt() Method
+
+ Strings are Immutable.
+ Strings are Case-Sensitive
+
+ JavaScript String Methods :
+ JavaScript String length
+Returns the number of characters in a string
+
+JavaScript String replace()
+replace a substring/pattern in the string
+
+JavaScript String indexOf()
+Returns the first index of occurrence of a value
+
+JavaScript String lastIndexOf()
+Returns the last index of occurrence of a value
+
+Javascript String startsWith()
+Checks if a string begins with a specified string
+
+Javascript String endsWith()
+Checks if a string ends with a specified string
+
+Javascript String toUpperCase()
+Returns uppercase of a string
+
+Javascript String toLowerCase()
+Returns lowercase representation of a string
+
+Javascript String includes()
+Checks if given string is found inside a string
+
+JavaScript String repeat()
+Returns a string by repeating it given times
+
+JavaScript String charAt()
+Returns character at a specified index in string
+
+JavaScript String charCodeAt()
+Returns Unicode of the character at given index
+
+JavaScript String fromCharCode()
+Returns a string from the given UTF-16 code units
+
+Javascript String substring()
+Returns a specified part of the string
+
+Javascript String padStart()
+Pads a string at the start to a given length
+
+Javascript String padEnd()
+Pads a string at the end to a given length
+
+JavaScript String codePointAt()
+Returns the Unicode point value at given index
+
+JavaScript String fromCodePoint()
+Returns a string using the given code points
+
+Javascript String match()
+Returns result of matching string with a regex
+
+Javascript String matchAll()
+Returns iterator of results matching with a regex
+
+Javascript String localeCompare()
+Compares two strings in the current locale
+
+Javascript String search()
+Searches for specified value in the string
+
+JavaScript String replaceAll()
+Returns string by replacing all matching patterns
+
+JavaScript String concat()
+Concatenates the arguments to the calling string
+
+JavaScript String split()
+Returns the string divided into list of substring
+
+JavaScript String trim()
+Removes whitespace from both ends of a string
+
+JavaScript String slice()
+Extracts and returns a section of the string
+
+49. You use escape characters to insert characters that are difficult or impossible to represent directly in a string.
+
+Code	Character
+\"	Double Quote
+\\	Backslash
+\n	New Line
+\r	Carriage Return
+\v	Vertical Tab
+\t	Horizontal Tab
+\b	Backspace
+\f	Form feed
+
+50. JavaScript Multiline Strings :
+A. Multiline in code but not in the output.
+Separating a long string into multiple lines can make your code look clean. You can achieve this using the + or the \ operators.
+
+B. Multiline in both code and output.
+Use any of the following to print multiple lines using a single string variable:
+Template Literals ` `
+Newline Escape Character \n
+
+51. The JavaScript for...in loop iterates over the keys of an object.
+You can also use the for...in loop to iterate over string values.
+You can also use for...in with arrays. 
+
+52. In JavaScript, numbers are used to represent numerical values. They can be whole numbers (like 5, 10, 100) or decimal numbers (like 3.13, 0.5, 10.75).
+
+53. NaN (Not a Number) is a special value that is returned when a mathematical operation cannot produce a meaningful numeric result.
+Performing arithmetic operations (except addition) on numeric values and strings results in NaN. For example,
+let num = 4 - "hello";
+console.log(num); // NaN
+
+When the typeof operator is used for NaN value, it gives number as an output.
+
+The built-in isNaN() function can be used to find if a value is a number.
+
+54. Infinity is a special value that signifies an amount larger than any finite number.
+dividing a positive number by 0 yields Infinity, while dividing a negative number by 0 results in -Infinity.
+
+55. Exponential Numbers :
+You can use the exponential notation e to represent numbers that are very large or very small.
+let num1 = 5e9;
+console.log(num1);  // 5000000000
+
+56. The hexadecimal number system is a type of number system, that has a base value equal to 16. It is also pronounced sometimes as 'hex'. Hexadecimal numbers are represented by only 16 symbols. These symbols or values are 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E and F. Each digit represents a decimal value.
+
+Decimal : Hexadecimal
+0 - 9 : 0 - 9 (Same)
+10 : A 
+11 : B 
+12 : C 
+13 : D 
+14 : E 
+15 : F 
+
+JavaScript Numbers can also be denoted in hexadecimal notation. For example,
+let num1 = 0xff; // it always starts with 0x in JS.
+console.log(num1);  // 255
+
+57. An integer is a whole number (not a fractional number) that can be positive, negative, or zero. 
+JavaScript Number.isSafeInteger()
+A safe integer is an integer that can be exactly represented as an IEEE-754 double precision number [ all integers from (253 - 1) to -(253 - 1) ].
+
+58. 
+Method	Description
+isNaN()	Determines whether the passed value is NaN.
+isFinite()	Determines whether the passed value is a finite number.
+isInteger()	Determines whether the passed value is an integer.
+isSafeInteger()	Determines whether the passed value is a safe integer.
+parseFloat()	Converts the numeric floating string to a floating-point number.
+parseInt()	Converts the numeric string to an integer.
+toExponential()	Returns a string value for a number in exponential notation.
+toFixed()	Returns a string value for a number in fixed-point notation.
+toPrecision()	Returns a string value for a number to a specified precision.
+toString()	Returns a string value in a specified radix (base).
+valueOf()	Returns the number's value.
+toLocaleString()	Returns a string with a language-sensitive representation of a number.
+
+59. JavaScript Precision Problems :
+In JavaScript, numbers (especially decimals) aren't always stored accurately, leading to precision problems. For example,
+let num = 0.1 + 0.2;
+console.log(num); // 0.30000000000000004
+
+The result should be 0.3 instead of 0.3000000000004.
+This error occurs because JavaScript stores numbers in binary form to represent decimal digits. And decimal numbers can't be represented in binary form exactly.
+We can mitigate the precision problem in the following ways:
+
+A. Converting Floating-Point Numbers to Integers
+let num = (0.1 * 10 + 0.2 * 10) / 10;
+console.log(num); // 0.3
+
+B.  Using the toFixed() Method :
+let num = 0.1 + 0.2;
+console.log(num.toFixed(2)); // 0.30
+
+60. JavaScript BigInt :
+The number type can only represent values less than (2^53 - 1) 
+and more than -(2^53 - 1).
+However, if you need to use a larger or smaller number than that, you can use the BigInt data type. BigInt allows you to do calculations with any size or precision.
+A BigInt number is created by appending n to the end of an integer. For example,
+// BigInt value
+let value = 900719925124740998n;
+// add two big integers
+let value1 = value + 1n;
+console.log(value1);
+// Output: 900719925124740999n
+
+61. The Number() function converts data of various types to numbers. 
+Number objects can be created using the new keyword.
+
+62. The JavaScript ES6 introduced a new primitive data type called Symbol. Symbols are immutable (cannot be changed) and are unique.
+You use the Symbol() function to create a Symbol. 
+
+*** End ***

@@ -1,0 +1,78 @@
+*** Exception and Modules ***
+
+
+63. JavaScript try...catch...finally Statement :
+The try, catch and finally blocks are used to handle exceptions (a type of an error).
+In programming, there can be two types of errors in the code:
+
+Syntax Error: Error in the syntax. For example, if you write consol.log('your result');, the above program throws a syntax error. The spelling of console is a mistake in the above code.
+
+Runtime Error: This type of error occurs during the execution of the program. For example,
+calling an invalid function or a variable.
+
+These errors that occur during runtime are called exceptions. Now, let's see how you can handle these exceptions.
+
+try {
+    // try_statements
+} 
+catch(error) {
+    // catch_statements  
+}
+finally() {
+    // codes that gets executed anyway
+}
+
+The main code is inside the try block. While executing the try block, if any error occurs, it goes to the catch block. The catch block handles the errors as per the catch statements.
+If no error occurs, the code inside the try block is executed and the catch block is skipped.
+The finally block will execute in any situation ( if the program runs successfully or if an error occurs).
+Note: You need to use catch or finally statement after try statement. Otherwise, the program will throw an error Uncaught SyntaxError: Missing catch or finally after try.
+
+You can also use the throw statement with the try...catch statement to use user-defined exceptions. For example, a certain number is divided by 0. If you want to consider Infinity as an error in the program, then you can throw a user-defined exception using the throw statement to handle that condition.
+The throw expression can be string, boolean, number, or object value.
+
+You can also use other built-in error constructors for standard errors: TypeError, SyntaxError, ReferenceError, EvalError, InternalError, and RangeError.
+throw new ReferenceError('this is reference error');
+
+You can also use throw statement inside the catch block to rethrow an exception.
+
+64. The try...catch won't catch the exception if it happened in "timed" code, like in setTimeout(). For example,
+
+try {
+    setTimeout(function() {
+        // error in the code
+    }, 3000);
+} catch (e) {
+  console.log( "won't work" );
+}
+The above try...catch won't work because the engine has already left the try..catch constructors and the function is executed later.
+
+The try..catch block must be inside that function to catch an exception inside a timed function. For example,
+
+setTimeout(function() {
+    try {
+        // error in the code
+    } catch {
+        console.log( "error is caught" );
+    }
+}, 3000);
+
+65. Module is a file that contains code to perform a specific task. A module may contain variables, function, classes etc. 
+export const name = 'JavaScript Program';
+export function sum(x, y) {
+    return x + y;
+}
+import { name, sum } from './module.js';
+
+// renaming import inside module.js
+export {
+    function1 as newName1,
+    function2 as newName2
+};
+import { newName1, newName2 } from './module.js';
+
+ A file can contain multiple exports. However, you can only have one default export in a file.
+
+ By default, modules are in strict mode. 
+
+*** End ***
+

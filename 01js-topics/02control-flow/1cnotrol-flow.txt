@@ -1,0 +1,83 @@
+*** JavaScript Control Flow ***
+
+17. The JavaScript if...else statement is used to execute/skip a block of code based on a condition.
+We can omit { } in if…else statements when we have a single line of code to execute.
+We can replace our if…else statement with the switch statement when we deal with a large number of conditions.
+switch is faster than long chains of if…else statements.
+
+18. for loop is used for iterating over a block of code a certain number of times, or to iterate over the elements of an array.
+for (initialExpression; condition; updateExpression) {
+    // for loop body
+}
+Nested for Loops :
+A for loop can also have another for loop inside it. For each cycle of the outer loop, the inner loop completes its entire sequence of iterations. 
+
+In JavaScript, we can create an infinite for loop by setting a condition that always evaluates to true.
+for (let i = 0; true; i++) {
+    console.log("This loop will run forever!");
+}
+Creating an infinite loop is something that we should generally avoid, as it will consume all available resources to execute the loop endlessly.
+
+We can omit any part of the for loop declaration and include it in a different part of the code.
+// initialization outside the loop
+let i = 0;
+// omit initialization and update statements
+for (; i < 3; ) {
+    console.log(`i is ${i}`);
+    // increment inside the loop body
+    i++; 
+}
+
+19. The while loop repeatedly executes a block of code as long as a specified condition is true.
+while (condition) {
+    // body of loop
+}
+
+The do...while loop executes a block of code once, then repeatedly executes it as long as the specified condition is true.
+do {
+    // body of loop
+} while(condition);
+
+difference between for and while loops :
+We use a for loop when we need to perform a fixed number of iterations. 
+Meanwhile, we use a while loop when the termination condition can vary. 
+
+20. The break statement terminates the loop immediately when it's encountered.
+The break statement is usually used inside decision-making statements such as if...else.
+When break is used inside two nested loops, it terminates the inner loop.
+When using nested loops, we can terminate the outer loop with a labeled break statement.
+We can also use the break statement within a switch statement to terminate a case. 
+
+21. The continue statement skips the current iteration of the loop and proceeds to the next iteration.
+
+The continue statement is usually used inside decision-making statements such as if...else.
+
+When continue is used inside two nested loops, continue affects only the inner loop. 
+
+22. The JavaScript switch...case statement executes different blocks of code based on the value of a given expression.
+The default case is optional.
+The break statement terminates the execution of switch-case once a matching case has been found.
+Without break, the program would continue executing subsequent cases even after finding a match. 
+Sometimes, we may want multiple case values to trigger the same block of code. For this, we can use multiple cases with a single block.
+let age = 19;
+switch (age) {
+    // when age is 13, 14, or 15
+    case 13:
+    case 14:
+    case 15:
+        console.log("Early Teen")
+        break;
+    // when age is 16 or 17
+    case 16:
+    case 17:
+        console.log("Mid Teen");
+        break;
+}
+
+switch statement performs type checking, ensuring both the value and the type of the expression match the case value. 
+
+Use switch for a large number of conditions based on the same expression, which can be more readable than if...else.
+Use if...else for complex logical conditions that can't be easily expressed as discrete cases.
+
+*** End ***
+

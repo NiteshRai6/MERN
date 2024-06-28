@@ -1,0 +1,233 @@
+*** JavaScript Introduction ***
+
+
+1. JavaScript is a versatile, high-level programming language that is widely supported across all major operating systems.
+
+2. A JavaScript variable is a container for storing data.
+
+3. we use the var or let keywords to declare variables. 
+var : function-scoped, let : block-scoped, const : block-scoped.
+
+4. A constant (const) is a type of variable whose value cannot be changed.
+If you do not initialize a constant at the time of declaration, it throws an error.
+
+5. console.log() method displays messages or variables in the browser's console.
+
+6. There are altogether 8 basic data types in JavaScript.
+Primitive Data Types: They can hold a single simple value. String, Number, BigInt, Boolean, undefined, null, and Symbol are primitive data types.
+Non-Primitive Data Types: They can hold multiple values. Objects are non-primitive data types.
+
+7. A string represents textual data. It contains a sequence of characters. For example, "hello", "JavaScript", etc.
+strings are surrounded by quotes:
+Single quotes: 'Hello'
+Double quotes: "Hello"
+Backticks: `Hello`
+
+8.the number type represents numeric values (both integers and floating-point numbers).
+JavaScript can also represent special numeric values such as Infinity, -Infinity, and NaN (Not-a-Number). For example,
+
+let number1 = 3 / 0;
+console.log(number1);  // Infinity
+
+let number2 = -3 / 0;
+console.log(number2);  // -Infinity
+
+// strings can't be divided by numbers
+let number3 = "abc" / 3; 
+console.log(number3);  // NaN
+
+9. BigInt is a type of number that can represent very large or very small integers beyond the range of the regular number data type.
+The regular number data type can handle values less than (2^53 - 1) and greater than -(2^53 - 1).
+A BigInt number is created by appending n to the end of an integer. For example,
+// BigInt value
+let value1 = 900719925124740998n;
+
+// add two big integers
+let result1 = value1 + 1n;
+console.log(result1);  // "900719925124740999n"
+
+let value = 900719925124740998n;;
+let sum = value + 1; 
+console.log(sum);
+Output : TypeError: Cannot mix BigInt and other types, use explicit conversions
+
+10.A Boolean data can only have one of two values: true or false.
+Except these 6 values, all values are truthy values :
+false, undefined, null, NaN, '', 0
+built-in boolean methods :
+toString()	returns a boolean value by converting boolean to a string
+valueOf()	returns the primitive value of a boolean
+
+The Boolean() function is used to convert various data types to boolean values. 
+let result;
+result = 20;
+console.log(Boolean(result)); // true
+console.log(typeof Boolean(result)); // boolean
+result = Boolean('');
+console.log(result); // false
+
+You can also create a boolean value using the new keyword. For example,
+const a = true;
+
+// creating a boolean object
+const b = new Boolean(true);
+
+console.log(a); // true
+console.log(b); // true
+
+console.log(typeof a); // "boolean"
+console.log(typeof b); // "object"
+
+It is recommended to avoid using boolean objects. Using boolean objects slows down the program.
+
+Boolean(expression) will simply convert the expression into a boolean primitive value, while new Boolean(expression) will create a wrapper object around the converted boolean value.
+
+11. If a variable is declared but the value is not assigned, then the value of that variable will be undefined. 
+let name = undefined;
+console.log(name);  // undefined
+You should avoid explicitly assigning undefined to a variable. Usually, we assign null to variables to indicate "unknown" or "empty" values.
+
+12. null represents "no value" or "nothing." 
+const a = null;
+console.log(typeof a); // object
+
+let a;
+console.log(typeof a); // undefined
+
+when you pass undefined to a function parameter that takes a default value, the undefined is ignored and the default value is used.
+
+when you pass undefined to a function parameter that takes a default value, the undefined is ignored and the default value is used.
+
+console.log(null == undefined); // true
+console.log(null === undefined); // false
+
+12. A Symbol is a unique and primitive value. This data type was introduced in ES6.
+When you create a Symbol, JavaScript guarantees that it is distinct from all other symbols, even if they have the same descriptions. For example,
+// two symbols with the same description
+let value1 = Symbol("programiz");
+let value2 = Symbol("programiz");
+console.log(value1 === value2);  // false
+
+To access the description of a symbol, we use the . operator. 
+const x = Symbol('hey');
+console.log(x.description); // hey
+
+You can add symbols as a key in an object using square brackets [].
+let id = Symbol("id");
+let person = {
+    name: "Jack",
+    // adding symbol as a key
+    [id]: 123 // not "id": 123
+};
+console.log(person); // {name: "Jack", Symbol(id): 123}
+
+The for...in loop does not iterate over Symbolic properties. 
+
+If the same code snippet is used in various programs, then it is better to use Symbols in the object key. It's because you can use the same key name in different codes and avoid duplication issues. 
+
+13. An Object holds data in the form of key-value pairs. For example,
+let student = {
+    firstName: "John",
+    lastName: null,
+    class: 10
+};
+
+14. the typeof operator to find the data type of a variable.
+typeof returned object for the null type. This has been a known issue in JavaScript since its first release.
+
+JavaScript determines the type of a variable based on the value assigned to it.
+As a result, changing the value of a variable can also change its type, provided the new value is of a different type.
+
+14. JavaScript operators are special symbols that perform operations on one or more operands (values). we used the + operator to add the operands 2 and 3.
+
+Here is a list of different JavaScript operators :
+Arithmetic Operators : + , - , * , / , % , ++ , -- , **
+Assignment Operators : + , += , -= , *= , /= , %= , **=
+Comparison Operators : == , != , > , < , >= , <= , === , !==
+Logical Operators : && , || , !
+Bitwise Operators : & , | , ^ , ~ , << , >> , >>>
+String Concatenation Operators : +
+Miscellaneous Operators : , (comma) , ? : , typeof , instanceof , void
+
+... : spread and rest operator.
+
+% : Remainder Operator, %= : Remainder Assignment Operator
+If you use the ++ operator as a prefix like: ++var, the value of var is incremented by 1; then it returns the value.
+If you use the ++ operator as a postfix like: var++, the original value of var is returned first; then var is incremented by 1. (same for decrement -- also).
+
+a > b is called a boolean expression since evaluating it results in a boolean value.
+
+The equality operators (== and !=) convert both operands to the same type before comparing their values.
+However, the strict equality operators (=== and !==) do not convert operand types before comparing their values. 
+
+We use logical operators to perform logical operations on boolean expressions.
+
+We use bitwise operators to perform binary operations on integers.
+
+Comma (,) : Evaluates multiple operands and returns the value of the last operand.
+let a = (1, 3, 4);  // 4;
+
+instanceof : Returns true if the specified object is a valid object of the specified class.
+
+void : Discards any expression's return value.
+The void operator evaluates the given expression and then returns undefined.
+
+
+15. JavaScript comments are annotations in the code that are completely ignored by the compiler. 
+// - Single-Line Comments
+/* */ - Multiline Comments
+
+use comments to explain why you did something rather than how you did something.
+
+16. type conversion is the process of converting data of one type to another. For example, converting string data to number.
+
+JavaScript Implicit Conversion :
+JavaScript automatically converts data of one type to another (to the right type). This is known as implicit conversion.
+// numeric string used with + gives string type
+let result;
+
+// convert number to string
+result = "3" + 2; 
+console.log(result, "-", typeof(result));
+
+result = "3" + true; 
+console.log(result, "-", typeof(result));
+
+result = "3" + null; 
+console.log(result, "-", typeof(result));
+
+Output :
+32 - string
+3true - string
+3null - string
+
+JavaScript Explicit Conversion :
+n explicit type conversion, you manually convert one type of data into another using built-in functions. 
+let result;
+
+// convert string to number
+result = Number("5");
+console.log(result, "-", typeof(result));
+
+// convert boolean to string
+result = String(true);
+console.log(result, "-", typeof(result));
+
+// convert number to boolean
+result = Boolean(0);
+console.log(result, "-", typeof(result));
+
+Output :
+5 - number
+true - string
+false - boolean
+
+When you use arithmetic operators like -, *, /  or % with numeric strings, 
+JavaScript automatically changes those strings into numbers.
+
+Operations involving binary + will convert numbers to strings in the case of string and number concatenation.
+Logical operations convert operands to boolean values.
+When subtracting a string from another string, JavaScript attempts to convert both strings to numbers.
+When you change an object's type, some data might get lost.
+
+*** End ***
