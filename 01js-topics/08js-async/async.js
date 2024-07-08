@@ -79,7 +79,77 @@
 //     console.log('Asynchronous Function');
 //     return 1;
 // }
+// const data = test();
+// console.log(data);
+
 // test().then(result => {
 //     console.log(result);
 // });
+
+// 72.
+// const array = [1, 2, 3];
+// const promise = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         if (array.includes(2)) {
+//             resolve('Promise resolved.');
+//         } else {
+//             reject('Promise Rejected.')
+//         }
+//     }, 2000)
+// })
+
+// async function getData() {
+//     try {
+//         const data = await promise;
+//         console.log(data);
+//         console.log('JavaScript in try block.');
+//     } catch (error) {
+//         console.log(error);
+//         console.log('JavaScript in catch block.');
+//     }
+// }
+// getData();
+
+// 73.
+// const array = [1, 2, 3];
+// console.log(1);
+
+// setTimeout(() => {
+//     console.log(2);
+// }, 0);
+
+// const promise = new Promise((resolve, reject) => {
+//     console.log(3);
+//     if (array.includes(2)) {
+//         resolve('Promise Resolved.');
+//     } else {
+//         reject('Promise Rejected.')
+//     }
+// })
+//     .then(result => {
+//         console.log(result);
+//     })
+//     .catch(error => {
+//         console.log(error);
+//     });
+
+// async function test() {
+//     console.log(4);
+// }
+// test();
+
+// 74. Time logged 5 times because the 5th execution completes its entire sequence of instructions, including logging the time, before the interval is actually cleared and stops future executions.
+// let count = 0;
+// const interval = setInterval(() => {
+//     count += 1;
+//     if (count === 5) {
+//         clearInterval(interval);
+//     }
+//     const date = new Date();
+//     const time = date.toLocaleTimeString();
+//     console.log(time);
+// }, 2000);
+
+
+// *** End ***
 

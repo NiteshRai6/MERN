@@ -1,0 +1,36 @@
+1. JavaScript, Static and non-Static (instance) methods :
+Static Methods :
+Static methods are defined on the class itself and not on the instances of the class. These methods are called directly on the class without creating an instance.
+Typically used for utility or helper functions that don't require an instance's state. Defined using the static keyword.
+
+Non-Static (Instance) Methods :
+Non-static methods are defined on the prototype of the class and are called on instances of the class. These methods require creating an instance of the class to be accessed.
+Used for operations that involve or depend on an instance's state.
+Defined without the static keyword.
+
+Example :
+class Utility {
+  constructor(value) {
+    this.value = value;
+  }
+
+  // Static method
+  static multiply(a, b) {
+    return a * b;
+  }
+
+  // Instance method
+  divide(divisor) {
+    return this.value / divisor;
+  }
+}
+
+// Using the static method
+console.log(Utility.multiply(6, 7)); // Output: 42
+
+// Creating an instance
+const util = new Utility(50);
+
+// Using the instance method
+console.log(util.divide(5)); // Output: 10
+

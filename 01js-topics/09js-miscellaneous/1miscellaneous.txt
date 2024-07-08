@@ -1,0 +1,389 @@
+
+87. // JSON syntax
+{
+    "name": "John",
+    "age": 22,
+    "gender": "male",
+
+}
+In JSON, the data are in key/value pairs separated by a comma ,.
+
+JSON was derived from JavaScript. So, the JSON syntax resembles JavaScript object literal syntax. However, the JSON format can be accessed and be created by other programming languages too.
+
+Note: JavaScript Objects and JSON are not the same. 
+
+JSON data consists of key/value pairs similar to JavaScript object properties. The key and values are written in double quotes separated by a colon :. 
+// JSON data
+"name": "John"
+
+The JSON object is written inside curly braces { }. JSON objects can contain multiple key/value pairs. For example,
+// JSON object
+{ "name": "John", "age": 22 }
+
+JSON array is written inside square brackets [ ]. For example,
+// JSON array
+[ "apple", "mango", "banana"]
+// JSON array containing objects
+[
+    { "name": "John", "age": 22 },
+    { "name": "Peter", "age": 20 }.
+    { "name": "Mark", "age": 23 }
+]
+Note: JSON data can contain objects and arrays. However, unlike JavaScript objects, JSON data cannot contain functions as values.
+
+You can access JSON data using the dot notation. 
+data.name;
+You can also use square bracket syntax [] to access JSON data. 
+data["name"];
+
+88. JavaScript Objects VS JSON :
+JSON	JavaScript Object
+The key in key/value pair should be in double quotes.	The key in key/value pair can be without double quotes.
+JSON cannot contain functions.	JavaScript objects can contain functions.
+JSON can be created and used by other programming languages.	JavaScript objects can only be used in JavaScript.
+
+89. You can convert JSON data to a JavaScript object using the built-in 
+JSON.parse() function. 
+You can also convert JavaScript objects to JSON format using the JavaScript built-in JSON.stringify() function. 
+
+90. Use of JSON
+JSON is the most commonly used format for transmitting data (data interchange) from a server to a client and vice-versa. JSON data are very easy to parse and use. It is fast to access and manipulate JSON data as they only contain texts.
+
+JSON is language independent. You can create and use JSON in other programming languages too.
+
+91. In JavaScript, date and time are represented by the Date object. The Date object provides the date and time information and also provides various methods.
+
+A JavaScript date defines the EcmaScript epoch that represents milliseconds since 1 January 1970 UTC. This date and time is the same as the UNIX epoch (predominant base value for computer-recorded date and time values).
+
+Creating Date Objects
+There are four ways to create a date object.
+
+new Date()
+new Date(milliseconds)
+new Date(Date string)
+new Date(year, month, day, hours, minutes, seconds, milliseconds)
+
+ 1000 milliseconds is equal to 1 second.
+ Date and time are separated with capital letter T. And UTC time is defined with capital Z.
+
+ ISO Date Formats : 
+ // ISO Date(International Standard)
+const date = new Date("2020-07-01");
+
+Short and Long date format :
+// short date format "MM/DD/YYYY"
+const date = new Date("03/25/2015");
+
+// long date format "MMM DD YYYY"
+const date1 = new Date("Jul 1 2020");
+
+new Date(year, month, day, hours, minutes, seconds, milliseconds)
+const time1 = new Date(2020, 1, 20, 4, 12, 11, 0);
+console.log(time1); // Thu Feb 20 2020 04:12:11
+ If you pass only one argument, it is treated as milliseconds. Hence, you have to pass two arguments to use this date format.
+
+months are counted from 0 to 11. January is 0 and December is 11.
+
+92. JavaScript Date Methods :
+Method	Description
+now()	Returns the numeric value corresponding to the current time (the number of milliseconds elapsed since January 1, 1970 00:00:00 UTC)
+getFullYear()	Gets the year according to local time
+getMonth()	Gets the month, from 0 to 11 according to local time
+getDate()	Gets the day of the month (1–31) according to local time
+getDay()	Gets the day of the week (0-6) according to local time
+getHours()	Gets the hour from 0 to 23 according to local time
+getMinutes	Gets the minute from 0 to 59 according to local time
+getUTCDate()	Gets the day of the month (1–31) according to universal time
+setFullYear()	Sets the full year according to local time
+setMonth()	Sets the month according to local time
+setDate()	Sets the day of the month according to local time
+setUTCDate()	Sets the day of the month according to universal time
+
+93. When you assign out of range values in the Date object, it auto-corrects itself.
+const date = new Date(2008, 0, 33);
+// Jan does not have 33 days
+console.log(date);
+Sat Feb 02 2008
+
+94. A function can also contain another function. This is called a nested function.
+you can also return a function within a function. 
+
+In JavaScript, closure provides access to the outer scope of a function from inside the inner function, even after the outer function has closed.
+closure helps in the data privacy of the program. 
+
+95. In JavaScript, this keyword refers to the object where it is called.
+
+A. this Inside Global Scope :
+When this is used alone, this refers to the global object (window object in browsers).
+
+B. this Inside Function :
+When this is used in a function, this refers to the global object (window object in browsers).
+
+C. this Inside Constructor Function :
+In JavaScript, constructor functions are used to create objects. When a function is used as a constructor function, this refers to the object inside which it is used. 
+When this is used with ES6 classes, it refers to the object inside which it is used (similar to constructor functions).
+
+D. this Inside Object Method :
+When this is used inside an object's method, this refers to the object it lies within. 
+
+E. this Inside Inner Function :
+When you access this inside an inner function (inside a method), this refers to the global object.
+
+F. this Inside Arrow Function :
+Arrow functions do not have their own this. When you use this inside an arrow function, this refers to its parent scope object.
+
+G. this Inside Function with Strict Mode :
+When this is used in a function with strict mode, this is undefined. 
+'use strict';
+this.name = 'Jack';
+function greet() {
+    // this refers to undefined
+    console.log(this);
+}
+greet(); // undefined
+
+When using this inside a function with strict mode, you can use JavaScript Function call().
+'use strict';
+this.name = 'Jack';
+function greet() {
+    console.log(this.name);
+}
+greet.call(this); // Jack
+When you pass this with the call() function, greet() is treated as the method of the this object (global object in this case).
+
+96. JavaScript "use strict" :
+In JavaScript, 'use strict'; states that the code should be executed in 'strict mode'. This makes it easier to write good and secure JS code. 
+
+myVariable = 9;
+Here, myVariable is created without declaring. This works as a global variable in JavaScript. However, if you use this in strict mode, the program will throw an error. For example,
+'use strict';
+// Error
+myVariable = 9;
+
+You can declare the strict mode by adding 'use strict'; or "use strict"; at the beginning of a program.
+
+When you declare strict mode at the beginning of a program, it will have global scope and all the code in the program will execute in strict mode.
+
+You need to declare strict mode at the beginning of the program. If you declare strict mode below some code, it won't work.
+
+In strict mode, using a variable without declaring it throws an error.
+You can also use strict mode inside a function. 
+Strict mode doesn't apply to block statements with {} braces.
+
+97. Things Not Allowed in Strict Mode :
+1. Undeclared variable is not allowed.
+2.Undeclared objects are not allowed.
+3. Deleting an object is not allowed.
+4. Duplicating a parameter name is not allowed.
+5. Assigning to a non-writable property is not allowed.
+6. Assigning to a getter-only property is not allowed.
+7. Assigning to a new property on a non-extensible object is not allowed.
+8. Octal syntax is not allowed.
+9. The variable name arguments and eval are not allowed.
+10.You cannot also use these reserved keywords in strict mode.
+implements interface let package private protected public static yield
+
+Benefits of Strict Mode :
+helps to write a cleaner code
+changes previously accepted silent errors (bad syntax) into real errors and throws an error message
+makes it easier to write "secure" JavaScript.
+
+97. JavaScript Iterators and Iterables :
+JavaScript provides a protocol to iterate over data structures. This protocol defines how these data structures are iterated over using the for...of loop.
+The concept of the protocol can be split into:
+iterable
+iterator
+The iterable protocol mentions that an iterable should have the 
+Symbol.iterator key.
+
+JavaScript Iterables :
+The data structures that have the Symbol.iterator() method are called iterables. For example, Arrays, Strings, Sets, etc.
+
+JavaScript Iterators :
+An iterator is an object that is returned by the Symbol.iterator() method.
+The iterator protocol provides the next() method to access each element of the iterable (data structure) one at a time.
+
+98. JavaScript next() Method
+The iterator object has a next() method that returns the next item in the sequence.
+The next() method contains two properties: value and done.
+value :
+The value property can be of any data type and represents the current value in the sequence.
+done :
+The done property is a boolean value that indicates whether the iteration is complete or not. If the iteration is incomplete, the done property is set to false, else it is set to true.
+
+The for...of loop keeps calling the next() method on the iterator. Once it reaches done:true, the for...of loop terminates.
+
+99. JavaScript Generators :
+Generators provide a new way to work with functions and iterators.
+Using a generator,
+you can stop the execution of a function from anywhere inside the function
+and continue executing code from a halted position.
+
+The generator function is denoted by *. You can either use function* generatorFunc() {...} or function *generatorFunc(){...} to create them.
+The objects of generator functions are called generators.
+
+you can pause the execution of a generator function without executing the whole function body. For that, we use the yield keyword.
+
+You need to assign generator objects to a variable before you use it.
+
+The yield expression returns a value. However, unlike the return statement, it doesn't terminate the program. That's why you can continue executing code from the last yielded position. 
+
+You can also pass arguments to a generator function. 
+
+Generators provide an easier way to implement iterators.
+
+If you want to implement an iterator manually, you have to create an iterator with the next() method and save the state. 
+
+Since generators are iterables, you can implement an iterator in an easier way. Then you can iterate through the generators using the for...of loop.
+
+// generator function
+function* generatorFunc() {
+    console.log("1. code before the first yield");
+    yield 100;
+   console.log("2. code before the second yield");
+    yield 200;
+}
+// returns generator object
+const generator = generatorFunc();
+console.log(generator.next());
+
+100. Generator Methods
+Method	Description
+next()	Returns a value of yield
+return()	Returns a value and terminates the generator
+throw()	Throws an error and terminates the generator
+
+return statement and return() method both works same in generators.
+
+Uses of Generators
+Generators let us write cleaner code while writing asynchronous tasks.
+Generators provide an easier way to implement iterators.
+Generators execute its code only when required.
+Generators are memory efficient.
+
+101. JavaScript Regex :
+In JavaScript, a Regular Expression (RegEx) is an object that describes a sequence of characters used for defining a search pattern. For example,
+/^a...s$/
+The above code defines a RegEx pattern. The pattern is: any five letter string starting with a and ending with s.
+A pattern defined using RegEx can be used to match against a string.
+
+102. Create a RegEx
+There are two ways you can create a regular expression in JavaScript.
+Using a regular expression literal:
+The regular expression consists of a pattern enclosed between slashes /. For example,
+cost regularExp = /abc/;
+Here, /abc/ is a regular expression.
+Using the RegExp() constructor function:
+You can also create a regular expression by calling the RegExp() constructor function. For example,
+const reguarExp = new RegExp('abc');
+
+103. To specify regular expressions, metacharacters are used.
+MetaCharacters :
+Metacharacters are characters that are interpreted in a special way by a RegEx engine. Here's a list of metacharacters:
+[] . ^ $ * + ? {} () \ |
+
+1. [] - Square brackets :
+Square brackets specify a set of characters you wish to match.
+[a-e] is the same as [abcde].
+[1-4] is the same as [1234].
+[^abc] means any character except a or b or c.
+[^0-9] means any non-digit character.
+
+2. . - Period :
+A period matches any single character (except newline '\n').
+
+3. ^ - Caret :
+The caret symbol ^ is used to check if a string starts with a certain character.
+
+4. $ - Dollar :
+The dollar symbol $ is used to check if a string ends with a certain character.
+
+5. * - Star :
+The star symbol * matches zero or more occurrences of the pattern left to it.
+
+6.+ - Plus :
+The plus symbol + matches one or more occurrences of the pattern left to it.
+
+7. ? - Question Mark :
+The question mark symbol ? matches zero or one occurrence of the pattern left to it.
+
+8. {} - Braces :
+Consider this code: {n,m}. This means at least n, and at most m repetitions of the pattern left to it.
+This RegEx [0-9]{2, 4} matches at least 2 digits but not more than 4 digits.
+
+9. | - Alternation :
+Vertical bar | is used for alternation (or operator).
+a|b match any string that contains either a or b.
+
+10.Parentheses () :
+is used to group sub-patterns. For example, (a|b|c)xz match any string that matches either a or b or c followed by xz.
+
+11. \ - Backslash :
+Backslash \ is used to escape various characters including all metacharacters. For example,
+\$a match if a string contains $ followed by a. Here, $ is not interpreted by a RegEx engine in a special way.
+If you are unsure if a character has special meaning or not, you can put \ in front of it. This makes sure the character is not treated in a special way.
+
+104. Special Sequences :
+Special sequences make commonly used patterns easier to write. Here's a list of special sequences:
+
+1. \A - Matches if the specified characters are at the start of a string.
+
+2. \b - Matches if the specified characters are at the beginning or end of a word.
+
+3. \B - Opposite of \b. Matches if the specified characters are not at the beginning or end of a word.
+
+4. \d - Matches any decimal digit. Equivalent to [0-9].
+
+5. \D - Matches any non-decimal digit. Equivalent to [^0-9].
+
+6. \s - Matches where a string contains any whitespace character. Equivalent to [ \t\n\r\f\v].
+
+7. \S - Matches where a string contains any non-whitespace character. Equivalent to [^ \t\n\r\f\v].
+
+8. \w - Matches any alphanumeric character (digits and alphabets). Equivalent to [a-zA-Z0-9_]. By the way, underscore _ is also considered an alphanumeric character.
+
+9. \W - Matches any non-alphanumeric character. Equivalent to [^a-zA-Z0-9_].
+
+10. \Z - Matches if the specified characters are at the end of a string.
+
+105. JavaScript Regular Expression Methods :
+exec()	Executes a search for a match in a string and returns an array of information. It returns null on a mismatch.
+test()	Tests for a match in a string and returns true or false.
+match()	Returns an array containing all the matches. It returns null on a mismatch.
+matchAll()	Returns an iterator containing all of the matches.
+search()	Tests for a match in a string and returns the index of the match. It returns -1 if the search fails.
+replace()	Searches for a match in a string and replaces the matched substring with a replacement substring.
+split()	Break a string into an array of substrings.
+
+106. Regular Expression Flags
+Flags are used with regular expressions that allow various options such as global search, case-insensitive search, etc. They can be used separately or together.
+Flags	Description
+g	Performs a global match (find all matches)
+m	Performs multiline match
+i	Performs case-insensitive matching
+
+107. Debugging JavaScript in Browser
+You can and will encounter errors while writing programs. Errors are not necessarily bad. In fact, most of the time, they help us identify issues with our code. It is essential that you know how to debug your code and fix errors.
+
+Debugging is the process of examining the program, finding the error and fixing it.
+
+There are different ways you can debug your JavaScript program.
+1. Using console.log()
+
+2. Using debugger :
+The debugger keyword stops the execution of the code and calls the debugging function.
+
+3. Setting Breakpoints :
+You can set breakpoints for JavaScript code in the debugger window.
+JavaScript will stop executing at each breakpoint and lets you examine the values. Then, you can resume the execution of code.
+Setting breakpoints is similar to putting a debugger in the code. Here, you just set breakpoints by clicking on the line number of the source code instead of manually calling the debugger function.
+
+108. Uses of JavaScript :
+making web pages interactive
+server-side applications
+game development
+mobile apps
+web apps
+
+
+*** End ***
