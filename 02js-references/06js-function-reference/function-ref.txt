@@ -1,0 +1,55 @@
+1. Function toString() :
+The toString() method returns the source code of the function as a string.
+func.toString();
+The toString() method does not take any parameters.
+
+2. Function.length :
+The length property returns the number of formal parameters listed inside a function.
+func.length;
+The length property returns 0 when an array of arguments is listed inside the function.
+function func2(...args) { };
+
+// defining a function with default parameter
+function func3(a, b = 10, c) {
+}
+// only parameters before the one with 
+// default value are counted
+console.log(func3.length); 
+output : 1
+
+3. Function.name :
+The name property returns the name of the function.
+func.name;
+ If the function is created anonymously, the length property returns anonymous or ''.
+
+ 4. Function call() :
+ The call() method calls a function by passing this and specified values as arguments.
+ func.call(thisArg, arg1, ... argN);
+ Note: By default, in a function this refers to the global object i.e, window in web browsers and global in node.js.
+
+ Returns the result obtained from calling the function with the specified this value and arguments.
+
+Note: By using call(), we can use the functions belonging to one object to be assigned and called for a different object.
+
+5. Function apply() :
+The apply() method calls a function with the passed this keyword value and arguments provided in the form of an array.
+
+apply is similar to call but The difference between call() and apply() is that call() accepts an argument list, while apply() accepts a single array of arguments.
+
+apply() , null can be passed when you have no specific value that you want to set the this pointer to and you know that the function you are calling is not expecting this to have any specific value (e.g. it does not use this in its implementation).
+const num = [1, 5, 3, 8];
+const max = Math.max.apply(null, num);
+
+6. Function bind() :
+The bind() method allows an object to borrow a method from another object without copying.
+func.bind(thisArg, arg1, ... argN);
+
+The bind() can take two parameters:
+thisArg - The value provided as this parameter for func.
+arg1, ... argN (optional) - The value of arguments present inside func.
+Notes: If thisArg is not specified, the this of the executing scope is treated as thisArg.
+
+Returns a copy of the given function with the specified this value, and initial arguments (if provided).
+
+
+*** End ***

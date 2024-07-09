@@ -1,0 +1,55 @@
+ 1. isFinite() :
+The isFinite() function checks whether the passed value is a finite number.
+isFinite(testValue);
+The isFinite() function returns :
+false - if the argument is Infinity or NaN or undefined
+true - for all other arguments
+
+In JavaScript, isFinite() is a top-level function because it is not associated with any object or class, and we can call it from anywhere without creating an instance.
+
+2.  isNaN() :
+The isNaN() function checks if a value is NaN (Not-a-Number) or not.
+isNaN(value);
+Returns true if the argument is NaN.
+Returns false for other arguments.
+
+isNaN() is a top-level function and is not associated with any object.
+If the argument is not of type Number, the value is first coerced to NaN and then checked.
+
+3. parseInt() :
+The parseInt() function parses a string argument and returns an integer of the specified radix.
+parseInt(string, radix);
+
+The parseInt() function takes in:
+string - The value to parse. If it is not a string, it is converted to one using ToString abstract operation.
+radix (optional) - An integer between 2 and 36 representing the base in the numeral system.
+
+Returns an integer parsed from the given string.
+Returns NaN when:
+radix is less than 2 or greater than 36.
+The first non-whitespace character can't be converted to a number.
+
+Note: If the radix parameter is undefined, 0, or unspecified, JavaScript considers the following:
+If the string begins with "0x", the radix is 16 (hexadecimal).
+If the string begins with "0", the radix is 8 (octal) or 10 (decimal). The exact radix chosen is implementation-dependant
+If the string begins with any other value, the radix is 10 (decimal).
+JavaScript consider 0x... to be hexadecimal.
+ int is detected till a non-numeric character.
+ BigInt values lose precision.
+
+4. parseFloat() :
+The parseFloat() function parses an argument and returns a floating-point number.
+parseFloat(string);
+The parseFloat() function takes in:
+string - The value to parse. If it is not a string, it is converted to one using ToString abstract operation.
+
+Leading whitespace characters are ignored.
+Returns a floating-point number parsed from the given string.
+Returns NaN when the first non-whitespace character can't be converted to a number.
+
+parseFloat() will parse non-string objects if they have a toString or valueOf method.
+parseFloat() stops converting a string to float when it encounters a non-numeric character.
+
+
+*** End ***
+

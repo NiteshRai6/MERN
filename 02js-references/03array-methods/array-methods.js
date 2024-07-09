@@ -602,4 +602,80 @@
 // console.log(arrConstructor);
 
 // 33. Array copyWithin() : 
-// arr.copyWithin(target, start, end);
+// const array = [1, 2, 3, 4];
+// array.copyWithin(1, 3);
+// console.log(array);
+
+// const array = ['a', 'e', 'i', 'o', 'u'];
+// console.log(array);
+
+// copying element located at 0th index to 2nd index
+// array.copyWithin(2);
+// console.log(array);
+
+// copying element located at 4th index to 1th index
+// array.copyWithin(1, 4);
+// console.log(array);
+
+// copying elements from index 2 to 4(excluding 4) to index 0
+// array.copyWithin(0, 2, 4);
+// console.log(array);
+
+// array.copyWithin(-2, -1);
+// console.log(array);
+
+// 34. Array.toLocaleString() :
+// const array = [1, 2, 'a', 'b', 3, new Date()];
+// const stringArr = array.toLocaleString();
+// console.log(stringArr);
+
+// const money = [100, 76, 98];
+// const currency = money.toLocaleString('en-US', {
+//     style: 'currency',
+//     currency: 'USD'
+// });
+// console.log(currency);
+
+// const money = 865.9876;
+// const currency = money.toLocaleString('en-US', {
+//     style: 'currency',
+//     currency: 'INR'
+// });
+// console.log(currency);
+
+// 35. Array flat() :
+// const array = [1, 2, [3, 4, [5, 6, [7, 8]]]];
+
+// const flatArray = array.flat(1);
+// console.log(flatArray);
+
+// const flatArray = array.flat(2);
+// console.log(flatArray);
+
+// const flatArray = array.flat(3);
+// console.log(flatArray);
+
+// flat() to Remove Holes (empty slots) in Array :
+// const array = [1, 2, , 3];
+// const flatArray = array.flat();
+// console.log(flatArray);
+
+// const array = [1, 2, , 3.[4, 5], 6, [7, 8, 9]];
+// const flatArray = array.flat();
+// console.log(flatArray);
+
+// 36. Array flatMap() :
+// const array = [1, 2, 3];
+// const result = array.flatMap(item => item ** 2);
+// console.log(result);
+
+// const array = [1, 2, 3, [4, 5]];
+// const result = array.flatMap(item => item ** 2);
+// console.log(result);
+
+// const array = [1, 2, 3, , 5];
+// const result = array.flatMap(item => item ** 2);
+// console.log(result);
+
+
+// *** The End ***

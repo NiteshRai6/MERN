@@ -340,3 +340,40 @@ Notes: The copyWithin() method:
 overwrites the original array.
 does not change the length of the original array.
 
+34. Array.toLocaleString() :
+The Array.toLocaleString() method returns a string representing the elements of the array in a particular locale.
+arr.toLocaleString(locales, options);
+
+The toLocaleString() method can take two parameters:
+locales (optional) - A convention or formatting based on particular geography.
+options (optional) - An object with configuration properties.
+
+ This method converts each array element to Strings using their toLocaleString methods and separates them by a comma.
+
+ 35. Array flat() :
+ The flat() method creates a new array by flattening a nested array up to the specified depth.
+arr.flat(depth);
+depth - Integer specifying how deep a nested array should be flattened. Its default value is 1.
+
+Returns a flatted array with the sub-array elements concatenated into it.
+Notes: The flat() method:
+does not change the original array.
+removes empty slots in arrays.
+
+36. Array flatMap() :
+The flatMap() method first maps each element of an array using a mapping function, then flattens it into a new array.
+arr.flatMap(callback(currentValue),thisArg);
+
+The flatMap() method can take two parameters:
+callback - The callback function to initially execute on each array element. It takes in:
+currentValue - The current element being passed from the array.
+thisArg (optional) - Value to use as this when executing callback.
+
+Returns a new array after mapping every element using callback
+Notes:
+The flatMap() method does not change the original array.
+The flatMap() method is equivalent to array.map().flat().
+
+
+// *** The End ***
+
