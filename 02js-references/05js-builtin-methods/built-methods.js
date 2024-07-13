@@ -136,5 +136,28 @@
 
 // 4.parseFloat() :
 let result;
-result = parseFloat('76.987');
-console.log(result);
+
+// result = parseFloat('76.987');
+// console.log(result);
+
+// result = parseFloat('  10  ');
+// console.log(result);
+
+// result = parseFloat('3.14seconds');
+// console.log(result);
+
+// result = parseFloat('314e-2');
+// console.log(result);
+
+// result = parseFloat('React');
+// console.log(result);
+
+// const obj = {
+//     toString: () => '127.0.0.1'
+// };
+// result = parseFloat(obj);
+// console.log(result);
+
+
+// *** End ***
+

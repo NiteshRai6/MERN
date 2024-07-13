@@ -133,6 +133,121 @@
 // const c3 = new Car('Audi', 2015);
 // console.log(`Name : ${c3.name} , Color : ${c3.color}`);
 
+// 36. Prototype:
+// Creating Objects with Prototypes : 
+// A. Using Constructor Functions :
+// function Person(name) {
+//     this.name = name;
+// }
+// Person.prototype.greet = function () {
+//     console.log(`Name is ${this.name}`);
+// }
+// const person1 = new Person('John');
+// person1.greet();
+
+// const result = person1.__proto__ === Person.prototype;
+// console.log(result);
+
+// const result2 = Person.prototype.isPrototypeOf(person1);
+// console.log(result2);
+
+// const result3 = person1.hasOwnProperty('name');
+// console.log(result3);
+
+// const result4 = person1.hasOwnProperty('greet');
+// console.log(result4);
+
+// In Browsers :
+// console.log(Object.prototype);
+
+// B. Using Object.create() : 
+// const person = {
+//     name: 'Person',
+//     greet: function () {
+//         console.log(`Name is ${this.name}`);
+//     }
+// }
+// const boy = Object.create(person);
+// boy.name = 'Selena';
+// boy.greet();
+
+// ES6 Classes and Prototypes :
+// class Person {
+//     constructor(name) {
+//         this.name = name;
+//     }
+//     greet() {
+//         console.log(`Name is ${this.name}`);
+//     }
+// }
+// const person1 = new Person('John');
+// person1.greet();
+
+// const result = person1.__proto__ === Person.prototype;
+// console.log(result);
+
+// const result2 = Person.prototype.isPrototypeOf(person1);
+// console.log(result2);
+
+// const result3 = person1.hasOwnProperty('name');
+// console.log(result3);
+
+// const result4 = person1.hasOwnProperty('greet');
+// console.log(result4);
+
+// 37. Enumerable :
+// const obj = {
+//     a: 1,
+//     b: 2
+// };
+// let result;
+// result = obj.propertyIsEnumerable('a');
+// console.log(result);
+// result = obj.propertyIsEnumerable('b');
+// console.log(result);
+
+// Object.defineProperty(obj, 'c', {
+//     value: 3,
+//     enumerable: false
+// });
+// result = obj.propertyIsEnumerable('c');
+// console.log(result);
+// result = Object.keys(obj);
+// console.log(result);
+// result = Object.values(obj);
+// console.log(result);
+// result = Object.entries(obj);
+// console.log(result);
+
+// for (let key in obj) {
+//     console.log(key);
+// }
+
+// function Test(name) {
+//     this.name = name;
+// }
+// Test.prototype.info = function () {
+//     console.log(`Name is ${this.name}`);
+// }
+// const test1 = new Test('John');
+// test1.info();
+
+// for (let key in test1) {
+//     console.log(key);
+// }
+// const result = Object.keys(test1);
+// console.log(result);
+
+
+// *** End ***
+
+
+
+
+
+
+
+
 
 // *** End ***
 

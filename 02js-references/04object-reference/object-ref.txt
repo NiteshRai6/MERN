@@ -1,0 +1,183 @@
+1. Object.toLocaleString() :
+The Object.toLocaleString() method returns a language-sensitive string representation of the object.
+obj.toLocaleString(Locales, options);
+const numberString = number.toLocaleString('en-IN');
+
+toLocaleString() Parameters :
+The toLocaleString() method does not take in any parameters by default. However, it can have optional parameters:
+Locales - specifies which language format to use, such as en-US (American English), en-IN (Indian English) and so on
+options - object that helps set some properties to customize the string representation
+Note: The Locales and options arguments customize the behavior of the function to specify the desired formatting conventions based on the language or region.
+
+The toLocaleString() method returns a string representing the object.
+Some objects overriding Object.toLocaleString():
+Array: JavaScript Array.toLocaleString()
+Number: JavaScript Number.toLocaleString()
+
+The Object.toLocaleString() method usually returns the result of toString(). This method is meant to be overridden by derived objects for locale-specific purposes, even though all may not use it.
+
+2. Object.keys() :
+The Object.keys() method returns an array of a given object's own enumerable property names.
+Object.keys(obj);
+The keys() method, being a static method, is called using the Object class name.
+
+3. Object.values() :
+The Object.values() method returns an array containing the enumerable values of an object.
+Object.values(obj);
+Note: An array-like object has indexed properties and a length, but may not have all the methods and properties of an actual array.
+The ordering of the properties is the same as that when looping over them manually.
+
+4. Object.entries() :
+The Object.entries() method returns an array of key-value pairs of an object's enumerable properties.
+
+Enumerable properties are those properties that are visible in for...in loops and with Object.keys().
+
+5. toString() :
+The Object.toString() method returns the given object as a string.
+obj.toString();
+The toString() method does not take any parameters.
+Note: The toString() method takes an optional parameter of number and bigInt types, which specifies the radix (numeric base) to be used for representing numeric values as strings.
+
+When used with objects, the toString() method returns the string "[object Object]" by default. However, it returns the primitive value for certain built-in objects like String, Number, Boolean, Array and Date.
+
+6. valueOf() :
+The Object.valueOf() method returns the primitive value of the specified object.
+obj.valueOf();
+The valueOf() method does not take any parameters.
+
+Notes:
+For objects of type Object, there is no primitive value, so the valueOf() method simply returns the object itself.
+For objects of type Number, Boolean, or String, however, valueOf() returns the primitive value represented by the corresponding object.
+
+ If the valueOf() method does not return a primitive value, the toString() method is called instead, and the resulting string is converted to a number.
+
+ 7. Object.seal() :
+ The Object.seal() method seals the given object. This prevents new properties from being added to the object and marks all the existing properties as 
+ non-configurable (means can not delete existing properties).
+
+ Note: The sealed object is not extensible, which means we cannot add new properties and delete the existing properties in the object.
+However, the sealed object may or may not be writable. If the sealed object is writable prior to using the seal() method, then it remains writable and vice-versa.
+
+ Object.seal(obj);
+The seal() method, being a static method, is called using the Object class name.
+The seal() method returns the object being sealed i.e. obj.
+
+Notes:
+By default, objects are extensible (new properties can be added to them). The sealing of objects makes properties on objects fixed and immutable. The values of present properties can still be changed as long as they are writable.
+Object.isSealed() can be used to check if an object is sealed or not.
+Attempt to convert data property to accessor or vice versa will fail silently or throw TypeError.
+
+8. Object.isSealed() :
+The Object.isSealed() method checks if an object is sealed or not.
+Object.isSealed(obj);
+
+simply using the preventExtensions() method won't guarantee that the object will be sealed. To seal an object, we also need to ensure that all its properties are non-configurable.
+
+9. Object.setPrototypeOf() :
+The Object.setPrototypeOf() method sets the prototype of the specified object to another object or null.
+Object.setPrototypeOf(obj, prototype);
+The setPrototypeOf() method, being a static method, is called using the Object class name.
+
+The setPrototypeOf() method takes in:
+obj - the object whose prototype we want to set.
+prototype - the object's new prototype (an object or null).
+
+The setPrototypeOf() method returns the object whose prototype we want to set i.e. obj.
+Note: Changing the [[Prototype]] of an object is currently a very slow operation in every browser and JavaScript engine.
+
+10. Object.isPrototypeOf() :
+The Object.isPrototypeOf() method checks if an object exists in another object's prototype chain.
+prototypeObj.isPrototypeOf(obj);
+Since isPrototypeOf() is a static method, we need to access the method using the class name, Object.
+Note: isPrototypeOf() differs from the instanceof operator as it checks the obj prototype chain against prototypeObj not prototypeObj.prototype.
+
+11. propertyIsEnumerable() :
+The Object.propertyIsEnumerable() method checks if the given property is enumerable and is the object's own property.
+
+obj.propertyIsEnumerable(prop);
+The propertyIsEnumerable() method takes in:
+prop - the name of the property to test
+
+Note: Every object has a propertyIsEnumerable() method. This method can determine whether the specified property in an object can be enumerated by a for...in loop.
+
+Note: User-created properties are often enumerable (unless explicitly set to false), while most built-in properties are non-enumerable by default.
+
+12. Object.getPrototypeOf() :
+The Object.getPrototypeOf() method returns the prototype of the specified object.
+Object.getPrototypeOf(obj);
+Here, getPrototypeOf() is a static method. Hence, we need to access the method using the class name, Object.
+
+The getPrototypeOf() method returns:
+the prototype of the given object.
+null if there are no inherited properties.
+
+Note: By default, objects inherit from Object.prototype. And the prototype of Object.prototype is an empty object {}, which is also the ultimate prototype for all objects in JavaScript.
+
+13. Object.create() :
+The Object.create() method creates a new object using the prototype of the given object.
+The create() method, being a static method, is called using the Object class name.
+
+The create() method takes in:
+proto - The object which should be the prototype of the newly-created object.
+propertiesObject (optional) - An object whose enumerable own properties specify property descriptors to be added to the newly-created object. These properties correspond to the second argument of Object.defineProperties().
+
+Returns a new object with the specified prototype object and properties.
+Note: If proto is not null or an Object, TypeError is thrown.
+
+14. Object.assign() :
+The Object.assign() method copies all the enumerable properties of the given objects to a single object and returns it.
+Object.assign(target, ...sources)
+Here, assign() is a static method. Hence, we need to access the method using the class name, Object.
+
+The assign() method takes in:
+target - the target object to which we will copy all the properties of the sources.
+sources - the source object(s) whose properties we want to copy.
+
+The assign() method returns the target object.
+Note: Properties in the target object are overwritten by properties in the sources if they have the same key.
+
+ If the source value is a reference to an object, it only copies the reference value.
+
+ 15. Object.defineProperties() :
+ The Object.defineProperties() method adds or modifies properties on an object and returns the object.
+
+ Object.defineProperties(obj, props);
+  defineProperties() is a static method. Hence, we need to access the method using the class name, Object.
+
+  The defineProperties() method takes in:
+
+obj - the object on which to define or modify properties.
+props - objects whose keys represent the names of the properties to be defined or modified, and whose values are objects describing those properties.
+
+Each property value must either be a data descriptor or an accessor descriptor. They can have the following optional properties:
+
+configurable - the ability to change or delete a property's attributes
+enumerable - the property that is visible in for...in loops and with Object.keys().
+Data descriptors can also have:
+
+value - the actual data stored in a property, accessible through its key.
+writable - the ability to change the value of a property. If false, the property's value cannot be changed.
+Accessor descriptors can also have:
+
+get - a function that returns the property's value.
+set - a function that sets the property's value.
+
+in get or set, must specify _ brfore prop : this._prop;
+
+Note: If a descriptor doesn't contain any of the value, writable, get and set keys, then it is treated as a data descriptor. An exception is thrown if a descriptor has both value or writable and get or set keys.
+
+By default -> writable : false, configurable: false, enumerable : false;
+
+16. Object.defineProperty() :
+The Object.defineProperty() method adds a property or modifies an existing property on an object and returns the object.
+Object.defineProperty(obj, prop, descriptor);
+
+The defineProperty() method takes in:
+obj - the object on which to define the property.
+prop - the name or Symbol of the property to be defined or modified.
+descriptor - the descriptor for the property being defined or modified.
+
+By default -> writable : false, configurable: false, enumerable : false;
+
+17. Object.is() :
+The Object.is() method checks if two values are the same.

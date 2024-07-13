@@ -168,4 +168,23 @@
 // console.log(rest);
 
 
-// 15.
+// 15. To find combinations in an array that sum up to a specific value  ?
+// function findPairsWithSum(array, targetSum) {
+//     const length = array.length;
+//     let pairs = [];
+//     for (let i = 0; i < length; i++) {
+//         for (let j = i + 1; j < length; j++) {
+//             if (array[i] + array[j] === targetSum) {
+//                 pairs.push([array[i], array[j]])
+//             }
+//         }
+//     }
+//     return pairs;
+// }
+// const inputArray = [0, 7, 11, 5, 6, 9, 12, 4, 1];
+// const sum = 12;
+// const result = findPairsWithSum(inputArray, sum);
+// console.log(result);
+
+// 16.
+
