@@ -181,3 +181,102 @@ By default -> writable : false, configurable: false, enumerable : false;
 
 17. Object.is() :
 The Object.is() method checks if two values are the same.
+Object.is(value1, value2);
+Here, is() is a static method. Hence, we need to access the method using the class name, Object.
+
+Two values are the same if one of the following holds:
+both undefined
+both null
+both true or both false
+both strings of the same length with the same characters in the same order
+both the same object (means both objects have the same reference)
+both numbers and
+both +0
+both -0
+both NaN
+or both non-zero and both not NaN and both have the same value
+
+Notes:
+The == operator applies various coercions to both sides (if not the same Type) before testing for equality while Object.is() does not.
+The === operator treats the number values -0 & +0 as equal and treats Number.NaN as not equal to NaN while Object.is() does the opposite.
+
+18. Object.freeze() :
+The Object.freeze() method freezes an object i.e. it prevents the object from being modified.
+Object.freeze(obj);
+freeze() is a static method. Hence, we need to access the method using the class name, Object.
+
+Notes: A frozen object can no longer be changed. Freezing an object prevents:
+New properties from being added to the object.
+Existing properties to be removed from the object.
+Changing the enumerability, configurability, or writability of existing properties.
+Changing the values of existing object properties and prototypes.
+
+Notes:
+Any attempt to add or remove from the property set of frozen objects will either fail silently or the program will throw TypeError (mostly when in strict mode).
+Objects sealed with Object.seal() can have their existing properties changed while Object.freeze() makes the existing properties immutable.
+
+Note: Object.freeze(obj) only applies to the immediate properties of obj. If the values of those properties are objects themselves, those objects are not frozen and may be the target of property addition, removal, or value reassignment operations.
+
+19. Object.isFrozen() :
+The Object.isFrozen() method checks if an object is frozen.
+Object.isFrozen(obj);
+isFrozen() is a static method. Hence, we need to access the method using the class name, Object.
+
+20. obj.hasOwnProperty() :
+The obj.hasOwnProperty() method checks if the object possesses the 
+given property.
+obj.hasOwnProperty(prop);
+
+Notes:
+Unlike the in operator, this method does not check for a property in the object's prototype chain.
+hasOwnProperty() returns true even if the value of the property is null or undefined.
+
+21. Object.preventExtensions() :
+The Object.preventExtensions() method prevents new properties from being added to an object.
+Object.preventExtensions(obj);
+
+Notes:
+Objects to which we can no longer add new properties are called non-extensible objects.
+The properties of a non-extensible object, in general, may still be deleted.
+Attempting to add new properties to a non-extensible object will fail, either silently or by throwing a TypeError in strict mode.
+Properties can still be added to the non-extensible object's prototype.
+
+22. Object.isExtensible() :
+The Object.isExtensible() method checks if an object is extensible i.e. new properties can be added to it.
+Object.isExtensible(obj);
+
+Note: An object can be marked as non-extensible using Object.preventExtensions(), Object.seal(), or Object.freeze().
+
+23. Object.fromEntries() :
+The Object.fromEntries() method creates an object from a list of key-value pairs.
+Object.fromEntries(iterable);
+Note: Object.fromEntries() performs the reverse function of Object.entries().
+
+24. Object.getOwnPropertyDescriptor() :
+The Object.getOwnPropertyDescriptor() method returns a property descriptor for a specific property of an object.
+Object.getOwnPropertyDescriptor(obj, prop);
+The getOwnPropertyDescriptor() method takes in:
+obj - the object in which to look for the property.
+prop - the name or Symbol of the property whose description is to be retrieved.
+
+returns undefined if the property does not exist in the object.
+
+25. Object.getOwnPropertyDescriptors() :
+The Object.getOwnPropertyDescriptors() method returns the property descriptors for all the properties of the given object.
+Object.getOwnPropertyDescriptors(obj);
+
+26. Object.getOwnPropertyNames() :
+The Object.getOwnPropertyNames() method returns an array of all the properties found in a given object.
+Object.getOwnPropertyNames(obj);
+
+Remember: Object.getOwnPropertyNames() returns all the enumerable and non-enumerable properties of the object while Object.keys() returns all the enumerable properties of the object.
+
+27. Object.getOwnPropertySymbols() :
+The Object.getOwnPropertySymbols() method returns an array of all the symbol properties found in a given object.
+Object.getOwnPropertySymbols(obj);
+
+Note: Object.getOwnPropertySymbols() returns all symbol properties of the object while Object.getOwnPropertyNames() returns the string properties.
+
+
+*** End ***
+

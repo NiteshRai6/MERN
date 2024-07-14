@@ -1,3 +1,5 @@
+'use strict';
+
 // 1. Object.toLocaleString() : 
 // const num = 364659.86;
 // let result;
@@ -326,45 +328,45 @@
 
 // 15. Object.defineProperties() :
 // By default -> writable : false, configurable: false, enumerable : false
-const obj = {};
-Object.defineProperties(obj, {
-    name: {
-        value: 'Selena',
-        writable: true,
-        configurable: true,
-        enumerable: true,
-    },
-    age: {
-        value: 25,
-        writable: false,
-        configurable: true,
-        enumerable: true,
-    },
-    city: {
-        value: 'Delhi',
-        writable: true,
-        configurable: false,
-        enumerable: true,
-    },
-    course: {
-        value: 'React',
-        writable: true,
-        configurable: true,
-        enumerable: false,
-    },
-    country: {
-        configurable: true,
-        enumerable: true,
-        get: function () { return this._country },
-        set: function (val) { this._country = val }
-    },
-    gender: {
-        value: 'Male'
-    }
-});
+// const obj = {};
+// Object.defineProperties(obj, {
+//     name: {
+//         value: 'Selena',
+//         writable: true,
+//         configurable: true,
+//         enumerable: true,
+//     },
+//     age: {
+//         value: 25,
+//         writable: false,
+//         configurable: true,
+//         enumerable: true,
+//     },
+//     city: {
+//         value: 'Delhi',
+//         writable: true,
+//         configurable: false,
+//         enumerable: true,
+//     },
+//     course: {
+//         value: 'React',
+//         writable: true,
+//         configurable: true,
+//         enumerable: false,
+//     },
+//     country: {
+//         configurable: true,
+//         enumerable: true,
+//         get: function () { return this._country },
+//         set: function (val) { this._country = val }
+//     },
+//     gender: {
+//         value: 'Male'
+//     }
+// });
 
-console.log(obj);
-let result;
+// console.log(obj);
+// let result;
 
 // obj.country = 'US';
 // result = obj.country;
@@ -453,3 +455,224 @@ let result;
 // console.log(result);
 
 // 17. Object.is() :
+// let result;
+
+// result = Object.is(5, 5);
+// console.log(result);
+
+// result = Object.is(5, '5');
+// console.log(result);
+
+// result = Object.is();
+// console.log(result);
+
+// result = Object.is(undefined, undefined);
+// console.log(result);
+
+// result = Object.is(null, null);
+// console.log(result);
+
+// result = Object.is(5, -5);
+// console.log(result);
+
+// result = Object.is('react', 'react');
+// console.log(result);
+
+// result = Object.is('React', 'react');
+// console.log(result);
+
+// const obj1 = { a: 1 };
+// const obj2 = { a: 1 };
+// result = Object.is(obj1, obj1);
+// console.log(result);
+// result = Object.is(obj1, obj2);
+// console.log(result);
+
+// const obj3 = { x: 6 };
+// const obj4 = obj3;
+// result = Object.is(obj3, obj4);
+// console.log(result);
+
+// Special Cases :
+// result = Object.is([], []);
+// console.log(result);
+
+// result = Object.is(0, -0);
+// console.log(result);
+// result = 0 === -0;
+// console.log(result);
+
+// result = Object.is(-0, -0);
+// console.log(result);
+
+// result = Object.is(NaN, 0 / 0);
+// console.log(result);
+
+// result = Object.is(Number.NaN, NaN);
+// console.log(result);
+// result = Number.NaN === NaN;
+// console.log(result);
+
+// 18. Object.freeze() :
+// let result;
+// const obj = {
+//     name: 'Selena',
+//     age: 25
+// };
+// Object.freeze(obj);
+
+// result = obj.name;
+// console.log(result);
+
+// obj.name = 'John';
+// result = obj.name;
+// console.log(result);
+
+// delete obj.age;
+// result = obj.age;
+// console.log(result);
+
+// result = Object.keys(obj);
+// console.log(result);
+
+// for (let key in obj) {
+//     console.log(key);
+// }
+
+// 19. Object.isFrozen() :
+// let result;
+// const obj = { a: 5 };
+// result = Object.isFrozen(obj);
+// console.log(result);
+
+// Object.freeze(obj);
+// result = Object.isFrozen(obj);
+// console.log(result);
+
+//  Make Frozen by other way :
+// let result;
+// const obj = { a: 20 };
+// Object.preventExtensions(obj);
+// result = Object.isFrozen(obj);
+// console.log(result);
+// Object.defineProperty(obj, 'a', {
+//     writable: false,
+//     configurable: false,
+// });
+// result = Object.isFrozen(obj);
+// console.log(result);
+
+// 20. obj.hasOwnProperty() :
+// let result;
+// const obj = { userName: 'Selena' };
+// const Parent = { city: 'Delhi' };
+// Object.setPrototypeOf(obj, Parent);
+// console.log(obj.userName, obj.city);
+// result = obj.hasOwnProperty('userName');
+// console.log(result);
+// result = obj.hasOwnProperty('city');
+// console.log(result);
+
+// 21. Object.preventExtensions() :
+// const obj = { a: 8 };
+// obj.b = 18;
+// console.log(obj);
+// Object.preventExtensions(obj);
+
+// TypeError: Cannot add property c, object is not extensible
+// obj.c = 10;
+// console.log(obj);
+
+// 22. Object.isExtensible() :
+// let result;
+// const obj = { age: 25 };
+// result = Object.isExtensible(obj);
+// console.log(result);
+
+// Object.preventExtensions(obj);
+// result = Object.isExtensible(obj);
+// console.log(result);
+
+// Object.seal(obj);
+// result = Object.isExtensible(obj);
+// console.log(result);
+
+// Object.freeze(obj);
+// result = Object.isExtensible(obj);
+// console.log(result);
+
+// 23.  Object.fromEntries() :
+// let result;
+// const arr = [
+//     [1, 'apple'], [2, 'mango'], [3, 'orange']
+// ];
+// result = Object.fromEntries(arr);
+// console.log(result);
+// result = Object.entries(result);
+// console.log(result);
+
+// 24. Object.getOwnPropertyDescriptor() :
+// let result;
+// const obj = {
+//     x: 10,
+//     get number() {
+//         return this.x;
+//     }
+// }
+// result = Object.getOwnPropertyDescriptor(obj, 'x');
+// console.log(result);
+// result = Object.getOwnPropertyDescriptor(obj, 'number');
+// console.log(result);
+
+// 25. Object.getOwnPropertyDescriptors() :
+// let result;
+// const obj = {
+//     x: 10,
+//     get number() {
+//         return this.x;
+//     }
+// }
+// result = Object.getOwnPropertyDescriptors(obj);
+// console.log(result);
+
+// Making shallo copy by above method :
+// const cloneObj = Object.create(
+//     Object.getPrototypeOf(obj),
+//     Object.getOwnPropertyDescriptors(obj));
+
+// console.log(cloneObj);
+
+// cloneObj.x = 25;
+// console.log(cloneObj);
+// console.log(obj);
+
+// 26. Object.getOwnPropertyNames() :
+// let result;
+// const obj = {
+//     x: 10,
+//     get number() {
+//         return this.x;
+//     }
+// }
+// result = Object.getOwnPropertyNames(obj);
+// console.log(result);
+
+// 27. Object.getOwnPropertySymbols() :
+// let result;
+// const id = Symbol('id');
+// const userName = Symbol('userName');
+// const obj = {
+//     [id]: 1,
+//     Gender: "Male",
+//     [userName]: 'John'
+// };
+// console.log(obj);
+
+// result = Object.getOwnPropertyNames(obj);
+// console.log(result);
+
+// result = Object.getOwnPropertySymbols(obj);
+// console.log(result);
+
+// *** End ***
+
