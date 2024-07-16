@@ -186,5 +186,12 @@
 // const result = findPairsWithSum(inputArray, sum);
 // console.log(result);
 
-// 16.
+// 16. Square the array elements, and print the sum of only even elements.
+// const array = [1, 2, 3, 4, 5];
+// const result = array
+//     .map(item => item ** 2)
+//     .filter(item => item % 2 === 0)
+//     .reduce((acc, value) => acc + value, 0);
+// console.log(result);
+
 

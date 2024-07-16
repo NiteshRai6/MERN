@@ -1,0 +1,257 @@
+1. String length :
+The length property returns the number of characters in a string.
+str.length;
+
+Note: The String.length property returns the code units in the UTF-16 string format. Some rare string characters require two code units to be represented. Due to this, the length property might not always return the number of characters.
+
+length Property is Read Only.
+
+2. String replace() :
+The replace() method returns a new string with the specified string/regex replaced.
+str.replace(pattern, replacement);
+
+To replace all occurrences of the pattern, you need to use a regex with a g switch (global search). For example, /Java/g instead of /Java/.
+
+The replace() method is case sensitive. To perform the case-insensitive replacement, you need to use a regex with an i switch (case-insensitive search).
+
+You can also pass a function (instead of a string) as the second parameter to the replace() method.
+
+3. String indexOf() :
+The string indexOf() method returns the index of the first occurence of the substring in a string.
+str.indexOf(searchValue, fromIndex);
+
+The indexOf() method takes in:
+searchValue - The value to search for in the string. If no string is provided explicitly, "undefined" will be searched.
+fromIndex (optional) - The index to start the search at. By default it is 0. If fromIndex < 0, the search starts at index 0.
+
+Returns the first index of the value in the string if it is present at least once.
+Returns -1 if the value is not found in the string.
+Note: The indexOf() method is case sensitive.
+
+For empty string searchValue and fromIndex less than the string's length, indexOf returns the value the same as fromIndex.
+
+Similarly, for empty string searchValue and fromIndex greater than the string's length, indexOf returns the string's length.
+
+4. String lastIndexOf() :
+The lastIndexOf() method returns the last index of occurence of a given substring in the string.
+str.lastIndexOf(searchValue, fromIndex);
+Notes:
+If fromIndex >= string.length, the whole string is searched.
+If fromIndex < 0, it is considered to be the same as 0.
+
+5. String startsWith() :
+The startsWith() method returns true if a string begins with specified character(s). If not, it returns false. 
+str.startsWith(searchString, position);
+
+The startsWith() method takes in :
+searchString - The characters to be searched for at the beginning of str.
+position (optional) - The position in str to start searching for searchString. Default value is 0.
+
+Note: The startsWith() method is case sensitive.
+
+6. String endsWith() :
+The endsWith() method returns true if a string ends with the specified string. If not, the method returns false.
+str.endsWith(searchString, length);
+The endsWith() method takes two parameters:
+searchString - The characters to be searched for at the end of str.
+length (optional) - It is used as the length of str where searchString is searched. Default value is str.length.
+
+7. String toUpperCase() :
+The toUpperCase() method returns the string converted to uppercase.
+str.toUpperCase();
+The toUpperCase() method does not take in any parameters.
+
+Returns a new string representing the calling string converted to uppercase.
+Notes:
+The toUpperCase() method raises TypeError when called on null or undefined.
+The toUpperCase() method does not change the original string.
+
+8. String toLowerCase() :
+The toLowerCase() method returns the string converted to lowercase.
+str.toLowerCase();
+
+9. String includes() :
+The includes() method checks if one string can be found inside another string.
+str.includes(searchString, position);
+
+10. String repeat() :
+The repeat() method creates a new string by repeating the given string a specified number of times and returns it.
+str.repeat(count);
+The repeat() method takes in :
+count - An integer between 0 and +Infinity, indicating the number of times to repeat the string.
+
+Note: repeat() raises RangeError if repeat count is negative, infinity, or overflows maximum string size.
+
+non-integer index values like 3.2 and 3.9 are converted to the nearest integer index like 3 for count parameter.
+
+11. String charAt() :
+The charAt() method returns the character at the specified index in a string.
+str.charAt(index);
+The charAt() method takes in :
+index - An integer between 0 and str.length - 1. If index cannot be converted to integer or is not provided, the default value 0 is used.
+
+12. String charCodeAt() :
+The charCodeAt() method returns an integer between 0 and 65535 representing the UTF-16 code unit at the given index.
+str.charCodeAt(index);
+
+The charCodeAt() method always returns a value less than 65,536.
+If a Unicode point cannot be represented in a single UTF-16 code unit (values greater than 0xFFFF), then it returns the first part of a pair for the code point.
+
+charCodeAt() Method for Index Out of Range (not exist in string) returns NaN.
+charCodeAt() with Default Parameter returns UTF-16 code unit of character at index 0.
+
+13. fromCharCode() :
+The fromCharCode() method returns a string created from the specified sequence of UTF-16 code units.
+String.fromCharCode(num1, ..., numN)
+The fromCharCode() method, being a static method, is called using the String class name.
+Returns a string of length N consisting of the N specified UTF-16 code units.
+Note: The fromCharCode() method returns a string and not a String object.
+Note: If any of the unicode values are not representable in a single UTF-16 code unit, we can use fromCodePoint() method.
+
+14. String codePointAt() :
+The codePointAt() method returns an integer that denotes the Unicode point value of a character in the string.
+str.codePointAt(pos);
+returns undefined if no element is found at pos.
+Note: Unicode code point is a number value for each character which is defined by an international standard. For example, the unicode value for letter A is 65, B is 66, C is 67, and so on.
+
+Difference bwtween charCodeAt and codePointAt :
+charCodeAt range : 0 to 65535 (BMP : First and Important Range);
+codePointAt range : 0 to 1114111; (The Full range of Unicode code points.)
+7 Ranges = Unicode.
+
+15. String fromCodePoint() :
+The fromCodePoint() method returns a string created by using the given sequence of unicode code points.
+String.fromCodePoint(num1, ..., numN);
+Returns a string created by using the specified sequence of Unicode code points.
+Notes:
+Unicode code point value is a number value for each character which is defined by an international standard. For example, the Unicode value for the letter A is 65.
+The method throws a RangeError if an invalid Unicode code point is given.
+
+16. String substring() :
+The substring() method returns a specified part of the string between start and end indexes.
+str.substring(indexStart, indexEnd);
+
+The substring() method takes in:
+indexStart - The index of the first character to start including in the returned substring.
+indexEnd (optional) - The index before which to stop extraction. (Exclusive) If omitted, it extracts till the end of the string.
+
+Notes:
+Any argument value < 0 is treated as 0.
+Any argument value > str.length is treated as str.length.
+Any NaN argument value is treated as 0.
+If indexStart is greater than indexEnd, the two arguments are swapped, i.e. str.substring(a, b) will be str.substring(b, a).
+
+Returns a new string containing the specified part of the given string.
+Note: substring() does not change the original string.
+
+17. String padStart() :
+The padStart() method pads the current string with another string to the start.
+str.padStart(targetLength, padString);
+The padStart() method takes two parameters:
+targetLength - The length of the final string after the current string has been padded.
+padString (optional) - The string to pad the current string with. Its default value is " ".
+
+Note:
+If padString is too long, it will be truncated from the end to meet targetLength.
+For targetLength < str.length, the string is returned unmodified.
+
+18. String padEnd() :
+The padEnd() method pads the current string with another string to the end.
+str.padEnd(targetLength, padString);
+Same working as padStart but at end of the string.
+
+19. String match() :
+The match() method returns the result of matching a string against a regular expression.
+str.match(regexp);
+The match() method takes in:
+regexp - A regular expression object (Argument is implicitly converted to RegExp if it is a non-RegExp object)
+Note: If you don't give any parameters, match() returns [""].
+
+Returns an Array containing the matches, one item for each match.
+Returns null if no match is found.
+
+Note: If the regular expression does not include the g flag, str.match() will return only the first match similar to RegExp.exec(). The returned item will also have the following additional properties:
+groups - An object of named capturing groups having keys as the names and values as the captured matches.
+index - The index of search where the result was found.
+input - A copy of the search string.
+
+20. String matchAll() :
+The matchAll() method returns an iterator of results after matching a string against a regular expression.
+str.matchAll(regexp);
+If regex object does not have the /g flag, a TypeError will be thrown.
+
+21. String localeCompare() :
+The localeCompare() method checks if a given string comes before, after, or is equivalent as another string in sort order.
+str.localeCompare(compareStr, locales, options);
+The localeCompare() method takes in:
+compareStr - The string against which str is compared.
+locales and options (optional) - These arguments customize function by specifying what formatting conventions to use.
+
+The localeCompare() returns:
+
+-1 : if the reference string is sorted before compareStr.
+0 : if two strings are equivalent.
+1 : if the reference string is sorted after compareStr.
+Note: Since the returned negative and positive integers vary between browsers, do not rely on exact values -1 or 1.
+
+22. String search() :
+The search() method searches for a match between a given string and a regular expression.
+str.search(regexp);
+Returns the index of the first match between the regular expression and the given string
+Returns -1 if no match was found.
+
+23. String replaceAll() :
+The replaceAll() method returns a new string with all matches of a pattern replaced by a replacement.
+str.replaceAll(pattern, replacement);
+str.replaceAll(pattern, replacement);
+
+The replaceAll() method takes in:
+pattern - either a substring or a regex that is to be replaced
+replacement - the pattern is replaced with this replacement (can be either a string or a function)
+
+Note: A RegExp without the global ("g") flag will throw a TypeError.
+
+24. String concat() :
+The concat() method concatenates given arguments to the given string.
+str.concat(str1, ..., strN);
+Returns a new string containing the combined text of the strings provided.
+
+Note: The assignment operators like + and += are strongly recommended over the concat() method.
+
+25. String split() :
+The split() method divides a string into a list of substrings and returns them as an array.
+str.split(separator, limit);
+
+The split() method takes in:
+separator (optional) - The pattern (string or regular expression) describing where each split should occur.
+limit (optional) - A non-negative integer limiting the number of pieces to split the given string into.
+
+
+Returns an Array of strings, split at each point where the separator occurs in the given string.
+Note: The split() method does not change the original string.
+
+26. String trim() :
+The trim() method removes whitespace from both ends of a string.
+str.trim();
+The trim() method does not take in any parameters.
+
+Returns a new string representing the str stripped of whitespace from both ends.
+Notes:
+Whitespace is all the whitespace characters (space, tab, no-break space, etc.) and all the line terminator characters (LF, CR, etc.).
+The trim() method does not change the original string.
+
+27. String slice() :
+The slice() method extracts and returns a section of a string.
+str.slice(beginIndex, endIndex);
+The slice() method takes in:
+beginIndex - Starting index of the selection
+endIndex (optional) - Ending index of the selection (Exclusive) By default, it extracts till the end of the string.
+
+Returns a new string containing the extracted section of the string.
+Note: The slice() method does not change the original string.
+
+If beginIndex or endIndex are negative, the values are counted from backward. For example, -1 represents the last element, -2 represents the second-to-last element and so on.
+
+
+*** End ***
+
