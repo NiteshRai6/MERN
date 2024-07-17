@@ -1,0 +1,222 @@
+1. Math sin() :
+The sin() method computes the trigonometric sine of the specified angle and returns it.
+Math.sin(angle);
+sin() is a static method. Hence, we are accessing the method using the class name, Math.
+The sin() method takes a single parameter:
+angle - in radians whose sine value is to be calculated.
+
+The sin() method returns:
+sine value of a given angle (in radians)
+NaN (Not a Number) for a non-numeric argument.
+
+2. Math cos() :
+The cos() method computes the trigonometric cosine of the specified angle and returns it.
+Math.cos(angle);
+
+3. Math tan() :
+The tan() method computes the trigonometric tangent of the specified angle and returns it.
+Math.tan(angle);
+
+4. Math.abs() :
+The abs() method finds the absolute value of the specified number (without any sign) and returns it.
+Math.abs(number);
+returns NaN for non-numeric string arguments.
+
+5. Math.pow() :
+The pow() method computes the power of a number by raising the second argument to the power of the first argument.
+Math.pow(number, power);
+
+The pow() method takes two parameters:
+number - the base value that is raised to a certain power
+power - the exponent value that raises number
+
+The pow() method returns: :
+numberpower, number raised to a certain power
+1 if value of power is 0
+0 if value of number is 0
+Note: If the argument is a non-numeric string, the result will be NaN (Not a Number).
+
+6. Math asin() :
+The asin() method calculates the arcsine (inverse of sine) of the specified angle and returns it.
+Math.asin(angle);
+Note: The value of angle should be between -1 and 1.
+
+7. Math acos() :
+The acos() method calculates the arc-cosine (inverse of cosine) of the specified angle and returns it.
+Math.acos(angle);
+angle (radians) - in range -1 to 1 whose arc-cosine is to be calculated
+
+8. Math atan() :
+The atan() method calculates the arctangent (inverse of tangent) of the specified angle and returns it.
+Math.atan(angle);
+Note: The returned angle will always be in the range -π/2 (for - Infinity) 
+to π/2 (for Infinity) for numeric arguments.
+
+9. Math ceil() :
+The ceil() method rounds a decimal number up to the next largest integer and returns it. That is, 4.3 will be rounded to 5 (next largest integer).
+Math.ceil(number);
+
+10. Math floor() :
+The Math.floor() function rounds down a number to the next smallest integer.
+Math.floor(x);
+Math.floor(), Math.ceil and Math.round returns 0 for null rather than NaN.
+
+11. Math round() :
+The Math.round() function returns the number rounded to the nearest integer. That is, 3.87 is rounded to 4 and 3.45 is rounded to 3.
+Math.round(x);
+
+Math.round() returns the value of the number rounded to the nearest integer as follows:
+If the fractional portion > 0.5, x is rounded to integer with higher absolute value.
+If the fractional portion < 0.5, x is rounded to integer with lower absolute value.
+If the fractional portion = 0.5, x is rounded to the next integer in the 
+direction of +∞.
+
+12. Math trunc() :
+The trunc() method truncates (shortens) a number and returns its integer portion.
+Math.trunc(number);
+Note: The trunc() method does not round off a number, it just removes the digits after the decimal point and returns the integer portion.
+
+13. Math max() :
+The max() method finds the maximum value among the specified values and returns it.
+Math.max(number1, number2,...);
+
+14. Math min() :
+The min() method finds the minimum value among the specified values and returns it.
+Math.min(number1, number2,....);
+
+15. Math.sqrt() :
+The sqrt() method computes the square root of a specified number and returns it.
+Math.sqrt(number);
+Mathematically, the square root of any negative number is an imaginary number. That is why the sqrt() method returns NaN as the output.
+
+16. Math sign() :
+The sign() method computes the sign of the specified number and returns 1 if the number is positive and -1 if it's negative.
+Math.sign(number);
+Math,sign(0) = 0; Math.sign(-0) = -0;
+
+17. Math.log() :
+The Math.log() method returns the natural logarithm of a number. It is equivalent to ln(x) in mathematics.
+Math.log(x);
+Math.log(1) - computes the base e log value of 1
+Math.log(10) - computes the base e log value of 10
+Math.log(8) - computes the base e log value of 8
+
+The base e log value of negative numbers is undefined. So Math.log for negative numbers give NaN.
+
+The base e log value of Math.E (Euler's constant e) is 1 i.e. ln(e) = 1.
+
+18. Math.log2() :
+The Math.log2() method returns the base 2 logarithm of a number. It is equivalent to log2(x) in mathematics.
+Math.log2(x);
+
+19. Math.log10() :
+The Math.log10() method returns the base 10 logarithm of a number. It is equivalent to log10(x) in mathematics.
+Math.log10(x);
+
+20. Math.log1p() :
+The Math.log1p() method returns the natural logarithm of 1 plus the given number. It is equivalent to ln(1+p) in mathematics.
+Math.log1p(x);
+Math.log1p(1) - computes the base e log value of 1 + 1
+Math.log1p(8) - computes the base e log value of 1 + 8
+
+21. Math.exp() :
+The Math.exp() method returns e (Euler's constant) raised to the given power. It is equivalent to ex in mathematics.
+Math.exp(x);
+The exp() method returns:
+ex for argument x, where e is Euler's constant (2.71828).
+NaN for non-numeric arguments.
+
+Math.exp(5) - computes e (Euler's constant) raised to the power of 5 i.e. e5.
+e raised to the power 0 is 1 i.e. e0 = 1.
+
+22. Math.expm1() :
+The Math.expm1() method returns e (Euler's constant) raised to the given power minus 1. It is equivalent to ex - 1 in mathematics.
+Math.expm1(x);
+Math.expm1(5) - computes e5 - 1;
+
+23. Math sinh() :
+The sinh() method computes the hyperbolic sine of the specified number and returns it.
+Math.sinh(number);
+Note: Mathematically, the hyperbolic sine is equivalent to (ex - e-x)/2.
+
+24. Math cosh() :
+The cosh() method computes the hyperbolic cosine of the specified number and returns it.
+Math.cosh(number);
+Note: Mathematically, the hyperbolic cosine is equivalent to (ex + e-x)/2.
+
+25. Math tanh() :
+The tanh() method calculates the hyperbolic tangent of the specified number and returns it.
+Math.tanh(number);
+Note: Mathematically, the hyperbolic tangent is equal to (ex - e-x)/(ex + e-x).
+Math.tanh(Infinity) = 1; Math.tanh(-Infinity) = -1;
+
+26. Math asinh() :
+The asinh() method computes the hyperbolic arcsine of the specified number and returns it.
+Math.asinh(number);
+
+27. Math acosh() :
+The acosh() method computes the hyperbolic arc-cosine of the specified number and returns it.
+Math.acosh(number);
+
+Note: We can only use the acosh() method with positive numbers.
+For Zero and Negative Numbers it returns NaN.
+
+28. Math atanh() :
+The atanh() method computes the hyperbolic arctangent of the specified value and returns it.
+Math.atanh(number);
+number - between -1 and 1 whose hyperbolic arctangent is to be calculated.
+The atanh() method returns:
+Infinity - if the argument is 1
+-Infinity - if the argument is -1
+it returns NaN (Not a Number) if the argument is either non-numeric or greater than 1 or less than -1
+Note: Hyperbolic arctangent i.e, atanh(number) is a unique number 'x' in the range [-1, 1] such that tanh(x) = number.
+
+29. Math atan2() :
+The atan2() method divides its two arguments and computes the arctan (inverse of tangent) of the result.
+Math.atan2(x, y);
+Note: The returned angle will always be in the range -π to π for numeric arguments.
+Math.atan2(5, 2) - computes the arctan of 2.5 ( 5 / 2 );
+
+30. Math.fround() :
+The Math.fround() method returns the nearest 32-bit single precision float representation of a number.
+Math.fround(doubleFloat);
+
+Note: JavaScript uses 64-bit double floating-point numbers internally.
+In the example above, we can see that the numbers that can be represented perfectly in the binary numeral system (like 1.5) have the same 32-bit single precision float representation.
+However, some that can't be represented perfectly (like 1.337 or 5.05) differ in 32-bit and 64-bit.
+
+31. Math.hypot() :
+The Math.hypot() method returns the square root of the sum of squares of its arguments.
+Math.hypot(n1, n2, ..., nx);
+
+The hypot() method returns:
+the square root of the sum of squares of the given arguments.
+NaN if any argument is non-numeric.
+0 if no arguments are given.
+
+32. Math cbrt() :
+The cbrt() method computes the cube root of a specified number and returns it.
+Math.cbrt(number);
+
+33. Math clz32() :
+The clz32() method converts the specified number into 32-bit binary representation and returns the number of leading zero bits.
+Math.clz32(number);
+Math.clz32(2) :
+32-bit representation: 00000000 00000000 00000000 00000010
+Number of leading zero: 30;
+
+34. Math random() :
+The Math.random() function returns a floating-point, pseudo-random number between 0 (inclusive) and 1 (exclusive).
+Math.random();
+
+generating random number in range [x, y) :
+Math.random() * (max - min) + min;
+Here x inclusive and y exclusive.
+
+generating random number in range [x, y] :
+Math.random() * (max - min + 1) + min;
+Here x and y both are inclusive.
+
+
+*** End ***
+
