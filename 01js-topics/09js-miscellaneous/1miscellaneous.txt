@@ -360,9 +360,84 @@ Flags are used with regular expressions that allow various options such as globa
 Flags	Description
 g	Performs a global match (find all matches)
 m	Performs multiline match
-i	Performs case-insensitive matching
+i	Performs case-insensitive matching.
 
-107. Debugging JavaScript in Browser
+107. JavaScript Bitwise Operators :
+Bitwise operators treat its operands as a set of 32-bit binary digits (zeros and ones) and perform actions. However, the result is shown as a decimal value.
+
+Operators	    Name	        Example
+  1.   &	    Bitwise AND	            x & y
+  2.  |	        Bitwise OR	            x | y
+  3.   ^	    Bitwise XOR	            x ^ y
+  4.   ~	    Bitwise NOT	             ~x
+  5.  <<	    Left shift	            x << y
+  6.  >>	    Sign-propagating        x >> y
+                right shift	
+  7.   >>>	    Zero-fill               x >>> y
+                right shift	            
+
+Note: The minimum and the maximum integers that are representable through a 32-bit signed number are -2 ** 31 (-2147483648) to 2 ** 31 -1 (2147483647).
+
+108. Bitwise AND :
+Bitwise AND & returns 1 if the corresponding bits of both operands are 1 else it returns 0.
+0 & 0 = 0;
+0 & 1 = 0;
+1 & 0 = 0;
+1 & 1 = 1;
+
+
+Binary Representation :
+ Decimal :  1024   512   256   128   64   32   16   8   4   2   1
+ Binary  :                                          1   1   0   0   (12 in Binary)
+ Binary  :                                      1   1   0   0   1      (25 in Binary)
+ AND &   :                                      0   1   0   0   0   (8 in Binary)
+
+
+Note: Converting 12 to 32-bit binary gives us 00000000000000000000000000001100 and 25 gives 00000000000000000000000000011001. However, we have removed the preceding zeros for simplicity. So 12 In Binary = 1100, and 25 in Binary = 11001;
+
+So here, in Decimal : 12 & 25 = 8;
+in Binary : 1100 & 11001 = 1000;
+
+108. Bitwise OR :
+Bitwise OR | returns 1 if either of the corresponding bits of one operand is 1 else returns 0.
+0 | 0 = 0;
+0 | 1 = 1;
+1 | 0 = 1;
+1 | 1 = 1;
+
+12 | 25 = 29.
+
+109. Bitwise XOR :
+Bitwise XOR ^ returns 1 if the corresponding bits are different and returns 0 if the corresponding bits are the same.
+0 ^ 0 = 0;
+0 ^ 1 = 1;
+1 ^ 0 = 1;
+1 ^ 1 = 0;
+
+12 | 25 = 21.
+
+110. Bitwise NOT :
+Bitwise NOT ~ inverts the bit( 0 becomes 1, 1 becomes 0).
+the value is computed in signed 2's complement format except for zero-fill right shift.
+2's complement is computed by inverting the bits(1's complement) and then adding 1. 
+Note: Bitwise NOT of a number x gives -(x + 1). Notice above ~2 gives -3.
+
+111. Left shift :
+In the left shift operator <<, the left operand specifies the number and the right operand specifies the number to be shifted left. Zero bits are added to the right and excess bits from the left are discarded.
+8 << 1 = 16;
+
+112. Sign-propagating right shift :
+In the right shift operator >>, the first operand specifies the number and the second operand specifies the number to be shifted right. Excess bits from the right are discarded. The copies of the leftmost bit are shifted in from the left, hence the name sign-propagating.
+8 >> 1 = 4;
+-3 >> 1 = -2;
+
+113. Zero-fill right shift :
+Zero-fill right shift >>> shifts the operand to the right by filling the zero bits to the left. Excess bits from the right are discarded.
+8 >>> 1 = 4;
+-3 >>> 1 = 2147483646;
+
+
+114. Debugging JavaScript in Browser
 You can and will encounter errors while writing programs. Errors are not necessarily bad. In fact, most of the time, they help us identify issues with our code. It is essential that you know how to debug your code and fix errors.
 
 Debugging is the process of examining the program, finding the error and fixing it.
@@ -378,7 +453,7 @@ You can set breakpoints for JavaScript code in the debugger window.
 JavaScript will stop executing at each breakpoint and lets you examine the values. Then, you can resume the execution of code.
 Setting breakpoints is similar to putting a debugger in the code. Here, you just set breakpoints by clicking on the line number of the source code instead of manually calling the debugger function.
 
-108. Uses of JavaScript :
+115. Uses of JavaScript :
 making web pages interactive
 server-side applications
 game development

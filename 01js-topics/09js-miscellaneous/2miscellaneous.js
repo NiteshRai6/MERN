@@ -567,7 +567,57 @@
 // const result4 = string.replace(/hello/gi, 'world');
 // console.log(result4);
 
-// 91. Debugger :
+// 91. JavaScript Bitwise Operators :
+// 32 Bit Integer Range : 
+// let result;
+// result = -(2 ** 31);
+// console.log(result);
+// result = 2 ** 31 - 1;
+// console.log(result);
+
+// Bitwise AND: 
+// const a = 12, b = 25;
+// const result = a & b;
+// console.log(result);
+
+// Bitwise OR : 
+// const a = 12, b = 25;
+// const result = a | b;
+// console.log(result);
+
+// Bitwise XOR : 
+// const a = 12, b = 25;
+// const result = a ^ b;
+// console.log(result);
+
+// Bitwise NOT:
+// const a = 12;
+// const result = ~a;
+// console.log(result);
+
+// Left shift :
+// const a = 8, b = 1;
+// const result = a << b;
+// console.log(result);
+
+// Sign - propagating right shift :
+// let result;
+// const a = 8, b = 1, c = -3;
+// result = a >> b;
+// console.log(result);
+// result = c >> b;
+// console.log(result);
+
+// Zero - fill right shift : 
+// let result;
+// const a = 8, b = 1, c = -3;
+// result = a >>> b;
+// console.log(result);
+// result = c >>> b;
+// console.log(result);
+
+
+// 92. Debugger :
 // const a = 6;
 // const b = 'apple';
 // debugger;
