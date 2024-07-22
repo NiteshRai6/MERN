@@ -1,7 +1,17 @@
-To Read :
-1. Objects all methods with example.
-2. Array all methods with example.
-3. String all methods with example.
-4. Number all methods with example.
-4. Bitwise operator
+**imp** :
+1. Number is Prime or Not.
+2. List of prime numbers in given range.
+3. Factorial by normal and recusrion.
+4. Fibonacci Series Up to n Terms.
+5. Fibonacci Sequence Up to a Certain Number.
+6. Fibonacci by Recursion.
+7. is ArmsStrong Numbers and generate ArmsStrong numbers.
+8. Find HCF and LCM.
+9. Create function to Insert Item in an Array at specified index for Dynamic data.
+10. Merge Two Arrays and Remove Duplicate Items.
+11. Sort Array of Objects by Property Values.
+12. Return all Pairs of given Array Elements whose addition = Target Sum.
+13. Convert Multidimensional Array in 1D Array, without flat method.
+14. 
+
 

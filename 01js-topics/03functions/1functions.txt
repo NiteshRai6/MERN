@@ -6,7 +6,7 @@ A function argument is the value we pass to the function, while a function param
 
 We can pass different arguments in each call, making the function re-usable and dynamic.
 
-JavaScript Library Functions
+JavaScript Library Functions :
 JavaScript provides some built-in functions that can be directly used in our program. We don't need to create these functions; we just need to call them.
 Example : console.log(), Math.sqrt()
 Like with functions, we need to use parentheses () with the variable name to call a function expression.

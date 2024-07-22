@@ -173,4 +173,16 @@ Enumeration: The process of iterating over the properties of an object.
 Enumerated Properties: The properties that are listed or iterated over during the enumeration process.
 
 
+41. Differences Between ES6 Class and Constructor Function :
+Syntax and Readability: ES6 classes provide a cleaner and more intuitive syntax compared to constructor functions.
+Inheritance: ES6 classes simplify inheritance with the extends and super keywords, whereas constructor functions require manual prototype chaining.
+Static Methods: ES6 classes use the static keyword to define static methods, whereas in constructor functions, static methods are added directly to the constructor function itself.
+Built-in Methods: ES6 classes include built-in methods like constructor, extends, and super which make object-oriented programming more straightforward.
+Hoisting: Function declarations (including constructor functions) are hoisted, but class declarations are not. This means classes must be defined before they are used.
+In summary, while both ES6 classes and pre-ES6 constructor functions can be used to create and manage objects and inheritance in JavaScript, ES6 classes provide a more modern, clear, and concise syntax.
+
+42. Constructor Properties are useful for Data, that differs between instances.
+but Prototype are useful for behaviors shared across all instances to save memory and ensure consistency.
+
+
 *** End ***

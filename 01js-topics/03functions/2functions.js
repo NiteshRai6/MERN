@@ -26,14 +26,19 @@
 // function test(a, b) {
 //     console.log(a + b);
 // }
+
 // data();
 // const data = function () {
 //     console.log('Data');
 // }
-// data();
+
+// ReferenceError: Cannot access 'data' before initialization.
+
+// data2();
 // const data2 = (function () {
 //     console.log('Data2');
 // }());
+
 // (function () {
 //     console.log('data3');
 // }());

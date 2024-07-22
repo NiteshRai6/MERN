@@ -1,7 +1,7 @@
 'use strict';
 
 // Q1.JavaScript Program to Shuffle Deck of Cards ? ***
-// declare card elements
+// // declare card elements :
 // const suits = ["Spades", "Diamonds", "Club", "Heart"];
 // const values = [
 //     "Ace",
@@ -100,7 +100,7 @@
 // console.log(person.hobbies[1]);
 // person.greet();
 // console.log(person.score.science);
-// Example 4: Create an object using Constructor Function :
+// Example 4: Create an object using Constructor Class :
 // class Person {
 //     constructor() {
 //         this.name = 'John',
@@ -135,9 +135,14 @@
 //         science: 76
 //     }
 // }
+
 // delete person.age;
 // delete person['score'];
 // console.log(person);
+
+// By Destructuring :
+// const { age, score, ...rest } = person;
+// console.log(rest);
 
 // Q4. JavaScript Program to Check if a Key Exists in an Object ?
 // Example 1 : By in property :
@@ -401,6 +406,18 @@
 // }
 // insertElement();
 
+// Better Way :
+// function insertItem(array, index, item) {
+//     for (let i = array.length; i > index; i--) {
+//         array[i] = array[i - 1];
+//     }
+//     array[index] = item;
+//     return array;
+// }
+// let result;
+// result = insertItem([5, 10, 15, 25], 3, 20);
+// console.log(result);
+
 // Q15. JavaScript Program to Append an Object to an Array ?
 // Example 1 : by push() :
 // function insertObject(arr, obj) {
@@ -515,6 +532,23 @@
 // }
 // const array = [1, 2, 1, 2, 3, 4, 3, 4];
 // getUnique(array);
+
+// Better Way :
+// function mergeArray(array1, array2) {
+//     const merge = array1.concat(array2);
+//     let uniqueArr = [];
+//     for (let i of merge) {
+//         if (!uniqueArr.includes(i)) {
+//             uniqueArr.push(i);
+//         }
+//     }
+//     return uniqueArr;
+// }
+// const arr1 = [1, 2, 3, 4, 3];
+// const arr2 = [3, 4, 5, 4];
+// const result = mergeArray(arr1, arr2);
+// console.log(result);
+
 // Example 2: Using Set : A Set is a collection of unique values.
 // function getUnique(arr) {
 //     let uniqueArr = [...new Set(arr)];
@@ -838,3 +872,26 @@
 // const result2 = subset(setA, setC);
 // console.log(result1);
 // console.log(result2);
+
+
+// Q. ** imp ** :
+// Return all Pairs of given Array Elements whose addition = Target Sum.
+// function pairSum(array, targetSum) {
+//     let pair = [];
+//     for (let i = 0; i < array.length; i++) {
+//         for (let j = i + 1; j < array.length; j++) {
+//             if (array[i] + array[j] === targetSum) {
+//                 pair.push([array[i], array[j]]);
+//             }
+//         }
+//     }
+//     return pair;
+// }
+// const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// const sum = 12;
+// const result = pairSum(arr, sum);
+// console.log(result);
+
+
+// ***  End ***
+

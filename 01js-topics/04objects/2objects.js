@@ -51,6 +51,7 @@
 //     id: 1,
 //     name: 'John'
 // }
+
 // console.log(person.name);
 // function Person(name, age) {
 //     this.name = name;
@@ -238,16 +239,13 @@
 // const result = Object.keys(test1);
 // console.log(result);
 
-
-// *** End ***
-
-
-
-
-
-
-
-
+// 38. Custom Property :
+// String.prototype.stringReverse = function () {
+//     return this.split('').reverse().join('');
+// }
+// const str = 'apple';
+// const result = str.stringReverse();
+// console.log(result);
 
 // *** End ***
 

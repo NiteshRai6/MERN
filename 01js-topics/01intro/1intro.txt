@@ -14,8 +14,18 @@ If you do not initialize a constant at the time of declaration, it throws an err
 5. console.log() method displays messages or variables in the browser's console.
 
 6. There are altogether 8 basic data types in JavaScript.
-Primitive Data Types: They can hold a single simple value. String, Number, BigInt, Boolean, undefined, null, and Symbol are primitive data types.
-Non-Primitive Data Types: They can hold multiple values. Objects are non-primitive data types.
+
+Primitive Data Types: They can hold a single simple value. 
+1. String
+2. Number 
+3. BigInt 
+4. Boolean 
+5. undefined
+6. null
+7. Symbol
+
+Non-Primitive Data Types: They can hold multiple values.
+8. Object
 
 7. A string represents textual data. It contains a sequence of characters. For example, "hello", "JavaScript", etc.
 strings are surrounded by quotes:
@@ -37,7 +47,8 @@ let number3 = "abc" / 3;
 console.log(number3);  // NaN
 
 9. BigInt is a type of number that can represent very large or very small integers beyond the range of the regular number data type.
-The regular number data type can handle values less than (2^53 - 1) and greater than -(2^53 - 1).
+The regular number data type can handle values less than (2^53 - 1) and 
+greater than -(2^53 - 1).
 A BigInt number is created by appending n to the end of an integer. For example,
 // BigInt value
 let value1 = 900719925124740998n;
@@ -52,7 +63,7 @@ console.log(sum);
 Output : TypeError: Cannot mix BigInt and other types, use explicit conversions
 
 10.A Boolean data can only have one of two values: true or false.
-Except these 6 values, all values are truthy values :
+Except these 6 values, all values are truthy values in JavaScript :
 false, undefined, null, NaN, '', 0
 built-in boolean methods :
 toString()	returns a boolean value by converting boolean to a string
@@ -93,8 +104,6 @@ console.log(typeof a); // object
 
 let a;
 console.log(typeof a); // undefined
-
-when you pass undefined to a function parameter that takes a default value, the undefined is ignored and the default value is used.
 
 when you pass undefined to a function parameter that takes a default value, the undefined is ignored and the default value is used.
 
@@ -141,19 +150,25 @@ As a result, changing the value of a variable can also change its type, provided
 14. JavaScript operators are special symbols that perform operations on one or more operands (values). we used the + operator to add the operands 2 and 3.
 
 Here is a list of different JavaScript operators :
-Arithmetic Operators : + , - , * , / , % , ++ , -- , **
-Assignment Operators : + , += , -= , *= , /= , %= , **=
-Comparison Operators : == , != , > , < , >= , <= , === , !==
-Logical Operators : && , || , !
-Bitwise Operators : & , | , ^ , ~ , << , >> , >>>
-String Concatenation Operators : +
-Miscellaneous Operators : , (comma) , ? : , typeof , instanceof , void
+1. Arithmetic Operators : + , - , * , / , % , ++ , -- , **
+2. Assignment Operators : = , += , -= , *= , /= , %= , **=
+3. Comparison Operators : == , != , > , < , >= , <= , === , !==
+4. Logical Operators : && , || , !
+5. Bitwise Operators : & , | , ^ , ~ , << , >> , >>>
+6. String Concatenation Operators : +
+7. Miscellaneous Operators : , (comma) , ? : (ternary) , typeof , instanceof , void
 
 ... : spread and rest operator.
 
 % : Remainder Operator, %= : Remainder Assignment Operator
 If you use the ++ operator as a prefix like: ++var, the value of var is incremented by 1; then it returns the value.
 If you use the ++ operator as a postfix like: var++, the original value of var is returned first; then var is incremented by 1. (same for decrement -- also).
+ex> let a = 5;
+const b = a++;
+console.log(b); // Output : 5;
+ex> let a = 5;
+const b = ++a;
+console.log(b); // Output : 6;
 
 a > b is called a boolean expression since evaluating it results in a boolean value.
 
@@ -202,7 +217,7 @@ Output :
 3null - string
 
 JavaScript Explicit Conversion :
-n explicit type conversion, you manually convert one type of data into another using built-in functions. 
+In explicit type conversion, you manually convert one type of data into another using built-in functions. 
 let result;
 
 // convert string to number
@@ -225,7 +240,7 @@ false - boolean
 When you use arithmetic operators like -, *, /  or % with numeric strings, 
 JavaScript automatically changes those strings into numbers.
 
-Operations involving binary + will convert numbers to strings in the case of string and number concatenation.
++ will convert numbers to strings in the case of string and number concatenation.
 Logical operations convert operands to boolean values.
 When subtracting a string from another string, JavaScript attempts to convert both strings to numbers.
 When you change an object's type, some data might get lost.

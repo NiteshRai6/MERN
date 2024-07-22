@@ -76,8 +76,9 @@
 // console.log(a == b);
 // console.log(a == c);
 // console.log(a === c);
+// console.log(a === b);
 
-// 9. 
+// 9. true == 1 and false == 0 only, both are not equal to any other number.
 // console.log(true == 1);
 // console.log(true === 1);
 // console.log(true == 5);
@@ -125,6 +126,7 @@
 // for (let j = 0; j < 3; ++j) {
 //     console.log(j);
 // }
+// console.log('Break');
 // let a = 5;
 // a++;
 // console.log(a);
@@ -159,7 +161,7 @@
 // result = '5' + 3 + 2
 // console.log(result);
 
-// 16. 
+// 16. Note : typeof always gives output types in lowercase.
 // let result;
 // result = Number('5');
 // console.log(result, ':', typeof result);
@@ -168,6 +170,8 @@
 // result = 2 + + '2';
 // console.log(result, ':', typeof result);
 // result = Boolean(6);
+// console.log(result, ':', typeof result);
+// result = Boolean('apple');
 // console.log(result, ':', typeof result);
 // result = Boolean(0);
 // console.log(result, ':', typeof result);
@@ -189,13 +193,13 @@
 // console.log(result, ':', typeof result);
 // result = undefined(5);
 // console.log(result, ':', typeof result);
-// Error : null / undefined is not a function.
+// // Error : null / undefined is not a function.
 // result = Set(5);
 // console.log(result, ':', typeof result);
-// Error : Constructor Set requires 'new'.
+// // Error : Constructor Set requires 'new'.
 // result = Map(5);
 // console.log(result, ':', typeof result);
-// Error : Constructor Map requires 'new'.
+// // Error : Constructor Map requires 'new'.
 
 
 // 18.
@@ -225,6 +229,13 @@
 // console.log(result);
 // result = 7 - 'Apple';
 // console.log(result);
+// result = 7 - true;
+// console.log(result);
+// result = 7 - false;
+// console.log(result);
+// console.log(Number(true));
+// console.log(Number(false));
+
 
 // *** End ***
 

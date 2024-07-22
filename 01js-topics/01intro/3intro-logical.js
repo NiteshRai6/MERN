@@ -108,7 +108,7 @@
 // arr2[2] = 9;
 // console.log(arr2);
 // output : [1, 2, 9, 4];
-// Arra is of Reference Type, and const is not a constant but gives constant reference. so const Array can be manipulated but never reasigned.
+// Array is of Reference Type, and const is not a constant but gives constant reference. so const Array can be manipulated but never reasigned.
 // const data = ['apple'];
 // data = ['Mango'];
 // console.log(data);
@@ -119,3 +119,6 @@
 //     return `Name is ${name}`;
 // }
 // console.log(sayName('John'));
+
+
+// *** End ***

@@ -36,6 +36,27 @@
 //     console.log(`sum = ${result}`);
 // }
 
+// Better way :
+// function sum(num) {
+//     if (num < 1) return false;
+//     const result = num > 0 ? num + sum(num - 1) : num;
+//     return result;
+// }
+// let result;
+// result = sum(5);
+// console.log(result);
+
+// console.log(5 * (5 + 1) / 2);
+
+// function sumForRange(min, max) {
+//     let sum = 0;
+//     for (let i = min; i <= max; i++) sum += i;
+//     return sum;
+// }
+// let result;
+// result = sumForRange(10, 30);
+// console.log(result);
+
 // Q3.JavaScript Program to Guess a Random Number ? 
 // function guessNumber() {
 //     const random = Math.floor(Math.random() * 10) + 1;
@@ -173,6 +194,19 @@
 // sum(2, 3);
 // sum(2, 4, 6, 8);
 
+// Better way :
+// function randomSum() {
+//     if (arguments.length < 2) return false;
+//     let sum = 0;
+//     for (let i = 0; i < arguments.length; i++) {
+//         sum += arguments[i];
+//     }
+//     return sum;
+// }
+// let result;
+// result = randomSum(5, 4, 8, 9);
+// console.log(result);
+
 // Q9. JavaScript Program to Pass a Function as Parameter ?
 // function greet() {
 //     return 'Hello';
@@ -183,3 +217,6 @@
 // }
 // userName('John', greet);
 // userName('Selena', greet);
+
+// *** End *** 
+
