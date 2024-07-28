@@ -12,6 +12,20 @@
 11. Sort Array of Objects by Property Values.
 12. Return all Pairs of given Array Elements whose addition = Target Sum.
 13. Convert Multidimensional Array in 1D Array, without flat method.
-14. 
-
-
+14. Check Whether a String is Palindrome or Not ?
+15. Reverse a String ?
+16. Check the Number of Occurrences of a Character in the String ?
+17. Convert the First Letter of a String into UpperCase ?
+18. Count the Number of Vowels in a String ?
+19. Generate a Range of Numbers and Characters ?
+20. Print 5 times real time at the gap of 1 seconds.
+21. Explain Closures with example.
+22. Explain 7 different use cases of 'this' keyword.
+23. Create custom iterator function? (pre-defined: iterable_name[Symbol.iterator]() )
+24. Create custom Iterator object ?
+25. Create Countdown Timer ?
+26.  JavaScript Program to Implement a Stack ? (LIFO) (by using array)
+27. JavaScript Program to Implement a Queue ? (FIFO) (by using object)
+28. Explain var and let scope in lopp and in timeout.
+29. Explain Array map, reduce and filter in one example.
+30. 

@@ -892,6 +892,33 @@
 // const result = pairSum(arr, sum);
 // console.log(result);
 
+// Q. ** imp ** :
+// Convert Multidimensional Array in 1D Array, without flat method. :
+// function flattenArray(array) {
+//     let newArr = [];
+//     for (let i of array) {
+//         if (Array.isArray(i)) {
+//             newArr = newArr.concat(flattenArray(i))
+//         } else {
+//             newArr.push(i);
+//         }
+//     }
+//     return newArr;
+// }
+// const arr = [1, 2, [3, 4, [5, 6, [7, 8]]]];
+// const arr2 = [1, 2, [3, 4], 5, [6, 7]];
+// let result;
+
+// // Without flat method :
+// result = flattenArray(arr);
+// console.log(result);
+
+// result = flattenArray(arr2);
+// console.log(result);
+
+// // result = arr.flat(3);
+// // console.log(result);
+
 
 // ***  End ***
 

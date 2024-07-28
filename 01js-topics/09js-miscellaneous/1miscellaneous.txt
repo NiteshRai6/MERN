@@ -4,7 +4,6 @@
     "name": "John",
     "age": 22,
     "gender": "male",
-
 }
 In JSON, the data are in key/value pairs separated by a comma ,.
 
@@ -37,10 +36,9 @@ You can also use square bracket syntax [] to access JSON data.
 data["name"];
 
 88. JavaScript Objects VS JSON :
-JSON	JavaScript Object
-The key in key/value pair should be in double quotes.	The key in key/value pair can be without double quotes.
+JSON key in key/value pair should be in double quotes. JavaScript objects's key in key/value pair can be without double quotes.
 JSON cannot contain functions.	JavaScript objects can contain functions.
-JSON can be created and used by other programming languages.	JavaScript objects can only be used in JavaScript.
+JSON can be created and used by other programming languages. JavaScript objects can only be used in JavaScript.
 
 89. You can convert JSON data to a JavaScript object using the built-in 
 JSON.parse() function. 
@@ -181,7 +179,7 @@ Strict mode doesn't apply to block statements with {} braces.
 8. Octal syntax is not allowed.
 9. The variable name arguments and eval are not allowed.
 10.You cannot also use these reserved keywords in strict mode.
-implements interface let package private protected public static yield
+implements, interface, let, package, private, protected, public, static, yield.
 
 Benefits of Strict Mode :
 helps to write a cleaner code
@@ -212,6 +210,39 @@ done :
 The done property is a boolean value that indicates whether the iteration is complete or not. If the iteration is incomplete, the done property is set to false, else it is set to true.
 
 The for...of loop keeps calling the next() method on the iterator. Once it reaches done:true, the for...of loop terminates.
+
+* Total 8 JavaScript Iterables are :
+    1. Arrays
+    2. Strings
+    3. Maps
+    4. Sets
+    5. Typed Arrays
+    6. Arguments Object
+    7. NodeLists and HTMLCollections
+    8. Generators and Generator Functions
+
+A.  Typed Arrays :
+Typed Arrays provide a way to work with binary data. They include Uint8Array, Uint16Array, Uint32Array, Float32Array, Float64Array, and more.
+const typedArray = new Uint8Array([10, 20, 30]);
+for (let value of typedArray) {
+  console.log(value);
+}
+
+B. Arguments Object :
+The arguments object is an array-like object available within functions that contains the arguments passed to that function. Though not a real array, it can be iterated over using a for loop.
+function example() {
+  for (let arg of arguments) {
+    console.log(arg);
+  }
+}
+example(1, 2, 3);
+
+D. NodeLists and HTMLCollections :
+These are collections of DOM nodes and elements, respectively. While not all methods available on arrays are available on these collections, they are iterable.
+const nodes = document.querySelectorAll('div');
+for (let node of nodes) {
+  console.log(node);
+}
 
 99. JavaScript Generators :
 Generators provide a new way to work with functions and iterators.
@@ -367,16 +398,16 @@ Bitwise operators treat its operands as a set of 32-bit binary digits (zeros and
 
 Operators	    Name	        Example
   1.   &	    Bitwise AND	            x & y
-  2.  |	        Bitwise OR	            x | y
+  2.   |	    Bitwise OR	            x | y
   3.   ^	    Bitwise XOR	            x ^ y
   4.   ~	    Bitwise NOT	             ~x
   5.  <<	    Left shift	            x << y
   6.  >>	    Sign-propagating        x >> y
                 right shift	
-  7.   >>>	    Zero-fill               x >>> y
+  7.  >>>	    Zero-fill               x >>> y
                 right shift	            
 
-Note: The minimum and the maximum integers that are representable through a 32-bit signed number are -2 ** 31 (-2147483648) to 2 ** 31 -1 (2147483647).
+Note: The minimum and the maximum integers that are representable through a 32-bit signed number are -2 ^ 31 (-2147483648) to 2 ^ 31 -1 (2147483647).
 
 108. Bitwise AND :
 Bitwise AND & returns 1 if the corresponding bits of both operands are 1 else it returns 0.
@@ -436,7 +467,6 @@ Zero-fill right shift >>> shifts the operand to the right by filling the zero bi
 8 >>> 1 = 4;
 -3 >>> 1 = 2147483646;
 
-
 114. Debugging JavaScript in Browser
 You can and will encounter errors while writing programs. Errors are not necessarily bad. In fact, most of the time, they help us identify issues with our code. It is essential that you know how to debug your code and fix errors.
 
@@ -459,6 +489,9 @@ server-side applications
 game development
 mobile apps
 web apps
+
+116. Currying :
+
 
 
 *** End ***

@@ -1,4 +1,4 @@
-
+'use strict';
 
 
 // *** Exception and Modules ***
@@ -16,7 +16,7 @@
 //     finally {
 //         console.log('This block finished');
 //     }
-// })
+// },1000);
 
 // function processInput(input) {
 //     try {

@@ -173,7 +173,7 @@
 //         this.items = [];
 //     }
 // }
-// const stack = new Stack;
+// const stack = new Stack();
 // stack.add(1);
 // stack.add(5);
 // stack.add(8);

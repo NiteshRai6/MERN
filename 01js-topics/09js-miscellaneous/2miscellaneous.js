@@ -38,11 +38,14 @@
 // const objData = JSON.parse(jsonData);
 // console.log(objData);
 
+// const realJson = JSON.stringify(jsonData);
+// console.log(realJson);
+
 // 76.
 // const jsonData = '{ "name": "John", "age": 22 }';
+// console.log(jsonData);
 // const objData = JSON.parse(jsonData);
 // console.log(objData);
-
 // const newJsonData = JSON.stringify(objData);
 // console.log(newJsonData);
 

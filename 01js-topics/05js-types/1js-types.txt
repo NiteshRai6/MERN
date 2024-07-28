@@ -92,7 +92,7 @@ A. Multiline in code but not in the output.
 Separating a long string into multiple lines can make your code look clean. You can achieve this using the + or the \ operators.
 
 B. Multiline in both code and output.
-Use any of the following to print multiple lines using a single string variable:
+Use any of the following to print multiple lines using a single variable:
 Template Literals ` `
 Newline Escape Character \n
 
@@ -136,7 +136,7 @@ console.log(num1);  // 255
 
 57. An integer is a whole number (not a fractional number) that can be positive, negative, or zero. 
 JavaScript Number.isSafeInteger()
-A safe integer is an integer that can be exactly represented as an IEEE-754 double precision number [ all integers from (253 - 1) to -(253 - 1) ].
+A safe integer is an integer that can be exactly represented as an IEEE-754 double precision number [ all integers from (2 ^ 53 - 1) to -(2 ^ 53 - 1) ].
 
 58. 
 Method	Description
@@ -171,8 +171,8 @@ let num = 0.1 + 0.2;
 console.log(num.toFixed(2)); // 0.30
 
 60. JavaScript BigInt :
-The number type can only represent values less than (2^53 - 1) 
-and more than -(2^53 - 1).
+The number type can only represent values less than -(2^53 - 1) 
+and more than (2^53 - 1).
 However, if you need to use a larger or smaller number than that, you can use the BigInt data type. BigInt allows you to do calculations with any size or precision.
 A BigInt number is created by appending n to the end of an integer. For example,
 // BigInt value

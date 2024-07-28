@@ -447,23 +447,28 @@
 // The fromCharCode() method converts Unicode values into characters.
 // Solution :
 // function* iterate(a, b) {
-//     for (let i = a; i <= b; i += 1) {
+//     for (let i = a; i <= b; i++) {
 //         yield i;
 //     }
 // }
 // function range(a, b) {
-//     if (typeof a === 'string') {
-//         let result = [...iterate(a.charCodeAt(), b.charCodeAt())]
+//     if (typeof a && typeof b === 'string') {
+//         let data = [...iterate(a.charCodeAt(), b.charCodeAt())]
 //             .map(n => String.fromCharCode(n));
-//         console.log(result);
+//         return data;
 //     }
 //     else {
-//         let result = [...iterate(a, b)];
-//         console.log(result);
+//         let data = [...iterate(a, b)];
+//         return data;
 //     }
 // }
-// range('g', 'k');
-// range(4, 13);
+
+// let result;
+// result = range('c', 'f');
+// console.log(result);
+
+// result = range(34, 43);
+// console.log(result);
 
 // Q20. JavaScript Program to Remove All Whitespaces From a Text ?
 // Example 1: Using split() and join() :
@@ -475,4 +480,8 @@
 // const string = '     Hello World';
 // const result = string.replace(/\s/g, '');
 // console.log(result);
+
+
+
+//  *** End ***
 

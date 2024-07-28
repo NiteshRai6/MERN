@@ -37,7 +37,7 @@
 // As a result, all setTimeout callbacks will log the same value of i, which is 6.
 
 // Execution Flow :
-// The for loop runs and completes quickly.During this process, it schedules five setTimeout callbacks, each with different delays(1 second, 2 seconds, 3 seconds, 4 seconds, and 5 seconds).
+// The for loop runs and completes quickly. During this process, it schedules five setTimeout callbacks, each with different delays(1 second, 2 seconds, 3 seconds, 4 seconds, and 5 seconds).
 // After the loop finishes, the value of i is 6.
 // The setTimeout callbacks execute after their respective delays, but they all log the value 6 because they all reference the same i variable, which has been incremented to 6 after the loop ends.
 
@@ -45,6 +45,11 @@
 // The var keyword declares i with function scope, resulting in a single i variable that is shared across all iterations.
 // Each setTimeout callback forms a closure that captures the same i variable.
 // By the time the callbacks execute, the loop has completed, and the value of i is 6.
+
+// Variable Scope and Closures with var :
+//     Function Scope of var: The var keyword declares a variable in the function scope, or globally if declared outside of a function. This means that within the loop, there is only one i variable, and each iteration of the loop modifies this same variable.
+
+// Closure Behavior: A closure captures the variables, not their values.When the callback function inside setTimeout is created, it forms a closure over the lexical environment, which includes the i variable.However, it doesn't capture the value of i at that moment; it captures a reference to the variable itself.
 
 // 7.
 // for (let i = 1; i <= 5; i++) {
@@ -61,6 +66,15 @@
 // The for loop runs and completes quickly, scheduling five setTimeout callbacks, each with different delays(1 second, 2 seconds, 3 seconds, 4 seconds, and 5 seconds).
 // Each setTimeout captures the value of i at the time it was scheduled.
 // After the loop completes, the scheduled setTimeout callbacks start executing one by one after their respective delays.
+
+// Why let Works Differently :
+// The let keyword, introduced in ES6, declares variables with block scope, meaning a new i is created for each iteration of the loop:
+
+// Block Scope of let: Each iteration of the for loop creates a new lexical environment, with its own i variable that is scoped to that block(i.e., the current iteration of the loop).The closure created by setTimeout then captures the i specific to that iteration.
+
+// Separate Instances: Because let creates a new i for each loop iteration, each setTimeout callback captures a different instance of i, corresponding to the value of i in that iteration.
+
+// In JavaScript, when using the let keyword in a for loop, a new binding for the loop variable is created for each iteration.However, this doesn't mean that a completely new variable is created from scratch each time, but rather that the binding of the variable is updated or refreshed for each iteration. The loop maintains the progression of values because of how the for loop and block scoping work together.
 
 // Lexical Scope :
 
@@ -195,3 +209,5 @@
 // console.log(result);
 
 
+
+// *** End ***

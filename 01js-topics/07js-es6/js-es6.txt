@@ -38,7 +38,16 @@ person.sayName(); // undefined
 B. You cannot use an arrow function as a constructor.
 let Foo = () => {};
 let foo = new Foo();
-// Output: TypeError: Foo is not a constructor
+// Output: TypeError: Foo is not a constructor.
+
+Note : In Arrow function :
+(a,b) => code... : no any brackets allowed cause it has only single line, 
+directly return given one statement (implicitly), without return keyword.
+
+(a,b) => ( code... ), parentheses : used for multiple lines, implicit return, no return keyword and semicolon (;) allowed, use comma (,) insted of semicolon.
+ last statement returned automatically.
+
+(a,b) => { code...}, curly braces : explicit return, useful for multiple statements and write return statement definitely.
 
 68. Starting from JavaScript ES6, we can provide default values for function parameters.
 These default values are used when the function is called without passing the corresponding arguments.
@@ -67,7 +76,7 @@ In our example, the function received an array with a single element (the string
 70. The JavaScript spread operator ... is used to expand or spread out elements of an iterable, such as an array, string, or object.
 This makes it incredibly useful for tasks like combining arrays, passing elements to functions as separate arguments, or even copying arrays.
 
-Clone Array Using Spread Operator.
+you can Clone Array Using Spread Operator.
 You can also use the spread operator with object literals.
 
 71. When the spread operator is used as a parameter, it is known as the rest parameter.
@@ -150,7 +159,7 @@ let [x = 5,  y = 7] = arrValue;
 You can skip unwanted items in an array without assigning them to local variables. For example,
 const [x, , z] = arrValue;
 
-You can assign the remaining elements of an array to a variable using the spread syntax .... 
+You can assign the remaining elements of an array to a variable using the spread syntax ...
 The variable with the spread syntax cannot have a trailing comma ,. You should use this rest element (variable with spread syntax) as the last variable.
 let { name, ...rest } = person;
 
@@ -162,7 +171,8 @@ const [x, [y, z]] = arrValue;
 
 79. In JavaScript ES6, classes provide a way to create blueprints for objects, similar to traditional object-oriented programming languages like C++ or Java.
 
-A class constructor is a special method within a class that is automatically executed when a new object of that class is created.
+A class constructor is a special method within a class that is automatically executed when a new object of that class is created. 
+It is Used to initialize newly created object.
 
 A class method is a function inside a class that defines behaviors for the class's objects.
 

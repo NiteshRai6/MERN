@@ -77,4 +77,10 @@ There are two methods for executing code at specific intervals. They are:
 setInterval()
 setTimeout()
 
+87. Note :
+A.Promise goes to Microtask queue.
+B.First Micro Task queue executed then call back queue executed cause of priority.
+C. Promise chaining : .then always return Promise.
+
+
 *** End ***

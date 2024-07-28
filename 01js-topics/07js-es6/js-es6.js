@@ -142,8 +142,8 @@
 
 // weakMap1.set('data1', { name: 'Tom', city: 'New York' });
 // console.log(weakMap1);
+// TypeError: Invalid value used as weak map key.
 
-// TypeError: Invalid value used as weak map key
 // const obj1 = {};
 // const obj2 = {};
 // weakMap1.set(obj1, { name: 'Tom', city: 'New York' });

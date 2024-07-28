@@ -34,3 +34,5 @@ const util = new Utility(50);
 // Using the instance method
 console.log(util.divide(5)); // Output: 10
 
+
+        *** End ***
