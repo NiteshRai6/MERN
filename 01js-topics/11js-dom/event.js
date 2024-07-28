@@ -1,3 +1,4 @@
+
 // event :
 // onClick event :
 // const btn = document.querySelector('.btn-headline');
@@ -132,3 +133,5 @@
 //         targetedLi.remove();
 //     }
 // });
+
+//  *** End ***

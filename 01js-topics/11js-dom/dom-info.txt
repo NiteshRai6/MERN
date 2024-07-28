@@ -1,0 +1,112 @@
+
+1. DOM :
+The Document Object Model (DOM) in JavaScript is a programming interface for web documents. It represents the structure of a document (like an HTML or XML file) as a tree of objects, making it possible for scripts to interact with the document's content, structure, and style.
+
+2. Document :
+The document object is the entry point to the DOM. It represents the entire HTML or XML document.
+
+3. Elements :
+Elements are the building blocks of an HTML document, represented as objects in the DOM. Each element can have attributes and child elements.
+
+4. Attributes :
+Attributes provide additional information about elements. In the DOM, you can access, modify, or add attributes to elements.
+
+5. Events :
+Events are actions or occurrences that happen in the system, such as clicks, key presses, or page loads, which can be handled using JavaScript.
+
+Event capturing (also known as "trickling") and event bubbling are two phases of event propagation in the DOM when an event occurs.
+
+A. Event Bubbling (Child to Parent) (Default) :
+Event bubbling is the phase where an event starts from the target element and bubbles up through the DOM tree to the root. This means that the event handlers for the target element are executed first, followed by its ancestors up to the document.
+
+B. Event Capturing (Trickling) :
+Event capturing is the phase where an event propagates from the root of the document down to the target element. The event is first captured by the ancestors of the target element before it reaches the target itself.
+To use this phase, you set the third parameter of addEventListener to true.
+Ex>  document.getElementById("outer").addEventListener("click", function() {
+      alert("Outer Div Capturing");
+    }, true);
+
+Modifying Default Behavior:
+stopPropagation(): 
+This method stops the event from propagating further, effectively halting both bubbling and capturing.
+
+stopImmediatePropagation(): 
+This stops the event from being dispatched to other listeners on the same element and prevents further propagation.
+
+preventDefault(): 
+This method prevents the default action associated with the event (e.g., submitting a form when clicking a submit button).
+Ex> <!DOCTYPE html>
+<html>
+<body>
+  <a href="https://example.com" id="link">Go to example.com</a>
+  <script>
+    document.getElementById("link").addEventListener("click", function(event) {
+      event.preventDefault(); // Prevents the default action of navigating to the URL
+      alert("Link clicked, but default navigation prevented.");
+    });
+  </script>
+</body>
+</html>
+
+
+6. Node and Node Types :
+A node is a generic term for any type of object in the DOM hierarchy, including elements, text, and comments. Common node types include:
+
+Element nodes: Represent HTML elements.
+Text nodes: Represent the text content inside elements.
+Comment nodes: Represent comments in the HTML.
+
+7. Traversing the DOM :
+DOM traversal refers to navigating between elements in the DOM tree. Common methods include parentNode, childNodes, firstChild, lastChild, nextSibling, and previousSibling.
+
+8. Modifying the DOM :
+A. You can create new elements using the document.createElement() method and then insert them into the DOM.
+
+B. Elements can be removed from the DOM using the removeChild() method or the remove() method.
+
+C. You can replace an existing element with another using the replaceChild() method.
+
+D. Modifying Element Content
+Content within an element can be changed using properties like innerHTML, textContent, or innerText.
+
+innerHTML: This property sets or gets the HTML markup contained within an element.
+textContent: This property sets or gets the text content of an element and its descendants.
+innerText: Similar to textContent, but respects the styling (like display: none).
+
+E. Changing Attributes :
+Element attributes, such as src, href, id, and custom attributes, can be manipulated using setAttribute(), getAttribute(), and removeAttribute() methods.
+
+F. Modifying Styles :
+You can change the style of elements using the style property or by manipulating CSS classes.
+Inline Styles: Directly modify the style property of an element.
+CSS Classes: Use className, classList.add(), classList.remove(), and classList.toggle() to modify classes.
+Ex> text.style.color = "blue";
+
+G. Inserting Elements :
+Elements can be inserted at specific positions using methods like appendChild(), insertBefore(), and insertAdjacentHTML().
+
+9. DOM Selectors :
+DOM selectors in JavaScript are methods used to select and retrieve elements from the DOM (Document Object Model). They allow you to interact with and manipulate elements on a webpage.
+
+Key Differences :
+getElementById returns a single element, while getElementsByClassName and getElementsByTagName return live HTML collections.
+querySelector and querySelectorAll are more versatile, supporting complex selectors, but querySelectorAll returns a static NodeList.
+Performance Considerations: For performance-critical applications, getElementById is generally faster because it directly accesses elements by their unique identifier.
+
+10.  Note :
+Selectors gives HTML elements as Object.
+innerText gives only displayed data.
+textContent gives hidden data also.
+getElementByClassName gives HTML collection.
+querySelector gives nodeList.
+
+ An HTMLCollection is a collection of document elements.
+A NodeList is a collection of document nodes(element nodes, attribute nodes, and text nodes).
+HTMLCollection items can be accessed by their name, id, or index number.
+NodeList items can only be accessed by their index number.
+The getElementsByClassName() and getElementsByTagName() methods return a live HTMLCollection.
+The querySelectorAll() method returns a static NodeList.
+
+
+            *** End ***
+

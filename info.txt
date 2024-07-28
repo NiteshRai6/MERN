@@ -24,8 +24,9 @@
 23. Create custom iterator function? (pre-defined: iterable_name[Symbol.iterator]() )
 24. Create custom Iterator object ?
 25. Create Countdown Timer ?
-26.  JavaScript Program to Implement a Stack ? (LIFO) (by using array)
+26. JavaScript Program to Implement a Stack ? (LIFO) (by using array)
 27. JavaScript Program to Implement a Queue ? (FIFO) (by using object)
 28. Explain var and let scope in lopp and in timeout.
 29. Explain Array map, reduce and filter in one example.
-30. 
+30. Explain call, apply and bind method ?
+
