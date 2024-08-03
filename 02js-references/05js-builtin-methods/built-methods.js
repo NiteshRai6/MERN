@@ -135,7 +135,7 @@
 // console.log(result);
 
 // 4.parseFloat() :
-let result;
+// let result;
 
 // result = parseFloat('76.987');
 // console.log(result);

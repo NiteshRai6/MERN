@@ -65,5 +65,71 @@ For instance, the maximum limit can differ between Firefox and Chrome. Whereas, 
 
 29. When there is no base case in a recursive function, it runs infinitely, resulting in an infinite recursion. 
 
+
+* function Parameters Behave :
+Function parameters in JavaScript behave like let in terms of block scope and re-declaration restrictions. They are available throughout the function body but cannot be re-declared with let or var inside the same function. This makes them similar to let in terms of their scoping and declaration rules.
+
+Function Parameters vs. let
+
+A. Block Scope :
+Function parameters are block-scoped, just like let variables. They are scoped to the body of the function and not accessible outside of it.
+
+B. Re-declaration:
+Inside the function, you cannot re-declare a parameter using let or var.
+
+C. Hoisting :
+Function parameters are hoisted, similar to let declarations, but they cannot be accessed before their declaration within the function scope.
+
+Function Parameters vs. var :
+
+A. Function Scope :
+var is function-scoped and not block-scoped. This means var declarations are hoisted to the top of the function, but they do not adhere to block scope.
+Function parameters are also function-scoped in the sense that they are available throughout the function body, but they adhere to block scope rules in terms of re-declaration and scoping behavior.
+
+B. Re-declaration :
+Inside the function, you cannot re-declare a parameter with var.
+
+Example : Function Parameters as Block-Scoped Variables :
+Example 1 : With let :
+function test(props) {
+    console.log(props);
+    if (true) {
+        let props = 20;
+        console.log(props);
+    }
+    console.log(props);
+}
+test(10);
+
+Example 2 : With var :
+function test(props) {
+    console.log(props);
+    if (true) {
+        var props = 20;
+        console.log(props);
+    }
+    console.log(props);
+}
+test(10);
+In this example, var param = 20; inside the if block updates the value of param because var is function-scoped and not block-scoped. Therefore, param inside the if block refers to the same variable as param outside the block.
+
+// Example 3 : Redeclare with let :
+// SyntaxError: Identifier 'props' has already been declared:
+// function test(props) {
+//     let props = 20;
+//     console.log(props);
+// }
+// test(10);
+
+Example 4 : Redeclare with var :
+function test(props) {
+    var props = 20;
+    console.log(props);
+}
+test(10);
+In the above example, when you use var param inside the function, it does not actually redeclare the parameter. Instead, it essentially has no effect because the parameter param is already defined. The var param line is ignored, and the value assigned to param is updated.
+
+
+
 *** End ***
 

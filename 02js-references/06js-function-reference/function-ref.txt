@@ -12,8 +12,7 @@ function func2(...args) { };
 // defining a function with default parameter
 function func3(a, b = 10, c) {
 }
-// only parameters before the one with 
-// default value are counted
+// only parameters before the one with default value are counted
 console.log(func3.length); 
 output : 1
 
@@ -36,7 +35,7 @@ The apply() method calls a function with the passed this keyword value and argum
 
 apply is similar to call but The difference between call() and apply() is that call() accepts an argument list, while apply() accepts a single array of arguments.
 
-apply() , null can be passed when you have no specific value that you want to set the this pointer to and you know that the function you are calling is not expecting this to have any specific value (e.g. it does not use this in its implementation).
+apply() , null can be passed when you have no specific value that you want to set the 'this' pointer to and you know that the function you are calling is not expecting this to have any specific value (e.g. it does not use this in its implementation).
 const num = [1, 5, 3, 8];
 const max = Math.max.apply(null, num);
 

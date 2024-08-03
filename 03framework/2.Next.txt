@@ -1,0 +1,12 @@
+Next.js Topics :
+1. Next.js Intro
+2.
+3.
+4.
+5.
+
+
+
+1. Next.js Intro :
+Next.js is a popular React framework created by Vercel that provides a robust set of tools and features to build modern web applications. It focuses on enhancing the development experience, improving performance, and simplifying the creation of both static and dynamic websites.
+

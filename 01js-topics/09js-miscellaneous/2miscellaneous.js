@@ -620,7 +620,45 @@
 // console.log(result);
 
 
-// 92. Debugger :
+// 92 Currying :
+// Example 1 :
+// function sum(a, b, c) {
+//     return a + b + c;
+// }
+// const result = sum(2, 3, 7)
+// console.log(result);
+
+// Example 2 : Curried Function:
+// function sum(a) {
+//     return function (b) {
+//         return function (c) {
+//             return a + b + c;
+//         };
+//     };
+// }
+// const result = sum(2)(3)(7);
+// console.log(result);
+
+// * Using Arrow Functions:
+// const sum = a => b => c => a + b + c;
+// const result = sum(2)(3)(7);
+// console.log(result);
+
+// Example 3 : Practical Usage : 
+// const logger = level => message => console.log(`[${level}] ${message}`);
+// const infoLogger = logger('INFO');
+// const errorLogger = logger('ERROR');
+// infoLogger('This is an info message');
+// errorLogger('This is an error message');
+
+// Example 4 : Currying vs.Partial Application : 
+// function add(a, b, c) {
+//     return a + b + c;
+// }
+// const partialAdd = add.bind(null, 1, 2);
+// console.log(partialAdd(3));
+
+// 93. Debugger :
 // const a = 6;
 // const b = 'apple';
 // debugger;

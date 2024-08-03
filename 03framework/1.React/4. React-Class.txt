@@ -1,0 +1,290 @@
+React Topics for Class Components :
+1. React Class Component
+2. Lifecycle Methods
+3. Refs
+4. Pure Component
+5. Render Props
+
+
+
+1. React Class Component :
+A React class component is defined using ES6 class syntax. It extends React.Component or Component (if imported separately), which provides the component with all the necessary methods and properties.
+
+Example :
+import React from 'react';
+
+class MyComponent extends React.Component {
+  // Component logic
+  render() {
+    return (
+      <div>
+        {/* JSX markup */}
+      </div>
+    );
+  }
+}
+
+A. State :
+Class components can have local state, which is an object that determines the rendering and behavior of the component. The state is mutable and can be updated using the setState method.
+
+Initialization: State is initialized in the constructor or directly as a class property.
+
+Example :
+constructor(props) {
+  super(props);
+  this.state = {
+    count: 0,
+  };
+}
+// or
+state = {
+  count: 0,
+};
+
+* Updating State: Use this.setState() to update the state. This method schedules an update to the component’s state object and triggers a re-render.
+this.setState({ count: this.state.count + 1 });
+
+B. Props :
+Props are inputs to a React component. They are passed from parent to child components and are immutable within the child component.
+Example :
+class MyComponent extends Component {
+  render() {
+    return <div>{this.props.message}</div>;
+  }
+}
+// Usage
+<MyComponent message="Hello, World!" />
+
+C. Event Handling :
+Event handling in class components is typically done by defining a method in the class and using it as an event handler.
+
+
+2. Lifecycle Methods :
+Class components provide several lifecycle methods that allow you to hook into specific moments in the component's lifecycle, such as mounting, updating, and unmounting.
+
+A. Mounting: Methods called when an instance of a component is being created and inserted into the DOM.
+
+* constructor(): Used for initializing state and binding methods.
+
+* componentDidMount(): Invoked immediately after a component is mounted. It's a good place to make network requests.
+
+B. Updating: Methods called when the component’s props or state change.
+
+* shouldComponentUpdate(nextProps, nextState): Used for performance optimization. Returns a boolean value that dictates whether the component should update.
+
+* componentDidUpdate(prevProps, prevState): Called after the component updates, good for performing operations that require the DOM to be updated first.
+Unmounting: Methods called when a component is being removed from the DOM.
+
+* componentWillUnmount(): Clean up tasks such as clearing timers, canceling network requests, or cleaning up subscriptions.
+
+Complete Example of State, Props, Event Handling and Lifecycles methods :
+import React, { Component } from 'react';
+import TodoList from './TodoList';
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      todos: [],
+      currentTodo: ''
+    };
+  }
+
+  componentDidMount() {
+    console.log('App component mounted');
+    // Simulate fetching initial data
+    this.setState({
+      todos: ['Learn React', 'Build a Todo App']
+    });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.todos.length !== this.state.todos.length) {
+      console.log('Todo list updated');
+    }
+  }
+
+  handleInputChange = (event) => {
+    this.setState({ currentTodo: event.target.value });
+  };
+
+  addTodo = () => {
+    if (this.state.currentTodo.trim()) {
+      this.setState(prevState => ({
+        todos: [...prevState.todos, prevState.currentTodo],
+        currentTodo: ''
+      }));
+    }
+  };
+
+  render() {
+    return (
+      <div>
+        <h1>Todo List</h1>
+        <input
+          type="text"
+          value={this.state.currentTodo}
+          onChange={this.handleInputChange}
+        />
+        <button onClick={this.addTodo}>Add Todo</button>
+        <TodoList todos={this.state.todos} />
+      </div>
+    );
+  }
+}
+
+export default App;
+
+import React from 'react';
+
+class TodoList extends React.Component {
+  render() {
+    const { todos } = this.props;
+    return (
+      <ul>
+        {todos.map((todo, index) => (
+          <li key={index}>{todo}</li>
+        ))}
+      </ul>
+    );
+  }
+}
+
+export default TodoList;
+
+
+3.Refs :
+Refs provide a way to access DOM nodes or React elements created in the render method. They are commonly used for accessing form inputs or implementing imperative animations.
+class MyComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef();
+  }
+
+  componentDidMount() {
+    this.myRef.current.focus();
+  }
+
+  render() {
+    return <input type="text" ref={this.myRef} />;
+  }
+}
+
+4. Context :
+Class components can use React's Context API to share data between components without passing props through every level of the tree.
+const MyContext = React.createContext();
+
+class MyProvider extends Component {
+  state = {
+    value: 'some value'
+  };
+
+  render() {
+    return (
+      <MyContext.Provider value={this.state.value}>
+        {this.props.children}
+      </MyContext.Provider>
+    );
+  }
+}
+
+class MyComponent extends Component {
+  static contextType = MyContext;
+
+  render() {
+    return <div>{this.context}</div>;
+  }
+}
+
+5. Pure Component :
+A Pure Component in React is a type of class component that implements a shallow comparison of its props and state to determine whether a re-render is necessary. This shallow comparison helps in optimizing the performance of the component by preventing unnecessary updates.
+
+A. Shallow Comparison :
+A Pure Component automatically implements the shouldComponentUpdate lifecycle method with a shallow comparison of the previous and next props and state. If the props and state have not changed, the component will not re-render. This comparison only checks if the reference to the objects has changed, not the content within the objects.
+
+B. Usage :
+You can create a Pure Component by extending React.PureComponent instead of React.Component. This makes it easy to convert a regular component into a Pure Component.
+
+* When to Use :
+Pure Components are particularly useful when the component's rendering depends purely on props and state, and you want to optimize rendering performance by avoiding unnecessary updates. They are well-suited for components that receive immutable data or are designed to be stateless.
+
+
+6. Render props :
+Render props is a pattern in React that allows sharing code between components using a prop that is a function. This pattern is particularly useful for creating reusable logic or state management in a way that decouples it from the UI, allowing you to use it across different components and contexts.
+
+* In class components, a render prop is simply a prop that is a function. This function receives data and returns a React element, which allows the component to pass dynamic content to its children.
+
+Example : Class Component with Render Prop :
+import React, { Component } from 'react';
+
+class MouseTracker extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { x: 0, y: 0 };
+  }
+
+  handleMouseMove = (event) => {
+    this.setState({
+      x: event.clientX,
+      y: event.clientY,
+    });
+  };
+
+  render() {
+    return (
+      <div style={{ height: '100vh' }} onMouseMove={this.handleMouseMove}>
+        {/* Calling the render prop function with the current state */}
+        {this.props.render(this.state)}
+      </div>
+    );
+  }
+}
+
+// Usage
+const App = () => (
+  <MouseTracker render={({ x, y }) => (
+    <h1>The mouse position is ({x}, {y})</h1>
+  )} />
+);
+
+export default App;
+
+In this example, MouseTracker is a class component that tracks the mouse position. It accepts a render prop, which is a function that it calls to render the UI based on its state. The App component uses MouseTracker and passes a function that defines how the UI should look, using the mouse position data.
+
+* Functional Component with Render Prop :
+With functional components, you can use the render prop pattern in the same way, as functional components also support receiving props, including functions. Here's how the above example can be implemented using functional components
+Example :
+import React, { useState } from 'react';
+
+const MouseTracker = ({ render }) => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (event) => {
+    setPosition({
+      x: event.clientX,
+      y: event.clientY,
+    });
+  };
+
+  return (
+    <div style={{ height: '100vh' }} onMouseMove={handleMouseMove}>
+      {render(position)}
+    </div>
+  );
+};
+
+// Usage
+const App = () => (
+  <MouseTracker render={({ x, y }) => (
+    <h1>The mouse position is ({x}, {y})</h1>
+  )} />
+);
+
+export default App;
+
+In the functional component version, the state is managed using the useState hook. The rest of the logic remains the same: MouseTracker receives a render prop, which it uses to render the UI based on the current mouse position.
+
+
+                  ** End **
+
+                  

@@ -467,7 +467,55 @@ Zero-fill right shift >>> shifts the operand to the right by filling the zero bi
 8 >>> 1 = 4;
 -3 >>> 1 = 2147483646;
 
-114. Debugging JavaScript in Browser
+
+114. 116. Currying :
+Currying is a technique in functional programming where a function is transformed into a sequence of functions, each with a single argument. Instead of taking all arguments at once, a curried function takes the first argument, returns a new function that takes the second argument, and so on, until all arguments have been provided. This technique allows for more modular, reusable, and flexible code.
+
+Example 1: Normal Function :
+function sum(a, b, c) {
+  return a + b + c;
+}
+const result = sum(2, 3, 7)
+console.log(result);  // 12
+
+Example 2 : Curried Function :
+function sum(a) {
+  return function(b) {
+    return function(c) {
+      return a + b + c;
+    };
+  };
+}
+const result = sum(2)(3)(7);
+console.log(result);  // 12
+
+* Using Arrow Functions :
+const sum = a => b => c => a + b + c;
+const result = const result = sum(2)(3)(7);
+console.log(result);  // 12
+
+* Practical Usage :
+Currying is useful in real-world applications where you might need to create partially applied functions. For example, suppose you have a function that logs messages with a certain log level:
+Example :
+const logger = level => message => console.log(`[${level}] ${message}`);
+const infoLogger = logger('INFO');
+const errorLogger = logger('ERROR');
+infoLogger('This is an info message'); // [INFO] This is an info message
+errorLogger('This is an error message'); // [ERROR] This is an error message
+
+* Currying vs. Partial Application :
+Currying is often confused with partial application, but they are slightly different:
+Currying transforms a function with multiple arguments into a series of unary functions.
+Partial Application creates a new function by fixing some arguments of the original function.
+Example :
+function add(a, b, c) {
+  return a + b + c;
+}
+const partialAdd = add.bind(null, 1, 2);
+console.log(partialAdd(3)); // 6
+
+
+115. Debugging JavaScript in Browser
 You can and will encounter errors while writing programs. Errors are not necessarily bad. In fact, most of the time, they help us identify issues with our code. It is essential that you know how to debug your code and fix errors.
 
 Debugging is the process of examining the program, finding the error and fixing it.
@@ -483,15 +531,12 @@ You can set breakpoints for JavaScript code in the debugger window.
 JavaScript will stop executing at each breakpoint and lets you examine the values. Then, you can resume the execution of code.
 Setting breakpoints is similar to putting a debugger in the code. Here, you just set breakpoints by clicking on the line number of the source code instead of manually calling the debugger function.
 
-115. Uses of JavaScript :
+116. Uses of JavaScript :
 making web pages interactive
 server-side applications
 game development
 mobile apps
 web apps
-
-116. Currying :
-
 
 
 *** End ***

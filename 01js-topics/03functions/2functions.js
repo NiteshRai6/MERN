@@ -50,6 +50,44 @@
 // }
 // console.log(factorial(4));
 
+// 30. Function Parameter Behave :
+// Example 1 : With let :
+// function test(props) {
+//     console.log(props);
+//     if (true) {
+//         let props = 20;
+//         console.log(props);
+//     }
+//     console.log(props);
+// }
+// test(10);
+
+// Example 2 : With var :
+// function test(props) {
+//     console.log(props);
+//     if (true) {
+//         var props = 20;
+//         console.log(props);
+//     }
+//     console.log(props);
+// }
+// test(10);
+
+// Example 3 : Redeclare with let :
+// SyntaxError: Identifier 'props' has already been declared:
+// function test(props) {
+//     let props = 20;
+//     console.log(props);
+// }
+// test(10);
+
+// Example 4 : Redeclare with var :
+// function test(props) {
+//     var props = 20;
+//     console.log(props);
+// }
+// test(10);
+
 
 // *** End *** 
 
