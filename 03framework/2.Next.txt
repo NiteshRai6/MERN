@@ -1,12 +1,568 @@
-Next.js Topics :
+Next.js Page Router Topics :
+
+        ** Next.js Page Router **
 1. Next.js Intro
-2.
-3.
-4.
-5.
+2. Next.js Routing
+3. Client-Side Rendering (CSR)
+4. Static Site Generation (SSG) in Next.js
+5. Server Side Rendering (SSR)
+6. Other Topics
+
+        ** Next.js App Router **
+7. React Client and Server Components
+8. Hydration
+9. App Router Features
+10. Linking and Navigating
+11. Loading UI and Streaming
+12. Error Handling
+13. Advanced Routing
+14. Data Fetching
 
 
+                        ** Next.js Page Router **
 
 1. Next.js Intro :
 Next.js is a popular React framework created by Vercel that provides a robust set of tools and features to build modern web applications. It focuses on enhancing the development experience, improving performance, and simplifying the creation of both static and dynamic websites.
 
+
+2. Next.js Routing :
+* File-Based Routing :
+In Next.js, the routing system is file-based. Each file inside the pages directory corresponds to a route in the application.
+
+* Static Routes : 
+A file named about.js in the pages directory will be accessible at /about.
+
+* Dynamic Routing :
+Dynamic routing in Next.js allows for more complex URL structures and dynamic segments.
+
+Dynamic Routes: You can create dynamic routes using brackets. For example, a file named pages/post/[id].js will match /post/1, /post/2, etc.
+
+Catch-All Routes: To match multiple segments, you can use a catch-all route. For example, pages/post/[...slug].js will match /post/a/b/c.
+
+* Linking Between Pages :
+Next.js provides a Link component to enable client-side navigation between pages.
+Basic Usage: <Link href="/about"><a>About</a></Link>
+Dynamic Links: <Link href="/post/[id]" 
+as={/post/${post.id}}><a>{post.title}</a></Link>
+
+* API Routes :
+Next.js allows you to create API endpoints within the pages/api directory.
+Creating an API Route: pages/api/hello.js
+Request Handling: Use standard Node.js HTTP request and response objects.
+Example :
+export default function handler(req, res) {
+  res.status(200).json({ message: 'Hello, world!' });
+}
+
+3. Client-Side Rendering (CSR) :
+In CSR, the rendering of the web page happens entirely in the browser using JavaScript. When a user navigates to a React application, the server sends a minimal HTML page and a bundle of JavaScript code. The JavaScript code is then executed by the browser to render the application.
+
+How CSR Works in React :
+
+A. Initial Request : 
+When the user first accesses the website, the server sends a basic HTML document, which usually contains a <div id="root"></div> where the React app will be mounted.
+
+B. Loading JavaScript : 
+The HTML document includes a script tag that references the bundled JavaScript file. The browser downloads and executes this file.
+
+C. React Initialization: 
+Once the JavaScript is loaded, React initializes, and the application components are rendered inside the root element.
+
+D. Dynamic Content : 
+React handles the routing and rendering of components dynamically. When the user navigates to different parts of the application, React updates the UI without requiring a full page reload.
+
+4. Static Site Generation (SSG) in Next.js :
+Static Site Generation (SSG) is a method of pre-rendering your pages at build time. This means that the HTML is generated once and can be reused for each request, resulting in faster load times and improved performance. SSG is ideal for content that doesn't change often, such as blogs, documentation, and marketing pages.
+
+A. getStaticProps :
+getStaticProps is a Next.js function used to fetch data at build time. It allows you to pre-render a page with data fetched from an external source, such as a CMS, API, or database.
+It provides data to the page component as props.
+
+B. getStaticPaths :
+getStaticPaths is a Next.js function used to specify dynamic routes to be pre-rendered at build time. It works in conjunction with getStaticProps to generate static pages for each dynamic route.
+
+* Usage:
+getStaticPaths is used for dynamic routes, where the paths depend on external data.
+It returns an object with paths and fallback properties.
+
+paths: An array of route parameters to be pre-rendered.
+fallback: A boolean or 'blocking' that determines how to handle additional paths not returned by getStaticPaths.
+
+* Fallback Modes:
+fallback: false: Any paths not returned by getStaticPaths will result in a 404 page.
+
+fallback: true: Next.js will serve a fallback version of the page and fetch the data for the missing path on the client side.
+
+fallback: 'blocking': Next.js will server-render the page on the first request for a missing path and cache it for subsequent requests.
+
+C. Incremental Static Regeneration (ISR) :
+Incremental Static Regeneration (ISR) allows you to update static content after the build process. With ISR, you can specify a revalidation interval, and Next.js will regenerate the page in the background as traffic comes in, ensuring the content stays fresh.
+Use the revalidate property in the getStaticProps return object to specify the revalidation interval in seconds.
+
+D. Combining getStaticProps, getStaticPaths, and ISR :
+By combining getStaticProps, getStaticPaths, and ISR, you can create a highly efficient and dynamic Next.js application that leverages the best of 
+static site generation and real-time updates.
+Example :
+// pages/posts/[id].js
+
+export async function getStaticPaths() {
+  const res = await fetch('https://api.example.com/posts');
+  const posts = await res.json();
+
+  const paths = posts.map((post) => ({
+    params: { id: post.id.toString() },
+  }));
+
+  return {
+    paths,
+    fallback: 'blocking', // Use ISR for missing paths
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const res = await fetch(`https://api.example.com/posts/${params.id}`);
+  const post = await res.json();
+
+  return {
+    props: {
+      post,
+    },
+    revalidate: 10, // Revalidate every 10 seconds
+  };
+}
+
+function Post({ post }) {
+  return (
+    <div>
+      <h1>{post.title}</h1>
+      <p>{post.content}</p>
+    </div>
+  );
+}
+
+export default Post;
+
+
+5. Server-Side Rendering (SSR) in Next.js :
+Server-Side Rendering (SSR) is a technique used to render web pages on the server at the time of the request, rather than at build time like Static Site Generation (SSG). In Next.js, SSR can be implemented using the getServerSideProps function. This method ensures that the content is always fresh and can respond to each individual user's request.
+
+A. getServerSideProps :
+getServerSideProps is a Next.js function that fetches data and renders a page on each request. This function is useful for pages that need to display data that changes frequently (dynamic content) or requires user-specific content.
+
+SSR Example with User Authentication :
+// pages/dashboard.js
+
+import { getSession } from 'next-auth/client';
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    };
+  }
+
+  // Fetch user-specific data
+  const res = await fetch(`https://api.example.com/user/${session.user.id}`);
+  const userData = await res.json();
+
+  return {
+    props: {
+      session,
+      userData,
+    },
+  };
+}
+
+function DashboardPage({ session, userData }) {
+  return (
+    <div>
+      <h1>Welcome, {session.user.name}</h1>
+      <pre>{JSON.stringify(userData, null, 2)}</pre>
+    </div>
+  );
+}
+
+export default DashboardPage;
+
+ this example :
+getServerSideProps checks if the user is authenticated using getSession.
+If the user is not authenticated, it redirects to the login page.
+If authenticated, it fetches user-specific data from an API and passes it to the DashboardPage component.
+
+* SSR vs SSG :
+See Info-images folder.
+
+
+6. Other Next.js Topics :
+A. Image Optimization :
+Next.js provides an Image component to optimize images.
+Automatic Optimization: Images are automatically optimized for performance.
+Responsive Images: Specify different sizes for different viewports.
+Example :
+import Image from 'next/image';
+<Image src="/me.png" alt="Me" width={500} height={500} />
+
+B. Internationalization (i18n) :
+Next.js has built-in support for internationalized routing and localization.
+Configuring i18n: Add i18n configuration in next.config.js.
+Locale Detection: Automatic locale detection and redirection.
+
+C. Custom Document and App :
+Customize the default HTML document structure and global application settings.
+_document.js: Customize the HTML document structure.
+_app.js: Customize the React component tree and global styles.
+Example :
+import '../styles/globals.css';
+function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />;
+}
+export default MyApp;
+
+D. Middleware :
+Next.js middleware allows you to run code before a request is completed.
+Writing Middleware: Use a file named middleware.js at the root of your project.
+Use Cases: Authentication, logging, custom headers.
+
+E. Environment Variables :
+Next.js supports environment variables through .env.local, .env.development, and .env.production files.
+Using Environment Variables: Access variables using process.env.
+Custom Configurations: Define variables in next.config.js.
+
+E. Performance Optimization :
+Optimize your Next.js app for performance and speed.
+Code Splitting: Automatically splits code into smaller bundles.
+Dynamic Imports: Load components only when needed.
+Lazy Loading: Defer loading of non-critical resources.
+
+
+* App Router **
+7. React Client and Server Components :
+
+A. Client Components :
+Client Components in Next.js are components that are rendered entirely on the client side (browser). They are used when you need interactivity, state, and lifecycle methods that are only available in the browser.
+
+the 'use client'; directive at the top of the file indicates that this component should be treated as a client component. 
+
+B. React Server Components :
+Server Components in Next.js are components that are rendered on the server. They can fetch data directly from the server, perform heavy computations, or interact with databases without sending large bundles of JavaScript to the client.
+Cannot use interactivity like state or lifecycle methods.
+Ideal for rendering static content, fetching data from the server, and minimizing client-side JavaScript.
+
+* Benefits of Using Server and Client Components :
+A. Performance : 
+Server components reduce the amount of JavaScript sent to the client, improving load times and performance.
+
+B. SEO : 
+Server-rendered content is immediately available to search engines, enhancing SEO.
+
+
+8. Hydration :
+Hydration is the process of attaching event listeners and re-activating the dynamic behavior of a pre-rendered HTML page. When a page is served, it initially loads as static HTML. Once the JavaScript bundle loads, React takes over the static HTML and converts it into a fully interactive Single Page Application (SPA).
+
+Hydration Process :
+
+A. Initial HTML Rendering :
+When a user requests a page, the server generates static HTML using either SSR or SSG.
+This HTML is sent to the client and displayed by the browser.
+
+B. Loading the JavaScript Bundle :
+The HTML includes a script tag that points to the JavaScript bundle containing the React components and application logic.
+The browser downloads and executes this JavaScript.
+
+C. React's Hydration :
+React's hydrate method is called, which takes the pre-rendered HTML and attaches event listeners and state to the DOM elements.
+This process ensures that the page becomes fully interactive.
+
+* Benefits of Hydration :
+A. Performance
+B. SEO :
+Pre-rendered HTML ensures that search engines can crawl and index the content effectively, improving SEO.
+C. User Experience
+
+9. App Router Features :
+
+A. Routing :
+Next.js uses a file-system based router where folders are used to define routes.
+
+* Each folder represents a route segment that maps to a URL segment. To create a nested route, you can nest folders inside each other.
+A special page.js file is used to make route segments publicly accessible.
+
+* the /dashboard/analytics URL path is not publicly accessible because it does not have a corresponding page.js file. This folder could be used to store components, stylesheets, images, or other colocated files.
+
+B. Page :
+A page is UI that is unique to a route. You can define a page by default exporting a component from a page.js file.
+For example, to create your index page, add the page.js file inside the app directory
+Example 1:
+// `app/page.js` is the UI for the `/` URL
+export default function Page() {
+  return <h1>Hello, Home page!</h1>
+}
+Example 2 :
+// `app/dashboard/page.js` is the UI for the `/dashboard` URL
+export default function Page() {
+  return <h1>Hello, Dashboard Page!</h1>
+}
+
+B. Layouts :
+A layout is UI that is shared between multiple routes. On navigation, layouts preserve state, remain interactive, and do not re-render. Layouts can also be nested.
+
+* You can define a layout by default exporting a React component from a layout.js file. The component should accept a children prop that will be populated with a child layout (if it exists) or a page during rendering.
+
+* Nesting Layouts :
+By default, layouts in the folder hierarchy are nested, which means they wrap child layouts via their children prop. You can nest layouts by adding layout.js inside specific route segments (folders).
+Example 1 : the layout will be shared with the 
+/dashboard and /dashboard/settings pages:
+export default function DashboardLayout({
+  children, // will be a page or nested layout
+}) {
+  return (
+    <section>
+      {/* Include shared UI here e.g. a header or sidebar */}
+      <nav></nav>
+ 
+      {children}
+    </section>
+  )
+}
+
+* Root Layout (Required) :
+The root layout is defined at the top level of the app directory and applies to all routes. This layout is required and must contain html and body tags, allowing you to modify the initial HTML returned from the server.
+Example 2 : 
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>
+        {/* Layout UI */}
+        <main>{children}</main>
+      </body>
+    </html>
+  )
+}
+
+C. Templates :
+Templates are similar to layouts in that they wrap each child layout or page. Unlike layouts that persist across routes and maintain state, templates create a new instance for each of their children on navigation. This means that when a user navigates between routes that share a template, a new instance of the component is mounted, DOM elements are recreated, state is not preserved, and effects are re-synchronized.
+Example :
+export default function Template({ children }) {
+  return <div>{children}</div>
+}
+
+There may be cases where you need those specific behaviors, and templates would be a more suitable option than layouts. For example:
+
+Features that rely on useEffect (e.g logging page views) and useState (e.g a per-page feedback form).
+To change the default framework behavior. For example, Suspense Boundaries inside layouts only show the fallback the first time the Layout is loaded and not when switching pages. For templates, the fallback is shown on each navigation.
+
+* In terms of nesting, template.js is rendered between a layout and its children.
+Example :
+<Layout>
+  {/* Note that the template is given a unique key. */}
+  <Template key={routeParam}>{children}</Template>
+</Layout>
+
+D. Metadata :
+In the app directory, you can modify the <head> HTML elements such as title and meta using the Metadata APIs.
+Metadata can be defined by exporting a metadata object or generateMetadata function in a layout.js or page.js file.
+Example :
+export const metadata = {
+  title: 'Next.js',
+}
+export default function Page() {
+  return '...'
+}
+
+
+10. Linking and Navigating :
+There are four ways to navigate between routes in Next.js:
+Using the <Link> Component
+Using the useRouter hook (Client Components)
+Using the redirect function (Server Components)
+Using the native History API
+
+A. Link :
+Example 1 : <Link href="/dashboard">Dashboard</Link>
+Example 2 : <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+Example 3 : <Link className={`link ${pathname === '/' ? 'active' : ''}`} href="/">
+
+* The default behavior of the Next.js App Router is to scroll to the top of a new route or to maintain the scroll position for backwards and forwards navigation. If you'd like to disable this behavior, you can pass scroll={false} to the <Link> component, or scroll: false to router.push() or router.replace().
+Example 4.
+// next/link
+<Link href="/dashboard" scroll={false}>
+  Dashboard
+</Link>
+
+B. useRouter :
+The useRouter hook allows you to programmatically change routes from Client Components.
+Example :
+'use client'
+ 
+import { useRouter } from 'next/navigation'
+ 
+export default function Page() {
+  const router = useRouter()
+ 
+  return (
+    <button type="button" onClick={() => router.push('/dashboard')}>
+      Dashboard
+    </button>
+  )
+}
+
+C. redirect function :
+For Server Components, use the redirect function instead.
+Example :
+import { redirect } from 'next/navigation'
+ 
+async function fetchTeam(id) {
+  const res = await fetch('https://...')
+  if (!res.ok) return undefined
+  return res.json()
+}
+ 
+export default async function Profile({ params }) {
+  const team = await fetchTeam(params.id)
+  if (!team) {
+    redirect('/login')
+  }
+ 
+  // ...
+}
+
+D. Using the native History API :
+Next.js allows you to use the native window.history.pushState and window.history.replaceState methods to update the browser's history stack without reloading the page.
+
+pushState and replaceState calls integrate into the Next.js Router, allowing you to sync with usePathname and useSearchParams.
+
+
+11. Loading UI and Streaming :
+The special file loading.js helps you create meaningful Loading UI with React Suspense. With this convention, you can show an instant loading state from the server while the content of a route segment loads. The new content is automatically swapped in once rendering is complete.
+
+* Instant Loading States
+An instant loading state is fallback UI that is shown immediately upon navigation. You can pre-render loading indicators such as skeletons and spinners, or a small but meaningful part of future screens such as a cover photo, title, etc. This helps users understand the app is responding and provides a better user experience.
+
+Create a loading state by adding a loading.js file inside a folder.
+Example :
+export default function Loading() {
+  // You can add any UI inside Loading, including a Skeleton.
+  return <LoadingSkeleton />
+}
+
+* Streaming :
+Streaming allows you to break down the page's HTML into smaller chunks and progressively send those chunks from the server to the client.
+This enables parts of the page to be displayed sooner, without waiting for all the data to load before any UI can be rendered.
+
+Streaming works well with React's component model because each component can be considered a chunk. Components that have higher priority (e.g. product information) or that don't rely on data can be sent first (e.g. layout), and React can start hydration earlier. Components that have lower priority (e.g. reviews, related products) can be sent in the same server request after their data has been fetched.
+
+Example :
+import { Suspense } from 'react'
+import { PostFeed, Weather } from './Components'
+ 
+export default function Posts() {
+  return (
+    <section>
+      <Suspense fallback={<p>Loading feed...</p>}>
+        <PostFeed />
+      </Suspense>
+      <Suspense fallback={<p>Loading weather...</p>}>
+        <Weather />
+      </Suspense>
+    </section>
+  )
+}
+
+By using Suspense, you get the benefits of:
+
+Streaming Server Rendering - Progressively rendering HTML from the server to the client.
+Selective Hydration - React prioritizes what components to make interactive first based on user interaction.
+
+
+12. Error Handling :
+The error.js file convention allows you to gracefully handle unexpected runtime errors in nested routes.
+
+error.js automatically creates a React Error Boundary that wraps a nested child segment or page.js component.
+The React component exported from the error.js file is used as the fallback component.
+If an error is thrown within the error boundary, the error is contained, and the fallback component is rendered.
+
+Example :
+app/dashboard/error.js :
+'use client' // Error components must be Client Components
+ 
+import { useEffect } from 'react'
+ 
+export default function Error({ error, reset }) {
+  useEffect(() => {
+    // Log the error to an error reporting service
+    console.error(error)
+  }, [error])
+ 
+  return (
+    <div>
+      <h2>Something went wrong!</h2>
+      <button
+        onClick={
+          // Attempt to recover by trying to re-render the segment
+          () => reset()
+        }
+      >
+        Try again
+      </button>
+    </div>
+  )
+}
+
+* Handling Errors in Root Layouts :
+The root app/error.js boundary does not catch errors thrown in the root app/layout.js or app/template.js component.
+
+To specifically handle errors in these root components, use a variation of error.js called app/global-error.js located in the root app directory.
+
+Unlike the root error.js, the global-error.js error boundary wraps the entire application, and its fallback component replaces the root layout when active. Because of this, it is important to note that global-error.js must define its own <html> and <body> tags.
+
+global-error.js is the least granular error UI and can be considered "catch-all" error handling for the whole application. It is unlikely to be triggered often as root components are typically less dynamic, and other error.js boundaries will catch most errors.
+
+Even if a global-error.js is defined, it is still recommended to define a root error.js whose fallback component will be rendered within the root layout, which includes globally shared UI and branding.
+
+
+13. Advanced Routing :
+A. Route Groups :
+In the app directory, nested folders are normally mapped to URL paths. However, you can mark a folder as a Route Group to prevent the folder from being included in the route's URL path.
+This allows you to organize your route segments and project files into logical groups without affecting the URL path structure.
+
+A route group can be created by wrapping a folder's name in parenthesis: (folderName)
+Example : (marketing) / blog / page.js = /blog
+
+B. Parallel Routes :
+Parallel Routes allows you to simultaneously or conditionally render one or more pages within the same layout. They are useful for highly dynamic sections of an app, such as dashboards and feeds on social sites.
+
+Parallel routes are created using named slots. Slots are defined with the @folder convention. For example, the following file structure defines two slots: @analytics and @team.
+
+Slots are passed as props to the shared parent layout. For the example above, the component in app/layout.js now accepts the @analytics and @team slots props, and can render them in parallel alongside the children prop.
+
+* You can define a default.js file to render as a fallback for unmatched slots during the initial load or full-page reload.
+
+
+14. Data Fetching :
+In App Router cause of Server Component, no need of SSG and SSR.
+
+A. In SSG, we use { cache: "force-cache" } in the second argument of fetch() （Default value { cache: 'force-cache' }, so it can be omitted）. And don't use useEffect(), useState().
+Example :
+function Test {
+  const res = await fetch("https://dummyjson.com/products", {
+    cache: "force-cache",  // can be omitted
+  });
+  const data = await res.json();
+}
+
+B. In SSR, we use { cache: "no-store" } in the second argument of fetch(). And don't use useEffect(), useState().
+Example :
+function Test {
+  const res = await fetch("https://dummyjson.com/products", {
+    cache: "no-store",
+  });
+  const data = await res.json();
+}
+
+
+                                      ** End **
