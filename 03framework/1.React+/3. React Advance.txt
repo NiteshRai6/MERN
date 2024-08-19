@@ -19,6 +19,8 @@ An HOC is essentially a pure function that wraps a component, adds some function
 
 The key feature of HOCs is that they do not modify the original component but instead create a wrapper component that adds or modifies the functionality. This allows for separation of concerns and promotes code reuse.
 
+* ...props ensures that all props passed to the HOC are also passed to the wrapped component.
+
 Example :
 import React from 'react';
 
@@ -57,7 +59,10 @@ Error boundaries are React components that catch JavaScript errors anywhere in t
 
 Example 1:
 class ErrorBoundary extends React.Component {
-  state = { hasError: false };
+   constructor(props) {
+        super(props);
+        this.state = { hasError: false };
+    }
 
   static getDerivedStateFromError(error) {
     return { hasError: true };
@@ -188,7 +193,7 @@ createSlice is a utility that helps create a slice of the Redux state, including
 C. createAsyncThunk :
 createAsyncThunk is a function for handling asynchronous logic. It generates a thunk action creator that handles the different states of an async request (pending, fulfilled, and rejected).
 
-D. reateAction and createReducer :
+D. createAction and createReducer :
 These are utility functions to create actions and reducers with less boilerplate and better type inference.
 
 E. createEntityAdapter :

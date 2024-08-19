@@ -73,7 +73,8 @@ B. Updating: Methods called when the component’s props or state change.
 * shouldComponentUpdate(nextProps, nextState): Used for performance optimization. Returns a boolean value that dictates whether the component should update.
 
 * componentDidUpdate(prevProps, prevState): Called after the component updates, good for performing operations that require the DOM to be updated first.
-Unmounting: Methods called when a component is being removed from the DOM.
+
+C. Unmounting: Methods called when a component is being removed from the DOM.
 
 * componentWillUnmount(): Clean up tasks such as clearing timers, canceling network requests, or cleaning up subscriptions.
 
@@ -283,6 +284,60 @@ const App = () => (
 export default App;
 
 In the functional component version, the state is managed using the useState hook. The rest of the logic remains the same: MouseTracker receives a render prop, which it uses to render the UI based on the current mouse position.
+
+
+7. class Constructor & super :
+*. constructor(props) :
+The constructor method is a special method for creating and initializing an object created with a class. In a React class component, the constructor is called when the component is first instantiated. Here’s what happens:
+
+Purpose: The constructor is primarily used to initialize state and bind event handler methods to the instance of the component.
+
+Parameters: The constructor receives props as an argument, which represents the component's properties passed from the parent component.
+
+Usage: Inside the constructor, you can initialize the component's state by setting this.state to an object containing the initial state values.
+
+*. super(props) :
+The super function refers to the parent class's constructor. In React, class components extend from React.Component, so calling super(props) calls the constructor of React.Component.
+
+Purpose: The super function is necessary to access this in the constructor. Without calling super, this would be undefined, and you wouldn’t be able to reference the component instance.
+
+Passing props: When you pass props to super, you’re ensuring that the parent class (React.Component) properly initializes the component's props.
+
+Example :
+
+import React, { Component } from 'react';
+
+class MyComponent extends Component {
+  constructor(props) {
+    // Call the parent class's constructor with the component's props
+    super(props);
+
+    // Initialize the component's state
+    this.state = {
+      count: 0,
+    };
+
+    // Bind a custom method to the component instance
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState((prevState) => ({
+      count: prevState.count + 1,
+    }));
+  }
+
+  render() {
+    return (
+      <div>
+        <p>Count: {this.state.count}</p>
+        <button onClick={this.handleClick}>Increment</button>
+      </div>
+    );
+  }
+}
+
+export default MyComponent;
 
 
                   ** End **

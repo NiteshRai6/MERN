@@ -1,7 +1,2 @@
 
-CDN 
-
-
-* Video Example :
-React Tanstack query
-class component render prop Video
+document and collection

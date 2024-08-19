@@ -53,7 +53,7 @@ Reusability
 * Unidirectional Data Flow :
 In React, unidirectional data flow refers to the concept that data moves in a single direction: from parent components down to child components. This design principle is a core aspect of React's architecture and helps in maintaining a predictable and manageable state flow within an application.
 
-n React, data is passed from parent components to child components via props. This means that the parent component controls the data and passes it down to the children as needed.
+In React, data is passed from parent components to child components via props. This means that the parent component controls the data and passes it down to the children as needed.
 Child components cannot modify the props they receive. If a child needs to change some data, it must request the parent component to make the change, typically by calling a function passed down as a prop.
 
 
@@ -389,7 +389,7 @@ function MyForm() {
     </form>
   );
 }
-n this example, the value prop of the <input> is controlled by the component state (name). The onChange handler updates the state whenever the user types in the input field.
+In this example, the value prop of the <input> is controlled by the component state (name). The onChange handler updates the state whenever the user types in the input field.
 
 C. Uncontrolled Components :
 Rely on the DOM to manage form data, using refs to access the form elements' current values. They are simpler but less in sync with the component's state.

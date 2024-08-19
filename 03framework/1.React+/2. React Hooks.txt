@@ -18,9 +18,9 @@ D. Simplicity
 
 A. Only Call Hooks at the Top Level:
 Hooks should not be called inside loops, conditions, or nested functions. They must be called at the top level of the component or custom hook.
-Only Call Hooks from React Functions:
 
-B. Hooks should only be called from React functional components or custom hooks, not from regular JavaScript functions.
+B. Only Call Hooks from React Functions :
+Hooks should only be called from React functional components or custom hooks, not from regular JavaScript functions.
 
 C. Any hook name must start with 'use' keyword and the hook name, that starts with capital letter.
 
@@ -105,6 +105,7 @@ The useEffect hook is another fundamental feature in React that allows you to pe
 A. Fetching Data
 B. Subscribing to Events
 C. Conditional Effects
+D. logging
 
 The useEffect hook takes two arguments: a function (often called the effect) and an optional dependency array.
 useEffect(effect: () => void | (() => void), deps?: Array<any>);
@@ -186,7 +187,6 @@ B. Minimizing Effects: Keep effects minimal and focused on specific tasks. Compl
 C. Performance Optimization: Be mindful of effects that depend on frequently changing state or props, as they can lead to performance issues due to frequent re-renders.
 
 D. Avoiding Unnecessary Effects: If an effect doesn't have any dependencies, ensure that it's intentional, as it will run after every render.
-
 
 Note :
 In React, "avoiding stale closures" means ensuring that the values and functions used inside a useEffect hook are always current and reflect the latest state or props.
@@ -466,6 +466,13 @@ Use when you want to prevent a component from re-rendering if its props haven't 
 
 B. useMemo: Use when you have a computationally expensive calculation that should not re-run on every render. It helps in optimizing the performance by memoizing the calculation result until its dependencies change.
 
+* Summary :
+A. useCallback: Prevents unnecessary re-creation of functions between renders.
+
+B. React.memo: Prevents unnecessary re-renders of components when props haven’t changed.
+
+C. useMemo: Prevents unnecessary recomputation of expensive values between renders.
+
 
 7. React useRef :
 The useRef hook in React is a versatile tool that allows you to create a reference to an element or value that persists across re-renders. It is often used for accessing DOM elements directly, storing mutable values, and holding onto values that should not trigger a re-render when changed.
@@ -624,11 +631,11 @@ Transitions are updates that are less urgent or can be deferred to ensure the ap
 B. Concurrent Mode:
 useTransition is used within Concurrent Mode to allow React to manage state updates more efficiently. React can interrupt or pause less critical updates to ensure high-priority updates (like user input) are processed quickly.
 
+Syntax> const [isPending, startTransition] = useTransition();
+
 The useTransition hook returns an array with two elements:
 A. startTransition: A function that you use to wrap updates that you want to mark as transitions.
 B. isPending: A boolean that indicates whether the transition is ongoing.
-
-Syntax> const [isPending, startTransition] = useTransition();
 
 * Deferred Updates :
 Mark state updates related to non-critical operations as transitions, such as filtering data, loading additional content, or updating complex components.
