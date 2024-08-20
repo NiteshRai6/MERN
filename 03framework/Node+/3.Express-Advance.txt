@@ -12,7 +12,6 @@ Express.js Advance Topics :
 20. Load Balancing
 21. Scaling
 22. CDN
-23. 
 
 
 
@@ -506,6 +505,22 @@ const storage = multer.diskStorage({
   }
 });
 const upload = multer({ storage: storage });
+
+After handling the file upload using Multer, you can store the file metadata (such as the file name, path, size, and type) in a MongoDB collection. This metadata can later be used to retrieve, download, or manage the files.
+Example>
+const fileSchema = new mongoose.Schema({
+    filename: String,
+    path: String,
+    size: Number,
+    mimetype: String,
+    uploadedAt: { type: Date, default: Date.now }
+});
+
+const File = mongoose.model('File', fileSchema);
+
+* Implementing File Storage Solutions Like GridFS :
+While storing file metadata in MongoDB works for smaller files, MongoDB’s GridFS is more suitable for storing large files, especially when the files exceed 16MB (the BSON document size limit). GridFS allows you to store and retrieve large files in chunks, and MongoDB handles the file storage across multiple documents.
+npm install gridfs-stream
 
 
 18. GraphQL :
