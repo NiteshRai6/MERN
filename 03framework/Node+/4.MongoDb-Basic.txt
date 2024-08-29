@@ -408,7 +408,8 @@ G. updateMany():
 The updateMany() method updates multiple documents that match a given query.
 
 H. findByIdAndUpdate():
-The findByIdAndUpdate() method finds a document by its _id and updates it. It returns the updated document by default (you can change this behavior using options).
+The findByIdAndUpdate() method finds a document by its _id and updates it. It returns the previous document by default (you can change this behavior using options).
+{new: true} - return updated document.
 
 I. deleteOne():
 The deleteOne() method deletes a single document that matches a given query.
@@ -419,7 +420,7 @@ The deleteMany() method deletes multiple documents that match a given query.
 K. findByIdAndDelete():
 The findByIdAndDelete() method finds a document by its _id and deletes it.
 
-Example>
+* Example> find() :
 User.find({ age: { $gte: 21 } }, (err, users) => {
   if (err) {
     console.error('Error finding users:', err);

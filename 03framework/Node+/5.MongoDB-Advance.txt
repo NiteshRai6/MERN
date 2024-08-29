@@ -120,7 +120,7 @@ app.get('/top-customers', async (req, res) => {
   }
 });
 
-mongoose.connect('mongodb://localhost:27017/yourdbname', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost:27017/yourdbname')
   .then(() => app.listen(3000, () => console.log('Server running on port 3000')))
   .catch(err => console.error(err));
 
@@ -379,10 +379,7 @@ MongoDB supports various authentication mechanisms, such as SCRAM, x.509 certifi
 
 C1. SCRAM Authentication:
 Default Authentication: MongoDB uses SCRAM (Salted Challenge Response Authentication Mechanism) by default, which is secure and widely used.
-mongoose.connect('mongodb://username:password@localhost:27017/myDatabase', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+mongoose.connect('mongodb://username:password@localhost:27017/myDatabase');
 
 C2. x.509 Certificate Authentication:
 Mutual TLS: With x.509 certificates, both the client and server authenticate each other, enhancing security.
@@ -520,7 +517,6 @@ A3. Automated Backups: Implement automated backup schedules to ensure backups ar
 B. Monitoring :
 Monitoring Tools: Use monitoring tools like MongoDB Atlas, Prometheus, or Grafana to track the performance and health of your MongoDB instances.
 
-Monitoring Tools: Use monitoring tools like MongoDB Atlas, Prometheus, or Grafana to track the performance and health of your MongoDB instances.
 Metrics to Monitor:
 
 B1. CPU and Memory Usage: Monitor resource utilization to prevent performance bottlenecks.

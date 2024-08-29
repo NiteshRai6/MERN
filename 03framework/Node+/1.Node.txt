@@ -249,7 +249,6 @@ const fs = require('fs');
 fs.unlinkSync('example.txt');
 console.log('File deleted!');
 
-
 D. Working with Directories :
 The fs module also provides methods to create, read, and delete directories.
 create : fs.mkdir, fs.mkdirSync
@@ -373,7 +372,7 @@ res.setHeader: Sets the HTTP headers for the response. The Content-Type header s
 
 res.end: Ends the response and sends it to the client.
 
-* HTTP Methods : GET, POST, PATCH, PUT, delete
+* HTTP Methods : GET, POST, PATCH, PUT, DELETE
 
 req.on('data'): Listens for data events, which contain chunks of data sent in the POST request. These chunks are combined into the body variable.
 
@@ -401,7 +400,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 9. Node.js Internal Working :
-To understand how Node.js works internally, it’s important to break down its architecture and key components, including the V8 Engine, Event Loop, Libuv, Thread Pool, C++ bindings, and Core Modules. These components work together to enable Node.js to efficiently handle I/O operations and execute JavaScript code in a non-blocking, event-driven manner.
+To understand how Node.js works internally, it’s important to break down its architecture and key components, including the V8 Engine, Event Loop, Libuv, Thread Pool, C++ bindings, and Core Modules. These components work together to enable 
+Node.js to efficiently handle I/O operations and execute JavaScript code in a non-blocking, event-driven manner.
 
 1. V8 Engine :
 Role: 

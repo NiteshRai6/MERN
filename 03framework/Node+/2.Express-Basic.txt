@@ -591,6 +591,27 @@ sequelize.authenticate()
 
 Here, 'mydatabase' is the name of your database, and 'username' and 'password' are your MySQL credentials.
 
+* Express & MongoDB :
+* Use create when you want to quickly create and save a document without additional processing.
+Example>
+// Simple user creation and saving
+const newUser = await User.create({ name: "Jane Doe", email: "jane@example.com" });
+
+Use save when you need to do more with the document before saving it, such as modifying fields or running custom logic.
+Example> 
+// Create a user and set additional fields before saving
+const newUser = new User({ name: "Jane Doe", email: "jane@example.com" });
+newUser.username = "janedoe"; // Add or modify fields
+await newUser.save();
+
+* MongoDB Update :
+* new: true:
+By default, when you update a document in MongoDB, the method returns the original document before the update was applied. Setting { new: true } changes this behavior, so the method returns the updated document instead.
+
+* runValidators: true:
+Mongoose allows you to define validation rules in your schemas. However, by default, these validations are only applied when creating a new document, not when updating an existing one.
+Setting { runValidators: true } ensures that the update operation respects the validation rules defined in your schema. This means that if the update violates any of the validation rules, the operation will fail, preventing invalid data from being saved to the database.
+
 * CRUD Operations with MongoDB :
 CRUD operations are the foundation of interacting with a database. They allow you to Create, Read, Update, and Delete records in your database.
 
@@ -604,10 +625,7 @@ const Book = require('./models/Book'); // Import the Book model
 const app = express();
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/expresscrud', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+mongoose.connect('mongodb://localhost:27017/expresscrud')
 .then(() => console.log('MongoDB connected...'))
 .catch(err => console.log(err));
 
@@ -651,7 +669,8 @@ app.get('/api/books/:id', async (req, res) => {
 // Update a book by ID (UPDATE)
 app.put('/api/books/:id', async (req, res) => {
     try {
-        const book = await Book.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+        const book = await Book.findByIdAndUpdate(req.params.id, req.body, 
+        { new: true, runValidators: true });
         if (!book) {
             return res.status(404).json({ message: 'Book not found' });
         }
@@ -711,10 +730,7 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
+        await mongoose.connect(process.env.MONGO_URI);
         console.log('MongoDB connected...');
     } catch (err) {
         console.error(err.message);

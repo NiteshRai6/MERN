@@ -621,7 +621,6 @@ B. Forking: The fork() method allows you to create a new Node.js process that ca
 
 C. Worker Threads: Although Node.js is single-threaded, it can use worker threads (introduced in Node.js 10.5.0) for CPU-intensive tasks. These threads run in parallel, allowing Node.js to handle multiple heavy operations without blocking the event loop.
 
-
 * Clustering in Express (or Node.js in general) involves creating multiple instances of a server to handle increased load and improve performance. Node.js runs on a single thread, which means it handles one request at a time. To leverage multi-core systems and improve the efficiency of handling multiple simultaneous requests, Node.js can use clustering to spawn multiple processes.
 
 Node.js provides a cluster module that allows you to create multiple worker processes. Each worker process runs on its own CPU core and shares the same server port.
@@ -860,7 +859,7 @@ app.listen(3000, () => {
 A. Unit Testing in Express :
 Unit testing involves testing individual components of your application in isolation. In Express, this usually means testing routes, middleware, and utility functions.
 
-* Writing Unit Tests for Express Routes and Middleware
+* Writing Unit Tests for Express Routes and Middleware :
 Unit testing Express routes and middleware involves the following steps:
 
 Mocking the Request and Response Objects: Since Express routes and middleware rely on req and res objects, these need to be mocked during testing.
@@ -904,7 +903,7 @@ describe('GET /api/users', () => {
 B. Integration Testing in Express :
 Integration testing involves testing how different parts of the application work together. In Express, this often means testing the entire request-response cycle, ensuring that your routes, middleware, and database interactions work as expected.
 
-Testing Entire Request-Response Cycles
+* Testing Entire Request-Response Cycles :
 Integration tests simulate real HTTP requests to your Express server and check the entire flow from incoming request to outgoing response.
 
 Supertest: A popular library used for integration testing in Express. It allows you to make HTTP assertions on your routes.
@@ -938,7 +937,7 @@ C. Console Logging: Simple console.log() statements can be effective for quick d
 * Logging Requests and Errors :
 Logging is essential for monitoring and debugging your application in production. In Express, this can be achieved using middleware and logging libraries.
 
-morgan: A popular logging middleware for Express that logs HTTP requests. It can be configured to log in different formats (e.g., combined, common, dev).
+* morgan: A popular logging middleware for Express that logs HTTP requests. It can be configured to log in different formats (e.g., combined, common, dev).
 Example>
 const morgan = require('morgan');
 app.use(morgan('dev')); // Logs all incoming requests in the 'dev' format
