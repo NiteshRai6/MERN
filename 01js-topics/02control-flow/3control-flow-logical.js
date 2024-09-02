@@ -602,7 +602,6 @@
 //     if (term < 2) return term;
 //     else return fibonacci(term - 1) + fibonacci(term - 2);
 // }
-// let result;
 // const nTerms = 10;
 // for (let i = 0; i < nTerms; i++) {
 //     console.log(fibonacci(i));

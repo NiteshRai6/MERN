@@ -97,6 +97,7 @@
 // console.log(d2.getTime());
 
 // Q6. JavaScript Program to Create Countdown Timer ?
+// Note : % 24 ensures that it only gives you the hours part within the current day (0–23 hours).
 // let countDownDate = new Date().getTime() + 24 * 60 * 60 * 1000;
 // let x = setInterval(function () {
 //     let now = new Date().getTime();

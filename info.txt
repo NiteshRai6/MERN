@@ -1,32 +1,29 @@
 **imp** :
-1. Number is Prime or Not.
-2. List of prime numbers in given range.
-3. Factorial by normal and recusrion.
-4. Fibonacci Series Up to n Terms.
-5. Fibonacci Sequence Up to a Certain Number.
-6. Fibonacci by Recursion.
-7. is ArmsStrong Numbers and generate ArmsStrong numbers.
-8. Find HCF and LCM.
-9. Create function to Insert Item in an Array at specified index for Dynamic data.
-10. Merge Two Arrays and Remove Duplicate Items.
-11. Sort Array of Objects by Property Values.
-12. Return all Pairs of given Array Elements whose addition = Target Sum.
-13. Convert Multidimensional Array in 1D Array, without flat method.
-14. Check Whether a String is Palindrome or Not ?
-15. Reverse a String ?
-16. Check the Number of Occurrences of a Character in the String ?
-17. Convert the First Letter of a String into UpperCase ?
-18. Count the Number of Vowels in a String ?
-19. Generate a Range of Numbers and Characters ?
-20. Print 5 times real time at the gap of 1 seconds.
-21. Explain Closures with example.
-22. Explain 7 different use cases of 'this' keyword.
-23. Create custom iterator function? (pre-defined: iterable_name[Symbol.iterator]() )
-24. Create custom Iterator object ?
-25. Create Countdown Timer ?
-26. JavaScript Program to Implement a Stack ? (LIFO) (by using array)
-27. JavaScript Program to Implement a Queue ? (FIFO) (by using object)
-28. Explain var and let scope in lopp and in timeout.
-29. Explain Array map, reduce and filter in one example.
-30. Explain call, apply and bind method ?
+1. Number is Prime or Not And List of prime numbers in given range.
+2. Factorial by normal and recusrion.
+3. Fibonacci Series Up to n Terms and Up to a Certain Number.
+4. is ArmsStrong Numbers and generate ArmsStrong numbers.
+5. Find HCF (GCD) and LCM.
+6. Create function to Insert Item in an Array at specified index for Dynamic data.
+7. Remove Duplicate Items for single Array & for multiple Arrays.
+8. Sort Array of Objects by Property Values.
+9. Return all Pairs of given Array Elements whose addition = Target Sum.
+10. Convert Multidimensional Array in 1D Array, without flat method.
+11. Check Whether a String is Palindrome or Not ?
+12. Reverse a String ?
+13. Check the Number of Occurrences of a Character in the String ?
+14. Convert the First Letter of a String into UpperCase ?
+15. Count the Number of Vowels in a String ?
+16. Generate a Range of Numbers and Characters ?
+17. Print 5 times real time at the gap of 1 seconds.
+18. Explain Closures with example.
+19. Explain 7 different use cases of 'this' keyword.
+20. Create custom iterator function? 
+21. Create custom iterable object ? (pre-defined: iterable_name[Symbol.iterator]() )
+22. Create Countdown Timer ?
+23. JavaScript Program to Implement a Stack ? (LIFO) (by using array)
+24. JavaScript Program to Implement a Queue ? (FIFO) (by using object)
+25. Explain var and let scope in lopp and in timeout.
+26. Explain Array map, reduce and filter in one example.
+27. Explain call, apply and bind method ?
 
