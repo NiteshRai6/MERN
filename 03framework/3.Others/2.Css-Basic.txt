@@ -1,0 +1,986 @@
+* CSS Topics :
+1. CSS Intro
+2. How To Add CSS
+3. CSS Colors & Background
+4. CSS Borders, Margins, Padding & Box Model
+5. CSS Outline, Text, Fonts
+6. CSS List, Table, display & Position
+
+
+
+1. CSS Intro :
+CSS is used to define styles for your web pages, including the design, layout and variations in display for different devices and screen sizes.
+CSS stands for Cascading Style Sheets
+CSS describes how HTML elements are to be displayed on screen, paper, or in other media
+CSS saves a lot of work. It can control the layout of multiple web pages all at once
+External stylesheets are stored in CSS files
+
+* CSS Syntax :
+A CSS rule consists of a selector and a declaration block.
+Example>
+p {
+  color: red;
+  text-align: center;
+}
+Example Explained :
+p is a selector in CSS (it points to the HTML element you want to style: <p>).
+color is a property, and red is the property value
+text-align is a property, and center is the property value
+
+* CSS Selectors :
+CSS selectors are used to "find" (or select) the HTML elements you want to style.
+
+We can divide CSS selectors into five categories :
+A. Simple selectors (select elements based on name, id, class)
+B. Combinator selectors (select elements based on a specific relationship between them)
+C. Pseudo-class selectors (select elements based on a certain state)
+D. Pseudo-elements selectors (select and style a part of an element)
+E. Attribute selectors (select elements based on an attribute or attribute value)
+
+A. CSS element Selector :
+The element selector selects HTML elements based on the element name.
+p {
+  text-align: center;
+  color: red;
+}
+
+B. CSS id Selector :
+The id selector uses the id attribute of an HTML element to select a specific element.
+The id of an element is unique within a page, so the id selector is used to select one unique element!
+To select an element with a specific id, write a hash (#) character, followed by the id of the element.
+#para1 {
+  text-align: center;
+  color: red;
+}
+Note : A id or class name cannot start with a number!
+
+C. CSS class Selector :
+The class selector selects HTML elements with a specific class attribute.
+To select elements with a specific class, write a period (.) character, followed by the class name.
+.center {
+  text-align: center;
+  color: red;
+}
+You can also specify that only specific HTML elements should be affected by a class.
+p.center { }.
+
+HTML elements can also refer to more than one class.
+In this example the <p> element will be styled according to class="center" and to class="large": 
+<p class="center large">This paragraph refers to two classes.</p>
+
+D. CSS Universal Selector :
+The universal selector (*) selects all HTML elements on the page.
+* {
+  text-align: center;
+  color: blue;
+}
+
+E. CSS Grouping Selector :
+The grouping selector selects all the HTML elements with the same style definitions.
+h1, h2, p {
+  text-align: center;
+  color: red;
+}
+
+
+2. How To Add CSS :
+There are three ways of inserting a style sheet:
+A. External CSS
+B. Internal CSS
+C. Inline CSS
+
+A. External CSS :
+With an external style sheet, you can change the look of an entire website by changing just one file!
+Each HTML page must include a reference to the external style sheet file inside the <link> element, inside the head section.
+An external style sheet can be written in any text editor, and must be saved with a .css extension.
+The external .css file should not contain any HTML tags.
+Example> index.html :
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+</body>
+</html>
+
+Example> mystyle.css :
+body {
+  background-color: lightblue;
+}
+h1 {
+  color: navy;
+  margin-left: 20px;
+}
+
+Note: Do not add a space between the property value (20) and the unit (px):
+Incorrect (space): margin-left: 20 px;
+Correct (no space): margin-left: 20px;
+
+B. Internal CSS :
+An internal style sheet may be used if one single HTML page has a unique style.
+The internal style is defined inside the <style> element, inside the head section.
+Example>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: linen;
+}
+h1 {
+  color: maroon;
+  margin-left: 40px;
+}
+</style>
+</head>
+<body>
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+</body>
+</html>
+
+C. Inline CSS :
+An inline style may be used to apply a unique style for a single element.
+To use inline styles, add the style attribute to the relevant element. The style attribute can contain any CSS property.
+Example>
+<!DOCTYPE html>
+<html>
+<body>
+<h1 style="color:blue;text-align:center;">This is a heading</h1>
+<p style="color:red;">This is a paragraph.</p>
+</body>
+
+* Multiple Style Sheets :
+If some properties have been defined for the same selector (element) in different style sheets, the value from the last read style sheet will be used. 
+
+All the styles in a page will "cascade" into a new "virtual" style sheet by the following rules, where number one has the highest priority:
+A. Inline style (inside an HTML element)
+B. External and internal style sheets (in the head section)
+C. Browser default
+
+
+3. CSS Colors & Background :
+A. Comments :
+CSS comments are not displayed in the browser, but they can help document your source code.
+A CSS comment is placed inside the <style> element, and starts with /* and ends with */.
+p {
+  color: red;  /* Set text color to red */
+}
+
+B. CSS Colors :
+Colors are specified using predefined color names, or RGB, HEX, HSL, RGBA, HSLA values.
+
+In CSS, a color can be specified by using a predefined color name:
+Tomato, Orange, DodgerBlue, MediumSeaGreen, Gray, SlateBlue, Violet, LightGray
+<h1 style="color:Tomato;">Hello World</h1>
+
+B1. CSS RGB Colors :
+In CSS, a color can be specified as an RGB value, using this formula:
+rgb(red, green, blue).
+Each parameter (red, green, and blue) defines the intensity of the color between 0 and 255.
+For example, rgb(255, 0, 0) is displayed as red, because red is set to its highest value (255) and the others are set to 0.
+To display black, set all color parameters to 0, like this: rgb(0, 0, 0).
+To display white, set all color parameters to 255, like this: rgb(255, 255, 255).
+Example> rgb(238, 130, 238)
+
+* RGBA Value :
+RGBA color values are an extension of RGB color values with an alpha channel - which specifies the opacity for a color.
+An RGBA color value is specified with:
+rgba(red, green, blue, alpha)
+The alpha parameter is a number between 0.0 (fully transparent) and 1.0 (not transparent at all):
+rgba(255, 99, 71, 0.5)
+
+B2. CSS HEX Colors :
+In CSS, a color can be specified using a hexadecimal value in the form : #rrggbb
+Where rr (red), gg (green) and bb (blue) are hexadecimal values between 00 and ff (same as decimal 0-255).
+For example, #ff0000 is displayed as red, because red is set to its highest value (ff) and the others are set to the lowest value (00).
+To display black, set all values to 00, like this: #000000.
+To display white, set all values to ff, like this: #ffffff.  
+Example> #ff6347
+The 3-digit hex code can only be used when both the values (RR, GG, and BB) are the same for each component. So, if we have #ff00cc, it can be written like this: #f0c.
+
+B3. CSS HSL Colors :
+In CSS, a color can be specified using hue, saturation, and lightness (HSL) in the form:
+hsl(hue, saturation, lightness)
+Hue is a degree on the color wheel from 0 to 360. 0 is red, 120 is green, and 240 is blue.
+Saturation is a percentage value. 0% means a shade of gray, and 100% is the full color.
+Lightness is also a percentage. 0% is black, 50% is neither light or dark, 100% is white
+Example> hsl(300, 76%, 72%)
+HSLA color values are an extension of HSL color values with an alpha channel - which specifies the opacity for a color. Example> hsla(0, 100%, 50%, 0.5)
+
+C. CSS Backgrounds :
+The CSS background properties are used to add background effects for elements.
+background-color
+background-image
+background-repeat
+background-attachment
+background-position
+background (shorthand property)
+
+* background color :
+div {
+  background-color: green;
+  opacity: 0.3;
+}
+Note: When using the opacity property to add transparency to the background of an element, all of its child elements inherit the same transparency. This can make the text inside a fully transparent element hard to read.
+
+If you do not want to apply opacity to child elements, like in our example above, use RGBA color values. The following example sets the opacity for the background color and not the text:
+div {
+  background: rgba(0, 128, 0, 0.3) /* Green background with 30% opacity */
+}
+
+* background-image :
+The background-image property specifies an image to use as the background of an element.
+By default, the image is repeated so it covers the entire element.
+body {
+  background-image: url("paper.gif");
+}
+
+* Background Image Repeat :
+By default, the background-image property repeats an image both horizontally and vertically.
+To repeat an image horizontally, set background-repeat: repeat-x;
+To repeat an image vertically, set background-repeat: repeat-y;
+To not repeat an image, set background-repeat: no-repeat;
+The background-position property is used to specify the position of the background image.
+Example>
+body {
+  background-image: url("img_tree.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+* Background Attachment :
+The background-attachment property specifies whether the background image should scroll or be fixed (will not scroll with the rest of the page):
+background-attachment: fixed;
+background-attachment: scroll;
+
+* Background Shorthand :
+To shorten the code, it is also possible to specify all the background properties in one single property. This is called a shorthand property.
+
+When using the shorthand property 'background' the order of the property values is:
+background-color
+background-image
+background-repeat
+background-attachment
+background-position
+It does not matter if one of the property values is missing, as long as the other ones are in this order.
+
+Example> Full Properties :
+body {
+  background-color: #ffffff;
+  background-image: url("img_tree.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+Example> Shorthand Property :
+body {
+  background: #ffffff url("img_tree.png") no-repeat right top;
+}
+
+
+4. CSS Borders, Margins, Padding & Box Model :
+
+A. Borders :
+The CSS border properties allow you to specify the style, width, and color of an element's border.
+The border-style property specifies what kind of border to display.
+
+The following values are allowed:
+dotted - Defines a dotted border
+dashed - Defines a dashed border
+solid - Defines a solid border
+double - Defines a double border
+groove - Defines a 3D grooved border. The effect depends on the border-color value
+ridge - Defines a 3D ridged border. The effect depends on the border-color value
+inset - Defines a 3D inset border. The effect depends on the border-color value
+outset - Defines a 3D outset border. The effect depends on the border-color value
+none - Defines no border
+hidden - Defines a hidden border
+
+The border-style property can have from one to four values (for the top border, right border, bottom border, and the left border).
+
+* The border-width property specifies the width of the four borders.
+The width can be set as a specific size (in px, pt, cm, em, etc) or by using one of the three pre-defined values: thin, medium, or thick.
+Example>
+p.one {
+  border-style: solid;
+  border-width: 5px;
+}
+
+The border-width property can have from one to four values (for the top border, right border, bottom border, and the left border).
+Example>  border-width: 5px 20px; /* 5px top and bottom, 20px on the sides */
+
+* The border-color property is used to set the color of the four borders.
+Note: If border-color is not set, it inherits the color of the element.
+Example> border-color: red green blue yellow;
+
+* You can specify a different border for each side.
+p {
+  border-style: dotted solid;
+}
+
+* The border property is a shorthand property for the following individual border properties:
+border-width
+border-style (required)
+border-color
+
+* The border-radius property is used to add rounded borders to an element.
+p {
+  border: 2px solid red;
+  border-radius: 5px;
+}
+
+B. Margins :
+The CSS margin properties are used to create space around elements, outside of any defined borders.
+
+The margin property is a shorthand property for the following individual margin properties:
+margin-top
+margin-right
+margin-bottom
+margin-left
+
+All the margin properties can have the following values:
+auto - the browser calculates the margin
+length - specifies a margin in px, pt, cm, etc.
+% - specifies a margin in % of the width of the containing element
+inherit - specifies that the margin should be inherited from the parent element
+Tip: Negative values are allowed.
+
+A. If the margin property has four values:
+margin: 25px 50px 75px 100px;
+top margin is 25px
+right margin is 50px
+bottom margin is 75px
+left margin is 100px
+
+B. If the margin property has three values:
+margin: 25px 50px 75px;
+top margin is 25px
+right and left margins are 50px
+bottom margin is 75px
+
+C. If the margin property has two values:
+margin: 25px 50px;
+top and bottom margins are 25px
+right and left margins are 50px
+
+D. If the margin property has one value:
+margin: 25px;
+all four margins are 25px
+
+* You can set the margin property to auto to horizontally center the element within its container.
+The element will then take up the specified width, and the remaining space will be split equally between the left and right margins.
+div {
+  width: 300px;
+  margin: auto;
+  border: 1px solid red;
+}
+
+* Margin Collapse :
+Top and bottom margins of elements are sometimes collapsed into a single margin that is equal to the largest of the two margins.
+This does not happen on left and right margins! Only top and bottom margins!
+
+Example>
+h1 {
+  margin: 0 0 50px 0;
+}
+
+h2 {
+  margin: 20px 0 0 0;
+}
+In the example above, the <h1> element has a bottom margin of 50px and the <h2> element has a top margin set to 20px.
+Common sense would seem to suggest that the vertical margin between the <h1> and the <h2> would be a total of 70px (50px + 20px). But due to margin collapse, the actual margin ends up being 50px.
+
+C. CSS Padding :
+The CSS padding properties are used to generate space around an element's content, inside of any defined borders.
+div {
+  padding: 25px;
+}
+
+D. CSS Height, Width and Max-width :
+The height and width properties are used to set the height and width of an element.
+The height and width properties do not include padding, borders, or margins. It sets the height/width of the area inside the padding, border, and margin of the element.
+
+The height and width properties may have the following values:
+auto - This is default. The browser calculates the height and width
+length - Defines the height/width in px, cm, etc.
+% - Defines the height/width in percent of the containing block
+initial - Sets the height/width to its default value
+inherit - The height/width will be inherited from its parent value
+
+div {
+  height: 200px;
+  width: 50%;
+  background-color: powderblue;
+}
+
+* The max-width property is used to set the maximum width of an element.
+The problem with the <div> above occurs when the browser window is smaller than the width of the element (500px). The browser then adds a horizontal scrollbar to the page.
+Using max-width instead, in this situation, will improve the browser's handling of small windows.
+
+E. CSS Box Model :
+In CSS, the term "box model" is used when talking about design and layout.
+The CSS box model is essentially a box that wraps around every HTML element. It consists of: content, padding, borders and margins. 
+
+Content - The content of the box, where text and images appear
+Padding - Clears an area around the content. The padding is transparent
+Border - A border that goes around the padding and content
+Margin - Clears an area outside the border. The margin is transparent
+
+This <div> element will have a total width of 350px and a total height of 80px:
+div {
+  width: 320px;
+  height: 50px;
+  padding: 10px;
+  border: 5px solid gray;
+  margin: 0;
+}
+
+* Box-sizing :
+By default, the width and height of an element is calculated like this:
+width + padding + border = actual width of an element
+height + padding + border = actual height of an element
+
+The box-sizing property allows us to include the padding and border in an element's total width and height.
+If you set box-sizing: border-box; on an element, padding and border are included in the width and height.
+* {
+  box-sizing: border-box;
+}
+
+
+5. CSS Outline, Text, Fonts :
+
+A. CSS Outline :
+An outline is a line that is drawn around elements, OUTSIDE the borders, to make the element "stand out".
+CSS has the following outline properties:
+outline-style
+outline-color
+outline-width
+outline-offset
+outline (shorthand)
+
+Note: Outline differs from borders! Unlike border, the outline is drawn outside the element's border, and may overlap other content. Also, the outline is NOT a part of the element's dimensions; the element's total width and height is not affected by the width of the outline.
+
+The outline-style property specifies the style of the outline, and can have values like as borders.
+Example>
+p.ex1 {
+  border: 1px solid black;
+  outline-style: solid;
+  outline-width: thin;
+  outline-color: red;
+}
+
+* The outline property is a shorthand property for setting the following individual outline properties:
+outline-width
+outline-style (required)
+outline-color
+Example>
+p.ex1 {
+    border: 1px solid black;
+    outline : 5px solid yellow
+}
+
+* Outline Offset :
+The outline-offset property adds space between an outline and the edge/border of an element. The space between an element and its outline is transparent.
+Example>
+p {
+  margin: 30px;
+  background: yellow;
+  border: 1px solid black;
+  outline: 1px solid red;
+  outline-offset: 15px;
+}
+
+B. CSS Text :
+The color property is used to set the color of the text.
+
+Important: High contrast is very important for people with vision problems. So, always ensure that the contrast between the text color and the background color (or background image) is good!
+
+body {
+  background-color: lightgrey;
+  color: blue;
+}
+
+* Text Alignment :
+The text-align property is used to set the horizontal alignment of a text.
+A text can be left or right aligned, centered, or justified.
+h1 {
+  text-align: center;
+}
+
+When the text-align property is set to "justify", each line is stretched so that every line has equal width, and the left and right margins are straight (like in magazines and newspapers):
+
+The text-align-last property specifies how to align the last line of a text.
+
+* Text Direction :
+The direction and unicode-bidi properties can be used to change the text direction of an element.
+p {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+* Vertical Alignment :
+The vertical-align property sets the vertical alignment of an element.
+img.a {
+  vertical-align: baseline / text-top / text-bottom / sub / super
+}
+
+* Text Decoration :
+The text-decoration-line property is used to add a decoration line to text.
+Tip: You can combine more than one value, like overline and underline to display lines both over and under a text.
+
+Note: It is not recommended to underline text that is not a link, as this often confuses the reader.
+
+The text-decoration-color property is used to set the color of the decoration line.
+The text-decoration-style property is used to set the style of the decoration line.
+The text-decoration-thickness property is used to set the thickness of the decoration line.
+
+Example>
+h1 {
+  text-decoration-line: overline;
+  text-decoration-color: red;
+  text-decoration-style: dotted;
+   text-decoration-thickness: 5px;
+
+}
+
+* The text-decoration property is a shorthand property for:
+text-decoration-line (required)
+text-decoration-color (optional)
+text-decoration-style (optional)
+text-decoration-thickness (optional)
+p {
+  text-decoration: underline red double 5px;
+}
+
+All links in HTML are underlined by default. Sometimes you see that links are styled with no underline. The text-decoration: none; is used to remove the underline from links.
+
+* Text Transformation :
+The text-transform property is used to specify uppercase and lowercase letters in a text.
+It can be used to turn everything into uppercase or lowercase letters, or capitalize the first letter of each word.
+
+p {
+  text-transform: uppercase / lowercase / capitalize;
+}
+
+* Text Spacing :
+The text-indent property is used to specify the indentation of the first line of a text.
+
+The letter-spacing property is used to specify the space between the characters in a text.
+
+The line-height property is used to specify the space between lines.
+
+The word-spacing property is used to specify the space between the words in a text.
+
+The white-space property specifies how white-space inside an element is handled.
+
+p {
+  text-indent: 50px;
+  letter-spacing: 5px;
+  line-height: 1.8;
+  word-spacing: 10px;
+  white-space: nowrap;
+}
+
+* Text Shadow :
+The text-shadow property adds shadow to text.
+h1 {
+  text-shadow: 2px 3px 5px red;
+}
+here in above example :
+horizontal shadow : 2px;
+vertical shadow : 3px;
+blur : 5px;
+color : res;
+
+C. CSS Fonts :
+Choosing the right font has a huge impact on how the readers experience a website.
+The right font can create a strong identity for your brand.
+Using a font that is easy to read is important. The font adds value to your text. It is also important to choose the correct color and text size for the font.
+
+In CSS there are five generic font families:
+Serif fonts have a small stroke at the edges of each letter. They create a sense of formality and elegance.
+Sans-serif fonts have clean lines (no small strokes attached). They create a modern and minimalistic look.
+Monospace fonts - here all the letters have the same fixed width. They create a mechanical look. 
+Cursive fonts imitate human handwriting.
+Fantasy fonts are decorative/playful fonts.
+
+Note: On computer screens, sans-serif fonts are considered easier to read than serif fonts.
+
+* Generic Font Family :	Examples of Font Names>
+Serif :	Times New Roman, Georgia, Garamond
+Sans-serif :	Arial, Verdana, Helvetica
+Monospace :	Courier New, Lucida Console, Monaco
+Cursive :	Brush Script MT, Lucida Handwriting
+Fantasy :	Copperplate, Papyrus
+
+In CSS, we use the font-family property to specify the font of a text.
+Note: If the font name is more than one word, it must be in quotation marks, like: "Times New Roman".
+Tip: The font-family property should hold several font names as a "fallback" system, to ensure maximum compatibility between browsers/operating systems. Start with the font you want, and end with a generic family (to let the browser pick a similar font in the generic family, if no other fonts are available). The font names should be separated with a comma.
+
+Example>
+.p1 {
+  font-family: "Times New Roman", Times, serif;
+}
+.p2 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.p3 {
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+* Web Safe Fonts :
+Web safe fonts are fonts that are universally installed across all browsers and devices.
+
+* Arial (sans-serif) :
+Arial is the most widely used font for both online and printed media. Arial is also the default font in Google Docs.
+Arial is one of the safest web fonts, and it is available on all major operating systems.
+
+* Font Style :
+The font-style property is mostly used to specify italic text.
+This property has three values:
+normal - The text is shown normally
+italic - The text is shown in italics
+oblique - The text is "leaning" (oblique is very similar to italic, but less supported)
+p.italic {
+}
+
+The font-weight property specifies the weight of a font.
+
+The font-variant property specifies whether or not a text should be displayed in a small-caps font.
+
+In a small-caps font, all lowercase letters are converted to uppercase letters. However, the converted uppercase letters appears in a smaller font size than the original uppercase letters in the text.
+
+Example>
+p {
+    font-style: italic;
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+* Font Size :
+The font-size property sets the size of the text.
+
+The font-size value can be an absolute, or relative size :
+
+Absolute size:
+Sets the text to a specified size
+Does not allow a user to change the text size in all browsers (bad for accessibility reasons)
+Absolute size is useful when the physical size of the output is known.
+
+Relative size:
+Sets the size relative to surrounding elements
+Allows a user to change the text size in browsers
+
+Note: If you do not specify a font size, the default size for normal text, like paragraphs, is 16px (16px=1em).
+
+* Google Fonts :
+If you do not want to use any of the standard fonts in HTML, you can use Google Fonts.
+Google Fonts are free to use, and have more than 1000 fonts to choose from.
+
+* Font Property :
+To shorten the code, it is also possible to specify all the individual font properties in one property.
+
+The font property is a shorthand property for:
+font-style
+font-variant
+font-weight
+font-size/line-height
+font-family
+Note: The font-size and font-family values are required. If one of the other values is missing, their default value are used.
+
+Example> 
+p.a {
+  font: 20px Arial, sans-serif;
+}
+
+p.b {
+  font: italic small-caps bold 12px/30px Georgia, serif;
+}
+
+* CSS Icons :
+The simplest way to add an icon to your HTML page, is with an icon library, such as Font Awesome.
+Add the name of the specified icon class to any inline HTML element (like <i> or <span>).
+All the icons in the icon libraries below, are scalable vectors that can be customized with CSS (size, color, shadow, etc.)
+
+* CSS Links :
+Links can be styled with any CSS property (e.g. color, font-family, background, etc.).
+The four links states are:
+a:link - a normal, unvisited link
+a:visited - a link the user has visited
+a:hover - a link when the user mouses over it
+a:active - a link the moment it is clicked
+
+Example>
+a:link {
+  color: red;
+}
+
+a:visited {
+  color: green;
+}
+
+
+6. CSS List, Table, display & Position :
+
+A. CSS Lists :
+The CSS list properties allow you to:
+Set different list item markers for ordered lists
+Set different list item markers for unordered lists
+Set an image as the list item marker
+Add background colors to lists and list items
+
+ul.b {
+  list-style-type: square;
+}
+
+ol.c {
+  list-style-type: upper-roman;
+}
+
+The list-style-image property specifies an image as the list item marker:
+ul {
+  list-style-image: url('sqpurple.gif');
+}
+
+The list-style-position property specifies the position of the list-item markers (bullet points).
+
+"list-style-position: outside;" means that the bullet points will be outside the list item. The start of each line of a list item will be aligned vertically. This is default.
+
+"list-style-position: inside;" means that the bullet points will be inside the list item. As it is part of the list item, it will be part of the text and push the text at the start.
+
+The list-style-type:none property can also be used to remove the markers/bullets. Note that the list also has default margin and padding. To remove this, add margin:0 and padding:0 to <ul> or <ol>.
+
+Shorthand Example>
+ul {
+  list-style: square inside url("sqpurple.gif");
+}
+
+B. CSS Tables :
+The text-align property sets the horizontal alignment (like left, right, or center) of the content in <th> or <td>.
+The vertical-align property sets the vertical alignment (like top, bottom, or middle) of the content in <th> or <td>.
+
+Add the border-bottom property to <th> and <td> for horizontal dividers:
+
+For zebra-striped tables, use the nth-child() selector and add a background-color to all even (or odd) table rows.
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+A responsive table will display a horizontal scroll bar if the screen is too small to display the full content.
+Add a container element (like <div>) with overflow-x:auto around the <table> element to make it responsive.
+
+C. CSS Display :
+The display property is the most important CSS property for controlling layout.
+The display property is used to specify how an element is shown on a web page.
+Every HTML element has a default display value, depending on what type of element it is. The default display value for most elements is block or inline.
+The display property is used to change the default display behavior of HTML elements.
+
+* The display property has many values :
+Value :	Description
+
+inline :	Displays an element as an inline element
+
+block	Displays an element as a block element
+
+contents : Makes the container disappear, making the child elements children of the element the next level up in the DOM
+
+flex : Displays an element as a block-level flex container
+
+grid : Displays an element as a block-level grid container
+
+inline-block : Displays an element as an inline-level block container. The element itself is formatted as an inline element, but you can apply height and width values
+
+inline-flex :	Displays an element as an inline-level flex container
+
+inline-grid :	Displays an element as an inline-level grid container
+
+inline-table : The element is displayed as an inline-level table
+
+list-item :	Let the element behave like a <li> element
+
+run-in : Displays an element as either block or inline, depending on context
+
+table	: Let the element behave like a <table> element
+
+table-caption	: Let the element behave like a <caption> element
+
+table-column-group :	Let the element behave like a <colgroup> element
+
+table-header-group :	Let the element behave like a <thead> element
+
+table-footer-group :	Let the element behave like a <tfoot> element
+
+table-row-group :	Let the element behave like a <tbody> element
+
+table-cell :	Let the element behave like a <td> element
+
+table-column :	Let the element behave like a <col> element
+
+table-row :	Let the element behave like a <tr> element
+
+none : The element is completely removed
+
+initial :	Sets this property to its default value
+
+inherit :	Inherits this property from its parent element
+
+* Override The Default Display Value :
+Every element has a default display value. However, you can override this.
+Changing an inline element to a block element, or vice versa, can be useful for making the page look a specific way, and still follow the web standards.
+A common example is making inline <li> elements for horizontal menus.
+
+Note: Setting the display property of an element only changes how the element is displayed, NOT what kind of element it is. So, an inline element with display: block; is not allowed to have other block elements inside it.
+
+Hiding an element can be done by setting the display property to none. The element will be hidden, and the page will be displayed as if the element is not there.
+visibility:hidden; also hides an element.
+However, the element will still take up the same space as before. The element will be hidden, but still affect the layout:
+
+D. CSS Position : (**imp**)
+The position property specifies the type of positioning method used for an element.
+There are five different position values:
+static
+relative
+fixed
+absolute
+sticky
+Elements are then positioned using the top, bottom, left, and right properties. However, these properties will not work unless the position property is set first. 
+
+* static :
+HTML elements are positioned static by default.
+Static positioned elements are not affected by the top, bottom, left, and right properties.
+An element with position: static; is not positioned in any special way; it is always positioned according to the normal flow of the page.
+
+* relative :
+An element with position: relative; is positioned relative to its normal position.
+Setting the top, right, bottom, and left properties of a relatively-positioned element will cause it to be adjusted away from its normal position. Other content will not be adjusted to fit into any gap left by the element.
+
+* fixed;
+An element with position: fixed; is positioned relative to the viewport, which means it always stays in the same place even if the page is scrolled. The top, right, bottom, and left properties are used to position the element.
+A fixed element does not leave a gap in the page where it would normally have been located.
+
+* absolute;
+An element with position: absolute; is positioned relative to the nearest positioned ancestor (instead of positioned relative to the viewport, like fixed).
+However; if an absolute positioned element has no positioned ancestors, it uses the document body, and moves along with page scrolling.
+Note: Absolute positioned elements are removed from the normal flow, and can overlap elements.
+Example>
+div.relative {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  border: 3px solid #73AD21;
+}
+
+div.absolute {
+  position: absolute;
+  top: 80px;
+  right: 0;
+  width: 200px;
+  height: 100px;
+  border: 3px solid #73AD21;
+}
+
+* sticky :
+An element with position: sticky; is positioned based on the user's scroll position.
+A sticky element toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed).
+Example>
+div.sticky {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  background-color: green;
+  border: 2px solid #4CAF50;
+}
+
+* z-index Property :
+When elements are positioned, they can overlap other elements.
+The z-index property specifies the stack order of an element (which element should be placed in front of, or behind, the others).
+An element can have a positive or negative stack order.
+
+Example>
+img {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+}
+
+Note: z-index only works on positioned elements (position: absolute, position: relative, position: fixed, or position: sticky) and flex items (elements that are direct children of display: flex elements).
+
+If two positioned elements overlap each other without a z-index specified, the element defined last in the HTML code will be shown on top.
+
+* CSS Overflow :
+The overflow property specifies whether to clip the content or to add scrollbars when the content of an element is too big to fit in the specified area.
+The overflow property has the following values:
+visible - Default. The overflow is not clipped. The content renders outside the element's box
+hidden - The overflow is clipped, and the rest of the content will be invisible
+scroll - The overflow is clipped, and a scrollbar is added to see the rest of the content
+auto - Similar to scroll, but it adds scrollbars only when necessary
+
+Note: The overflow property only works for block elements with a specified height.
+
+overflow-x specifies what to do with the left/right edges of the content.
+overflow-y specifies what to do with the top/bottom edges of the content.
+
+* float :
+The float property is used for positioning and formatting content e.g. let an image float left to the text in a container.
+
+The float property can have one of the following values:
+left - The element floats to the left of its container
+right - The element floats to the right of its container
+none - The element does not float (will be displayed just where it occurs in the text). This is default
+inherit - The element inherits the float value of its parent
+In its simplest use, the float property can be used to wrap text around images.
+
+Normally div elements will be displayed on top of each other. However, if we use float: left we can let elements float next to each other.
+
+* clear Property :
+When we use the float property, and we want the next element below (not on right or left), we will have to use the clear property.
+The clear property specifies what should happen with the element that is next to a floating element.
+
+The clear property can have one of the following values:
+none - The element is not pushed below left or right floated elements. This is default
+left - The element is pushed below left floated elements
+right - The element is pushed below right floated elements
+both - The element is pushed below both left and right floated elements
+inherit - The element inherits the clear value from its parent
+When clearing floats, you should match the clear to the float: If an element is floated to the left, then you should clear to the left. Your floated element will continue to float, but the cleared element will appear below it on the web page.
+
+div1 {
+  float: left;
+}
+
+div2 {
+  clear: left;
+}
+
+clearfix Hack :
+If a floated element is taller than the containing element, it will "overflow" outside of its container. We can then add a clearfix hack to solve this problem.
+.clearfix {
+  overflow: auto;
+}
+
+The overflow: auto clearfix works well as long as you are able to keep control of your margins and padding (else you might see scrollbars). The new, modern clearfix hack however, is safer to use, and the following code is used for most webpages.
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+* display: inline-block :
+Compared to display: inline, the major difference is that display: inline-block allows to set a width and height on the element.
+
+Also, with display: inline-block, the top and bottom margins/paddings are respected, but with display: inline they are not.
+
+Compared to display: block, the major difference is that display: inline-block does not add a line-break after the element, so the element can sit next to other elements.
+
+* Horizontal & Vertical Align :
+To horizontally center a block element (like <div>), define width & use margin: auto.
+Note: Center aligning has no effect if the width property is not set (or set to 100%).
+To just center the text inside an element, use text-align: center;
+
+
+
+                            ** End **
+

@@ -1,0 +1,673 @@
+* HTML Topics :
+1. HTML Intro
+2. HTML Tags
+3. HTML Text Formatting
+4. HTML Links & Special Tags
+5. HTML Images
+6. HTML Tables & List
+7. HTML Block & Inline Elements
+8. HTML Layout & Semantic Elements
+9. HTML Forms
+10. HTML Canvas & SVG
+11. HTML Media
+
+
+
+1. HTML Intro :
+
+HTML stands for Hyper Text Markup Language
+HTML is the standard markup language for creating Web pages
+HTML describes the structure of a Web page
+HTML consists of a series of elements
+HTML elements tell the browser how to display the content
+
+* Example>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+</body>
+</html>
+
+* Example Explained :
+The <!DOCTYPE html> declaration defines that this document is an HTML5 document
+The <html> element is the root element of an HTML page
+The <head> element contains meta information about the HTML page
+The <title> element specifies a title for the HTML page (which is shown in the browser's title bar or in the page's tab)
+The <body> element defines the document's body, and is a container for all the visible contents, such as headings, paragraphs, images, hyperlinks, tables, lists, etc.
+The <h1> element defines a large heading
+The <p> element defines a paragraph
+
+* HTML Element :
+An HTML element is defined by a start tag, some content, and an end tag:
+<tagname> Content goes here... </tagname>
+Example> 
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+
+Note: Some HTML elements have no content (like the <br> element). These elements are called empty elements. Empty elements do not have an end tag!
+
+* Web Browsers :
+The purpose of a web browser (Chrome, Edge, Firefox, Safari) is to read HTML documents and display them correctly.
+A browser does not display the HTML tags, but uses them to determine how to display the document.
+
+* HTML History :
+1989 : Tim Berners-Lee invented www
+1991 : Tim Berners-Lee invented HTML
+2014 : W3C Recommendation: HTML5
+
+
+2. HTML Tags :
+
+A. HTML is Not Case Sensitive :
+HTML tags are not case sensitive: <P> means the same as <p>.
+The HTML standard does not require lowercase tags, but W3C recommends lowercase in HTML, and demands lowercase for stricter document types like XHTML.
+
+B. HTML Attributes :
+All HTML elements can have attributes
+Attributes provide additional information about elements
+Attributes are always specified in the start tag
+Attributes usually come in name/value pairs like: name="value"
+Example>
+The <a> tag defines a hyperlink. The href attribute specifies the URL of the page the link goes to:
+<a href="https://www.w3schools.com">Visit W3Schools</a>
+
+C. HTML Headings :
+HTML headings are titles or subtitles that you want to display on a webpage.
+HTML headings are defined with the <h1> to <h6> tags.
+<h1> defines the most important heading. <h6> defines the least important heading.
+Note: Browsers automatically add some white space (a margin) before and after a heading.
+Search engines use the headings to index the structure and content of your web pages.
+Note: Use HTML headings for headings only. Don't use headings to make text BIG or bold.
+
+D. HTML Paragraphs :
+The HTML <p> element defines a paragraph.
+A paragraph always starts on a new line, and browsers automatically add some white space (a margin) before and after a paragraph.
+
+E. HTML Horizontal Rules :
+The <hr> tag defines a thematic break in an HTML page, and is most often displayed as a horizontal rule.
+The <hr> element is used to separate content (or define a change) in an HTML page.
+
+F. HTML Line Breaks :
+The HTML <br> element defines a line break.
+Use <br> if you want a line break (a new line) without starting a new paragraph.
+
+G. HTML <pre> Element :
+The HTML <pre> element defines preformatted text.
+The text inside a <pre> element is displayed in a fixed-width font (usually Courier), and it preserves both spaces and line breaks.
+
+
+3. HTML Text Formatting:
+
+A. HTML Styles :
+The HTML style attribute is used to add styles to an element, such as color, font, size, and more.
+<tagname style="property:value;">
+The property is a CSS property. The value is a CSS value.
+<h1 style="color:blue;">This is a heading</h1>
+
+B. HTML Formatting Elements :
+Formatting elements were designed to display special types of text:
+<b> - Bold text
+<strong> - Important text
+<i> - Italic text
+<em> - Emphasized text
+<mark> - Marked text
+<small> - Smaller text
+<del> - Deleted text
+<ins> - Inserted text
+<sub> - Subscript text
+<sup> - Superscript text
+
+The HTML <b> element defines bold text, without any extra importance.
+The HTML <strong> element defines text with strong importance. The content inside is typically displayed in bold.
+
+The HTML <i> element defines a part of text in an alternate voice or mood. The content inside is typically displayed in italic.
+Tip: The <i> tag is often used to indicate a technical term, a phrase from another language, a thought, a ship name, etc.
+
+The HTML <em> element defines emphasized text. The content inside is typically displayed in italic.
+Tip: A screen reader will pronounce the words in <em> with an emphasis, using verbal stress.
+
+The HTML <small> element defines smaller text.
+The HTML <mark> element defines text that should be marked or highlighted.
+
+The HTML <del> element defines text that has been deleted from a document. Browsers will usually strike a line through deleted text.
+
+The HTML <ins> element defines a text that has been inserted into a document. Browsers will usually underline inserted text.
+<p>My favorite color is <del>blue</del> <ins>red</ins>.</p>
+
+The HTML <sub> element defines subscript text. Subscript text appears half a character below the normal line, and is sometimes rendered in a smaller font. Subscript text can be used for chemical formulas, like H2O:
+
+The HTML <sup> element defines superscript text. Superscript text appears half a character above the normal line, and is sometimes rendered in a smaller font. Superscript text can be used for footnotes, like WWW[1]:
+
+
+4. HTML Links & Special Tags :
+
+A. HTML Quotation and Citation Elements :
+The HTML <blockquote> element defines a section that is quoted from another source.
+Browsers usually indent <blockquote> elements.
+
+The HTML <q> tag defines a short quotation.
+Browsers normally insert quotation marks around the quotation.
+
+The HTML <abbr> tag defines an abbreviation or an acronym, like "HTML", "CSS", "Mr.", "Dr.", "ASAP", "ATM".
+Marking abbreviations can give useful information to browsers, translation systems and search-engines.
+Tip: Use the global title attribute to show the description for the abbreviation/acronym when you mouse over the element. 
+<p>The <abbr title="World Health Organization">WHO</abbr> was founded in 1948.</p>
+
+The HTML <address> tag defines the contact information for the author/owner of a document or an article.
+The contact information can be an email address, URL, physical address, phone number, social media handle, etc.
+The text in the <address> element usually renders in italic, and browsers will always add a line break before and after the <address> element.
+
+The HTML <cite> tag defines the title of a creative work (e.g. a book, a poem, a song, a movie, a painting, a sculpture, etc.).
+Note: A person's name is not the title of a work.
+The text in the <cite> element usually renders in italic.
+
+BDO stands for Bi-Directional Override.
+The HTML <bdo> tag is used to override the current text direction.
+
+B. HTML Comments :
+HTML comments are not displayed in the browser, but they can help document your HTML source code.
+<!-- Write your comments here -->
+
+C. HTML Links :
+HTML links are hyperlinks.
+You can click on a link and jump to another document.
+When you move the mouse over a link, the mouse arrow will turn into a little hand.
+Note: A link does not have to be text. A link can be an image or any other HTML element!
+<a href="url">link text</a>
+The HTML <a> tag defines a hyperlink and href attribute indicates the link's destination.
+The link text is the part that will be visible to the reader.
+Clicking on the link text, will send the reader to the specified URL address.
+<a href="https://www.w3schools.com/">Visit W3Schools.com!</a>
+
+By default, links will appear as follows in all browsers:
+An unvisited link is underlined and blue
+A visited link is underlined and purple
+An active link is underlined and red
+Tip: Links can of course be styled with CSS, to get another look!
+
+D. HTML Links - The target Attribute :
+The target attribute specifies where to open the linked document.
+The target attribute can have one of the following values:
+_self - Default. Opens the document in the same window/tab as it was clicked
+_blank - Opens the document in a new window or tab
+_parent - Opens the document in the parent frame
+_top - Opens the document in the full body of the window
+
+<h2>Absolute URLs</h2>
+<p><a href="https://www.w3.org/">W3C</a></p>
+
+<h2>Relative URLs</h2>
+<p><a href="html_images.asp">HTML Images</a></p>
+
+Use the <img> element (inside <a>) to use an image as a link
+Use the mailto: scheme inside the href attribute to create a link that opens the user's email program
+
+E. Bookmark in HTML :
+Bookmarks can be useful if a web page is very long.
+To create a bookmark - first create the bookmark, then add a link to it.
+When the link is clicked, the page will scroll down or up to the location with the bookmark.
+
+First, use the id attribute to create a bookmark:
+<h2 id="C4">Chapter 4</h2>
+
+Then, add a link to the bookmark ("Jump to Chapter 4"), from within the same page:
+<a href="#C4">Jump to Chapter 4</a>
+
+You can also add a link to a bookmark on another page:
+<a href="html_demo.html#C4">Jump to Chapter 4</a>
+
+
+5. HTML Images :
+The HTML <img> tag is used to embed an image in a web page.
+Images are not technically inserted into a web page; images are linked to web pages. The <img> tag creates a holding space for the referenced image.
+The <img> tag is empty, it contains attributes only, and does not have a closing tag.
+The <img> tag has two required attributes:
+src - Specifies the path to the image
+alt - Specifies an alternate text for the image
+
+<img src="url" alt="alternatetext">
+<img src="pic_trulli.jpg" alt="Italian Trulli">
+The required src attribute specifies the path (URL) to the image.
+
+The required alt attribute provides an alternate text for an image, if the user for some reason cannot view it (because of slow connection, an error in the src attribute, or if the user uses a screen reader).
+The value of the alt attribute should describe the image.
+
+<img src="img_girl.jpg" alt="Girl in a jacket" style="width:500px;height:600px;">
+
+<img src="img_girl.jpg" alt="Girl in a jacket" width="500" height="600">
+
+The width, height, and style attributes are all valid in HTML.
+However, we suggest using the style attribute. It prevents styles sheets from changing the size of images.
+
+* Image Maps :
+The HTML <map> tag defines an image map. An image map is an image with clickable areas. The areas are defined with one or more <area> tags.
+
+<img src="workplace.jpg" alt="Workplace" usemap="#workmap">
+<map name="workmap">
+  <area shape="rect" coords="34,44,270,350" alt="Computer" href="computer.htm">
+  <area shape="rect" coords="290,172,333,250" alt="Phone" href="phone.htm">
+  <area shape="circle" coords="337,300,44" alt="Coffee" href="coffee.htm">
+</map>
+
+The idea behind an image map is that you should be able to perform different actions depending on where in the image you click.
+
+A clickable area is defined using an <area> element.
+rect - defines a rectangular region
+circle - defines a circular region
+poly - defines a polygonal region
+default - defines the entire region
+
+* HTML <picture> Element :
+The HTML <picture> element gives web developers more flexibility in specifying image resources.
+The <picture> element contains one or more <source> elements, each referring to different images through the srcset attribute. This way the browser can choose the image that best fits the current view and/or device.
+Each <source> element has a media attribute that defines when the image is the most suitable.
+
+<picture>
+  <source media="(min-width: 650px)" srcset="img_food.jpg">
+  <source media="(min-width: 465px)" srcset="img_car.jpg">
+  <img src="img_girl.jpg">
+</picture>
+
+* A favicon is a small image displayed next to the page title in the browser tab.
+
+
+6. HTML Tables & List :
+A. Table :
+HTML tables allow web developers to arrange data into rows and columns.
+Each table cell is defined by a <td> and a </td> tag.
+Note: A table cell can contain all sorts of HTML elements: text, images, lists, links, other tables, etc.
+
+Each table row starts with a <tr> and ends with a </tr> tag.
+th stands for table header.
+By default, the text in <th> elements are bold and centered, but you can change that with CSS.
+
+To add a border, use the CSS border property on table, th, and td elements.
+To avoid having double borders, set the CSS border-collapse property to collapse.
+
+To make a cell span over multiple columns, use the colspan attribute.
+To make a cell span over multiple rows, use the rowspan attribute.
+
+If you add a background color on every other table row, you will get a nice zebra stripes effect.
+tr:nth-child(even) {
+  background-color: #D6EEEE;
+}
+
+The <colgroup> element should be used as a container for the column specifications.
+Each group is specified with a <col> element.
+The span attribute specifies how many columns that get the style.
+
+Note: The <colgroup> tag must be a child of a <table> element and should be placed before any other table elements, like <thead>, <tr>, <td> etc., but after the <caption> element, if present.
+
+B. List :
+HTML lists allow web developers to group a set of related items in lists.
+
+* An unordered list starts with the <ul> tag. Each list item starts with the <li> tag.
+The list items will be marked with bullets (small black circles) by default.
+The CSS list-style-type property is used to define the style of the list item marker. It can have one of the following values:
+Value	Description
+disc	Sets the list item marker to a bullet (default)
+circle	Sets the list item marker to a circle
+square	Sets the list item marker to a square
+none	The list items will not be marked
+
+Note: A list item (<li>) can contain a new list, and other HTML elements, like images and links, etc.
+
+* An ordered list starts with the <ol> tag. Each list item starts with the <li> tag.
+The list items will be marked with numbers by default.
+The type attribute of the <ol> tag, defines the type of the list item marker:
+Type	Description
+type="1"	The list items will be numbered with numbers (default)
+type="A"	The list items will be numbered with uppercase letters
+type="a"	The list items will be numbered with lowercase letters
+type="I"	The list items will be numbered with uppercase roman numbers
+type="i"	The list items will be numbered with lowercase roman numbers
+
+* HTML also supports description lists.
+A description list is a list of terms, with a description of each term.
+The <dl> tag defines the description list, the <dt> tag defines the term (name), and the <dd> tag describes each term.
+
+
+7. HTML Block and Inline Elements :
+Every HTML element has a default display value, depending on what type of element it is.
+The two most common display values are block and inline.
+
+* Block-level Elements :
+A block-level element always starts on a new line, and the browsers automatically add some space (a margin) before and after the element.
+A block-level element always takes up the full width available (stretches out to the left and right as far as it can).
+Two commonly used block elements are: <p> and <div>.
+
+Here are the block-level elements in HTML:
+<address> <article> <aside> <blockquote> <canvas> <dd> <div> <dl> <dt> <fieldset> <figcaption> <figure> <footer> <form> <h1>-<h6> <header> <hr> <li> <main> <nav> <noscript> <ol> <p> <pre> <section> <table> <tfoot> <ul> <video>
+
+* Inline Elements :
+An inline element does not start on a new line.
+An inline element only takes up as much width as necessary.
+<span>Hello World</span>
+
+Here are the inline elements in HTML:
+<a> <abbr> <acronym> <b> <bdo> <big> <br> <button> <cite> <code> <dfn> <em> <i> <img> <input> <kbd> <label> <map> <object> <output> <q> <samp> <script> <select> <small> <span> <strong> <sub> <sup> <textarea> <time> <tt> <var>
+
+* The <div> Element :
+The <div> element is often used as a container for other HTML elements.
+The <div> element has no required attributes, but style, class and id are common.
+When used together with CSS, the <div> element can be used to style blocks of content:
+
+* The <span> Element :
+The <span> element is an inline container used to mark up a part of a text, or a part of a document.
+The <span> element has no required attributes, but style, class and id are common.
+When used together with CSS, the <span> element can be used to style parts of the text.
+
+* HTML class Attribute :
+The HTML class attribute is used to specify a class for an HTML element.
+Multiple HTML elements can share the same class.
+
+The class attribute is often used to point to a class name in a style sheet. It can also be used by a JavaScript to access and manipulate elements with the specific class name.
+
+* HTML id Attribute :
+The id attribute specifies a unique id for an HTML element. The value of the id attribute must be unique within the HTML document.
+The id attribute is used to point to a specific style declaration in a style sheet. It is also used by JavaScript to access and manipulate the element with the specific id.
+
+* HTML Iframes :
+An HTML iframe is used to display a web page within a web page.
+The HTML <iframe> tag specifies an inline frame.
+An inline frame is used to embed another document within the current HTML document.
+<iframe src="demo_iframe.htm" height="200" width="300" title="Iframe Example"></iframe>
+
+* HTML JavaScript :
+JavaScript makes HTML pages more dynamic and interactive.
+The HTML <script> tag is used to define a client-side script (JavaScript).
+The <script> element either contains script statements, or it points to an external script file through the src attribute.
+Common uses for JavaScript are image manipulation, form validation, and dynamic changes of content.
+To select an HTML element, JavaScript most often uses the document.getElementById() method.
+
+* HTML - The Head Element :
+The HTML <head> element is a container for the following elements: <title>, <style>, <meta>, <link>, <script>, and <base>.
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+8. HTML Layout & Semantic Elements :
+<header> - Defines a header for a document or a section
+<nav> - Defines a set of navigation links
+<section> - Defines a section in a document
+<article> - Defines an independent, self-contained content
+<aside> - Defines content aside from the content (like a sidebar)
+<footer> - Defines a footer for a document or a section
+<details> - Defines additional details that the user can open and close on demand
+<summary> - Defines a heading for the <details> element
+
+* HTML Responsive Web Design :
+Responsive web design is about creating web pages that look good on all devices!
+A responsive web design will automatically adjust for different screen sizes and viewports.
+
+* HTML Computer Code Elements :
+HTML contains several elements for defining user input and computer code.
+
+The HTML <kbd> element is used to define keyboard input. The content inside is displayed in the browser's default monospace font.
+
+The HTML <samp> element is used to define sample output from a computer program. The content inside is displayed in the browser's default monospace font.
+
+The HTML <code> element  is used to define a piece of computer code. The content inside is displayed in the browser's default monospace font.
+Notice that the <code> element does not preserve extra whitespace and line-breaks.
+To fix this, you can put the <code> element inside a <pre> element.
+
+The HTML <var> element  is used to define a variable in programming or in a mathematical expression. The content inside is typically displayed in italic.
+
+* HTML Semantic Elements :
+A semantic element clearly describes its meaning to both the browser and the developer.
+Examples of non-semantic elements: <div> and <span> - Tells nothing about its content.
+Examples of semantic elements: <form>, <table>, and <article> - Clearly defines its content.
+
+* HTML Entities :
+Some characters are reserved in HTML.
+If you use the less than (<) or greater than (>) signs in your HTML text, the browser might mix them with tags.
+Entity names or entity numbers can be used to display reserved HTML characters.
+
+Entity names look like this:
+&entity_name;
+
+Entity numbers look like this:
+&#entity_number;
+
+To display a less than sign (<) we must write: &lt; or &#60;
+
+A commonly used HTML entity is the non-breaking space: &nbsp;
+
+A non-breaking space is a space that will not break into a new line.
+Two words separated by a non-breaking space will stick together (not break into a new line). This is handy when breaking the words might be disruptive.
+
+By HTML entity, you can use symbols and emojis in HTML Document.
+
+* To display an HTML page correctly, a web browser must know which character set to use.
+<meta charset="UTF-8">
+UTF-8 covers almost all of the characters and symbols in the world!
+
+* XHTML :
+XHTML stands for EXtensible HyperText Markup Language
+XHTML is a stricter, more XML-based version of HTML
+XHTML is HTML defined as an XML application
+XHTML is supported by all major browsers
+
+
+9. HTML Forms :
+An HTML form is used to collect user input. The user input is most often sent to a server for processing.
+
+The HTML <form> element is used to create an HTML form for user input.
+An <input> element can be displayed in many ways, depending on the type attribute.
+
+Note: The form itself is not visible. Also note that the default width of an input field is 20 characters.
+
+The method attribute specifies the HTTP method to be used when submitting the form data.
+
+* Notes on GET :
+Appends the form data to the URL, in name/value pairs
+NEVER use GET to send sensitive data! (the submitted form data is visible in the URL!)
+The length of a URL is limited (2048 characters)
+Useful for form submissions where a user wants to bookmark the result
+GET is good for non-secure data, like query strings in Google
+
+* Notes on POST :
+Appends the form data inside the body of the HTTP request (the submitted form data is not shown in the URL)
+POST has no size limitations, and can be used to send large amounts of data.
+Form submissions with POST cannot be bookmarked
+
+The autocomplete attribute specifies whether a form should have autocomplete on or off.
+When autocomplete is on, the browser automatically complete values based on values that the user has entered before.
+
+* The HTML <form> element can contain one or more of the following form elements :
+<input>
+<label>
+<select>
+<textarea>
+<button>
+<fieldset>
+<legend>
+<datalist>
+<output>
+<option>
+<optgroup>
+
+The <fieldset> element is used to group related data in a form.
+The <legend> element defines a caption for the <fieldset> element.
+
+The <datalist> element specifies a list of pre-defined options for an <input> element.
+Users will see a drop-down list of the pre-defined options as they input data.
+The list attribute of the <input> element, must refer to the id attribute of the <datalist> element.
+
+* Here are the different input types you can use in HTML:
+<input type="button">
+<input type="checkbox">
+<input type="color">
+<input type="date">
+<input type="datetime-local">
+<input type="email">
+<input type="file">
+<input type="hidden">
+<input type="image">
+<input type="month">
+<input type="number">
+<input type="password">
+<input type="radio">
+<input type="range">
+<input type="reset">
+<input type="search">
+<input type="submit">
+<input type="tel">
+<input type="text">
+<input type="time">
+<input type="url">
+<input type="week">
+
+Tip: The default value of the type attribute is "text".
+
+* Here is a list of some common input restrictions :
+Attribute	: Description 
+checked :	Specifies that an input field should be pre-selected when the page loads (for type="checkbox" or type="radio")
+disabled :	Specifies that an input field should be disabled
+max :	Specifies the maximum value for an input field
+maxlength :	Specifies the maximum number of character for an input field
+min :	Specifies the minimum value for an input field
+pattern :	Specifies a regular expression to check the input value against
+readonly :	Specifies that an input field is read only (cannot be changed)
+required :	Specifies that an input field is required (must be filled out)
+size :	Specifies the width (in characters) of an input field
+step :	Specifies the legal number intervals for an input field
+value :	Specifies the default value for an input field
+
+
+10. HTML Canvas & SVG :
+* Canvas :
+The HTML <canvas> element is used to draw graphics, on the fly, via JavaScript.
+The <canvas> element is only a container for graphics. You must use JavaScript to actually draw the graphics.
+Canvas has several methods for drawing paths, boxes, circles, text, and adding images.
+
+A canvas is a rectangular area on an HTML page. By default, a canvas has no border and no content.
+
+<canvas id="myCanvas" width="200" height="100"></canvas>
+
+Note: Always specify an id attribute (to be referred to in a script), and a width and height attribute to define the size of the canvas. To add a border, use the style attribute.
+
+<script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.moveTo(0, 0);
+ctx.lineTo(200, 100);
+ctx.stroke();
+</script>
+
+* SVG :
+SVG stands for Scalable Vector Graphics
+SVG is used to define vector-based graphics for the Web
+SVG defines graphics in XML format
+Each element and attribute in SVG files can be animated
+SVG is a W3C recommendation
+SVG integrates with other standards, such as CSS, DOM, XSL and JavaScript
+
+SVG graphics are scalable, and do not lose any quality if they are zoomed or resized:
+
+The HTML <svg> element is a container for SVG graphics.
+SVG has several methods for drawing paths, rectangles, circles, polygons, text, and much more.
+
+Example>
+<!DOCTYPE html>
+<html>
+<body>
+
+<svg width="100" height="100">
+  <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+</svg>
+
+</body>
+</html>
+
+* Differences Between SVG and Canvas :
+SVG is a language for describing 2D graphics in XML, while Canvas draws 2D graphics, on the fly (with JavaScript).
+
+SVG is XML based, which means that every element is available within the SVG DOM. You can attach JavaScript event handlers to SVG graphics.
+
+In SVG, each drawn shape is remembered as an object. If attributes of an SVG object are changed, the browser can automatically re-render the shape.
+
+Canvas is rendered pixel by pixel. In canvas, once the graphic is drawn, it is forgotten by the browser. If its position should be changed, the entire scene needs to be redrawn, including any objects that might have been covered by the graphic.
+
+SVG	:
+Resolution independent
+Support for event handlers
+Good text rendering capabilities
+Slow rendering if complex
+Not suited for game applications
+
+Canvas :
+Resolution dependent
+No support for event handlers
+Poor text rendering capabilities
+You can save the resulting image as .png or .jpg
+Well suited for graphic-intensive games
+
+
+11. HTML Media :
+Multimedia comes in many different formats. It can be almost anything you can hear or see, like images, music, sound, videos, records, films, animations, and more.
+
+* Video :
+There are many video formats out there.
+The MP4, WebM, and Ogg formats are supported by HTML.
+The MP4 format is recommended by YouTube.
+
+<video width="320" height="240" controls>
+  <source src="movie.mp4" type="video/mp4">
+  <source src="movie.ogg" type="video/ogg">
+Your browser does not support the video tag.
+</video>
+
+The controls attribute adds video controls, like play, pause, and volume.
+Add muted after autoplay to let your video start playing automatically (but muted):
+<video width="320" height="240" autoplay muted>
+
+* Audio :
+MP3 is the best format for compressed recorded music. The term MP3 has become synonymous with digital music.
+Only MP3, WAV, and Ogg audio are supported by the HTML standard.
+<audio controls>
+  <source src="horse.ogg" type="audio/ogg">
+  <source src="horse.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+* Plug-ins :
+Plug-ins are computer programs that extend the standard functionality of the browser.
+
+* Warning !
+Most browsers no longer support Java Applets and Plug-ins.
+ActiveX controls are no longer supported in any browsers.
+The support for Shockwave Flash has also been turned off in modern browsers.
+
+The <object> element is supported by all browsers.
+The <object> element defines an embedded object within an HTML document.
+It was designed to embed plug-ins (like Java applets, PDF readers, and Flash Players) in web pages, but can also be used to include HTML in HTML.
+<object width="100%" height="500px" data="snippet.html"></object>
+
+The <embed> element is supported in all major browsers.
+The <embed> element also defines an embedded object within an HTML document.
+Web browsers have supported the <embed> element for a long time. However, it has not been a part of the HTML specification before HTML5.
+<embed src="audi.jpeg">
+The <embed> element can also be used to include HTML in HTML.
+
+* Playing a YouTube Video in HTML :
+To play your video on a web page, do the following:
+
+Upload the video to YouTube
+Take a note of the video id
+Define an <iframe> element in your web page
+Let the src attribute point to the video URL
+Use the width and height attributes to specify the dimension of the player
+Add any other parameters to the URL (see below)
+<iframe width="420" height="315"
+src="https://www.youtube.com/embed/tgbNymZ7vqY">
+</iframe>
+
+
+                              ** End **
+
+
