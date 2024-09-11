@@ -1057,6 +1057,133 @@ Create a Droplet with your preferred OS.
 SSH into the Droplet and set up your application environment.
 Pull your application code from a repository and run it.
 
+** Express.js CRUD operations with MySql :
+
+A. Setting Up the Environment
+npm init -y
+npm install express mysql2 body-parser
+
+B. Basic Project Structure :
+project/
+│
+├── server.js        # Main entry point of the application
+├── db.js            # Database connection configuration
+└── routes/
+    └── userRoutes.js # Routes for CRUD operations
+
+C. Connecting Express.js to MySQL :
+const mysql = require('mysql2');
+
+// Create the connection to the database :
+// db.js
+const db = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'yourpassword',
+  database: 'yourdatabase'
+});
+
+// Connect to the database
+db.connect((err) => {
+  if (err) throw err;
+  console.log('Connected to the MySQL database.');
+});
+
+module.exports = db;
+
+D. Building Express.js Server :
+// server.js :
+const express = require('express');
+const bodyParser = require('body-parser');
+const userRoutes = require('./routes/userRoutes');
+
+const app = express();
+
+// Middleware to parse incoming JSON requests
+app.use(bodyParser.json());
+
+// Set up routes
+app.use('/users', userRoutes);
+
+// Start the server
+app.listen(3000, () => {
+  console.log('Server running on port 3000');
+});
+
+E. CRUD Operations :
+// userRoutes.js :
+const express = require('express');
+const router = express.Router();
+const db = require('../db'); // Import the database connection
+
+// CREATE: Add a new user (POST request)
+router.post('/', (req, res) => {
+  const { name, email } = req.body;
+  const sql = 'INSERT INTO users (name, email) VALUES (?, ?)';
+  
+  db.query(sql, [name, email], (err, result) => {
+    if (err) throw err;
+    res.status(201).send({ message: 'User added', userId: result.insertId });
+  });
+});
+
+// READ: Get all users (GET request)
+router.get('/', (req, res) => {
+  const sql = 'SELECT * FROM users';
+  
+  db.query(sql, (err, results) => {
+    if (err) throw err;
+    res.status(200).json(results);
+  });
+});
+
+// READ: Get a single user by ID (GET request)
+router.get('/:id', (req, res) => {
+  const userId = req.params.id;
+  const sql = 'SELECT * FROM users WHERE id = ?';
+  
+  db.query(sql, [userId], (err, result) => {
+    if (err) throw err;
+    if (result.length === 0) return res.status(404).send({ message: 'User not found' });
+    res.status(200).json(result[0]);
+  });
+});
+
+// UPDATE: Update a user by ID (PUT request)
+router.put('/:id', (req, res) => {
+  const userId = req.params.id;
+  const { name, email } = req.body;
+  const sql = 'UPDATE users SET name = ?, email = ? WHERE id = ?';
+  
+  db.query(sql, [name, email, userId], (err, result) => {
+    if (err) throw err;
+    if (result.affectedRows === 0) return res.status(404).send({ message: 'User not found' });
+    res.status(200).send({ message: 'User updated' });
+  });
+});
+
+// DELETE: Delete a user by ID (DELETE request)
+router.delete('/:id', (req, res) => {
+  const userId = req.params.id;
+  const sql = 'DELETE FROM users WHERE id = ?';
+  
+  db.query(sql, [userId], (err, result) => {
+    if (err) throw err;
+    if (result.affectedRows === 0) return res.status(404).send({ message: 'User not found' });
+    res.status(200).send({ message: 'User deleted' });
+  });
+});
+
+module.exports = router;
+
+F. Database Table Structure :
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL
+);
+
+
 
                             *** End ***
 

@@ -309,23 +309,23 @@ HTML lists allow web developers to group a set of related items in lists.
 * An unordered list starts with the <ul> tag. Each list item starts with the <li> tag.
 The list items will be marked with bullets (small black circles) by default.
 The CSS list-style-type property is used to define the style of the list item marker. It can have one of the following values:
-Value	Description
-disc	Sets the list item marker to a bullet (default)
-circle	Sets the list item marker to a circle
-square	Sets the list item marker to a square
-none	The list items will not be marked
+Value : Description
+disc : Sets the list item marker to a bullet (default)
+circle : Sets the list item marker to a circle
+square : Sets the list item marker to a square
+none : The list items will not be marked
 
 Note: A list item (<li>) can contain a new list, and other HTML elements, like images and links, etc.
 
 * An ordered list starts with the <ol> tag. Each list item starts with the <li> tag.
 The list items will be marked with numbers by default.
 The type attribute of the <ol> tag, defines the type of the list item marker:
-Type	Description
-type="1"	The list items will be numbered with numbers (default)
-type="A"	The list items will be numbered with uppercase letters
-type="a"	The list items will be numbered with lowercase letters
-type="I"	The list items will be numbered with uppercase roman numbers
-type="i"	The list items will be numbered with lowercase roman numbers
+Type : Description
+type="1" : The list items will be numbered with numbers (default)
+type="A" : The list items will be numbered with uppercase letters
+type="a" : The list items will be numbered with lowercase letters
+type="I" : The list items will be numbered with uppercase roman numbers
+type="i" : The list items will be numbered with lowercase roman numbers
 
 * HTML also supports description lists.
 A description list is a list of terms, with a description of each term.
@@ -355,7 +355,7 @@ Here are the inline elements in HTML:
 * The <div> Element :
 The <div> element is often used as a container for other HTML elements.
 The <div> element has no required attributes, but style, class and id are common.
-When used together with CSS, the <div> element can be used to style blocks of content:
+When used together with CSS, the <div> element can be used to style blocks of content.
 
 * The <span> Element :
 The <span> element is an inline container used to mark up a part of a text, or a part of a document.
@@ -376,7 +376,8 @@ The id attribute is used to point to a specific style declaration in a style she
 An HTML iframe is used to display a web page within a web page.
 The HTML <iframe> tag specifies an inline frame.
 An inline frame is used to embed another document within the current HTML document.
-<iframe src="demo_iframe.htm" height="200" width="300" title="Iframe Example"></iframe>
+<iframe src="demo_iframe.htm" height="200" width="300" title="Iframe Example">
+</iframe>
 
 * HTML JavaScript :
 JavaScript makes HTML pages more dynamic and interactive.

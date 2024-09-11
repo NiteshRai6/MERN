@@ -154,7 +154,7 @@ The request object (req) and response object (res) are central to this process, 
 The request object in Express (req) contains information about the HTTP request made by the client. This includes parameters, query strings, the request body, headers, and more.
 
 A. Route Parameters (req.params) :
-Route parameters are dynamic segments of the URL that are captured by Express and can be accessed using req.params.
+Route parameters are dynamic segments of the URL that are captured by Express and can be accessed using req.params :
 app.get('/users/:id', (req, res) => {
   const userId = req.params.id;
   res.send(`User ID: ${userId}`);

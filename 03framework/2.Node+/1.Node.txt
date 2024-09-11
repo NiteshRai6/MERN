@@ -15,7 +15,8 @@
 Node.js is an open-source, cross-platform runtime environment that allows developers to execute JavaScript code on the server side.
 It was created by Ryan Dahl in 2009.
 
-Node.js is built on the V8 JavaScript engine, the same engine that powers Google Chrome. This engine compiles JavaScript into native machine code, which makes Node.js applications fast and efficient. The non-blocking, event-driven architecture of Node.js makes it particularly suitable for I/O-intensive operations, such as real-time applications, streaming services, and APIs.
+Node.js is built on the V8 JavaScript engine, the same engine that powers Google Chrome. This engine compiles JavaScript into native machine code, which makes Node.js applications fast and efficient. The non-blocking, event-driven architecture of 
+Node.js makes it particularly suitable for I/O-intensive operations, such as real-time applications, streaming services, and APIs.
 
 node -v : display the installed version of Node.js.
 
@@ -418,7 +419,8 @@ The event loop is the core of Node.js's asynchronous, non-blocking architecture.
 How It Works :
 When Node.js starts, it initializes the event loop and begins executing the code.
 Synchronous code is executed first, after which the event loop starts processing asynchronous events.
-The event loop cycles through different phases: timers, pending callbacks, idle/preparation, poll, check, and close callbacks.
+The event loop cycles through different phases: timers, pending callbacks, 
+idle/preparation, poll, check, and close callbacks.
 Each phase has a specific purpose, such as executing callbacks for timers, handling pending I/O callbacks, or checking for additional operations before the loop completes.
 
 * Event Loop Phases :
@@ -484,6 +486,72 @@ For I/O operations, Node.js uses the non-blocking capabilities provided by Libuv
 
 E. Event Handling:
 The event loop continues to process events until there are no more pending operations, at which point the application exits.
+
+
+** How Node.js internally executed Synchronous vs Asynchronous tasks :
+
+* Synchronous Tasks :
+Synchronous tasks in Node.js are executed in a blocking manner, which means each task is executed one after another. The current task must be completed before the next one is started. If a task takes a long time to complete (e.g., a CPU-intensive task), it will block the execution of other tasks.
+
+Execution Flow:
+The JavaScript engine (V8) reads the code line by line.
+Each synchronous task is executed in the main thread (the event loop's call stack).
+The result is returned immediately, and control moves to the next task.
+If a task takes a long time, it blocks the subsequent tasks from being executed until it's done.
+
+* Asynchronous Tasks :
+Asynchronous tasks are handled differently in Node.js. Instead of waiting for a task to complete, Node.js delegates it to the event loop and allows the execution of other tasks while waiting for the result.
+
+Asynchronous tasks typically involve I/O operations such as reading files, making network requests, or accessing databases. These operations are handed off to libuv, which manages the underlying system's asynchronous APIs. Once the operation is complete, the callback or promise is triggered, and the event loop returns to handle the result.
+
+Execution Flow:
+Asynchronous tasks are offloaded to the event loop.
+The main thread doesn't wait for the task to finish and moves on to execute the next task.
+When the asynchronous task completes, the event loop handles the callback or resolves the promise.
+This allows Node.js to handle multiple tasks efficiently without blocking the main thread.
+
+* Node.js Execution Architecture :
+Node.js uses the event loop along with libuv to manage asynchronous tasks. Here’s a detailed explanation of the process:
+
+a. Call Stack :
+This is where synchronous code is executed in a Last-In-First-Out (LIFO) manner.
+Each function call is pushed onto the call stack. Once executed, it’s popped off the stack.
+
+b. Node.js Event Loop :
+The event loop is at the heart of asynchronous execution. It continuously checks the call stack and event queues to determine what to execute next.
+When an asynchronous task (like a network request) is initiated, Node.js hands it over to libuv, which interacts with the OS’s I/O mechanism.
+While waiting for the I/O operation to complete, the event loop continues executing other tasks in the call stack.
+Once the asynchronous task is complete, the event loop picks up the callback from the task queue and pushes it to the call stack for execution.
+
+c. Libuv and Thread Pool :
+libuv manages all the non-blocking, asynchronous I/O operations (file system, network requests, etc.). It uses the underlying operating system’s asynchronous mechanisms where possible.
+For certain I/O operations like file system access, Node.js uses a thread pool (default size: 4 threads). This thread pool allows multiple operations to run concurrently, without blocking the main event loop.
+
+* Example> Synchronous tasks are handled in the main thread via the call stack.
+Asynchronous tasks are offloaded to the event loop and handled when they complete, without blocking the main thread.
+
+console.log("Start"); // Synchronous
+
+setTimeout(() => {
+  console.log("Asynchronous Task"); // Asynchronous
+}, 2000);
+
+console.log("Synchronous Task"); // Synchronous
+
+fetchData(() => {
+  console.log("Asynchronous Fetch Complete"); // Asynchronous
+});
+
+console.log("End"); // Synchronous
+
+Execution Breakdown:
+"Start" is logged immediately (synchronous).
+setTimeout is initiated but the callback is deferred (asynchronous).
+"Synchronous Task" is logged immediately (synchronous).
+An asynchronous task (fetchData) is initiated and deferred.
+"End" is logged immediately (synchronous).
+After 2 seconds, the setTimeout callback logs "Asynchronous Task."
+Once fetchData completes, it logs "Asynchronous Fetch Complete."
 
 
                   ** End **

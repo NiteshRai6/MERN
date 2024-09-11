@@ -12,7 +12,7 @@
 CSS is used to define styles for your web pages, including the design, layout and variations in display for different devices and screen sizes.
 CSS stands for Cascading Style Sheets
 CSS describes how HTML elements are to be displayed on screen, paper, or in other media
-CSS saves a lot of work. It can control the layout of multiple web pages all at once
+CSS saves a lot of work. It can control the layout of multiple web pages all at once.
 External stylesheets are stored in CSS files
 
 * CSS Syntax :
@@ -92,7 +92,8 @@ C. Inline CSS
 A. External CSS :
 With an external style sheet, you can change the look of an entire website by changing just one file!
 Each HTML page must include a reference to the external style sheet file inside the <link> element, inside the head section.
-An external style sheet can be written in any text editor, and must be saved with a .css extension.
+An external style sheet can be written in any text editor, and must be saved with a 
+.css extension.
 The external .css file should not contain any HTML tags.
 Example> index.html :
 <!DOCTYPE html>
@@ -543,8 +544,7 @@ h1 {
   text-decoration-line: overline;
   text-decoration-color: red;
   text-decoration-style: dotted;
-   text-decoration-thickness: 5px;
-
+  text-decoration-thickness: 5px;
 }
 
 * The text-decoration property is a shorthand property for:
@@ -645,8 +645,6 @@ This property has three values:
 normal - The text is shown normally
 italic - The text is shown in italics
 oblique - The text is "leaning" (oblique is very similar to italic, but less supported)
-p.italic {
-}
 
 The font-weight property specifies the weight of a font.
 
@@ -782,7 +780,7 @@ Value :	Description
 
 inline :	Displays an element as an inline element
 
-block	Displays an element as a block element
+block	: Displays an element as a block element
 
 contents : Makes the container disappear, making the child elements children of the element the next level up in the DOM
 
