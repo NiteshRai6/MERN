@@ -1,0 +1,70 @@
+* Most commonly used Git commands :
+Git is a distributed version control system that helps developers track changes in their codebase, collaborate with others, and maintain a history of their work.
+
+1. git init :
+Initializes a new Git repository in the current directory. This is the first command used to create a new repository.
+Example> git init
+
+2. git clone :
+Copies an existing Git repository (from a remote server or local directory) to your local machine.
+Example>
+git clone <repository_url>
+
+3. git status :
+Displays the state of the working directory and staging area. It shows which files have been modified, which files are staged, and which are not being tracked.
+Example> git status
+
+4. git add :
+Adds files to the staging area. You use this command before committing changes.
+Example>
+git add <file_name>  # Adds a specific file
+git add .            # Adds all changes in the current directory
+
+5. git commit :
+Records the changes in the repository with a message describing what changes were made.
+Example>
+Example>
+git commit -m "Your commit message"
+git commit           # Opens the default text editor to enter the message
+
+6. git log :
+Displays a log of commits that have been made to the repository. It shows commit history along with commit messages, authors, and timestamps.
+Example>
+git log
+git log --oneline  # Displays a condensed view of the log
+
+7. git branch :
+Lists, creates, or deletes branches. Branches are used to work on different parts of a project simultaneously.
+Example>
+git branch              # Lists all branches
+git branch <branch_name> # Creates a new branch
+git branch -d <branch_name> # Deletes a branch
+
+8. git checkout :
+Switches to a different branch or commit. It also can be used to restore files from a specific commit.
+Examples>
+git checkout <branch_name>        # Switches to a branch
+git checkout -b <new_branch_name> # Creates a new branch and switches to it
+git checkout <commit_hash>        # Checks out a specific commit
+
+9. git merge :
+Merges changes from one branch into the current branch. This is how different branches are combined.
+Example>
+git merge <branch_name>
+
+10. git pull :
+Fetches and integrates changes from a remote repository to the current branch. It is a combination of git fetch and git merge.
+Example>
+git pull <remote> <branch>
+
+11. git push :
+Sends your committed changes to a remote repository. It updates the remote branch with the changes from your local branch.
+Example>
+git push <remote> <branch>
+
+12. git fetch :
+Downloads commits, files, and references from a remote repository into your local repository, but it does not merge them automatically.
+Example>
+git fetch <remote>
+
+13. 

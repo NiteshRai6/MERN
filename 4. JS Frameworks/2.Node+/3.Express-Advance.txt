@@ -602,7 +602,7 @@ E. Single Endpoint:
 With GraphQL, you typically use a single endpoint (e.g., /graphql) for all interactions, which can simplify client-server communication.
 
 
-19. Clustering :
+19. Clustering : (**imp**)
  * Process :
 Definition: A process is an instance of a running program. Each process has its own memory, code, data, and system resources.
 Isolation: Processes are isolated from each other. One process cannot directly access the memory or data of another process.
