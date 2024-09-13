@@ -1,4 +1,4 @@
 'use strict';
 
-console.log(1);
-console.log(undefined == null);
+console.log(null === undefined);
+
