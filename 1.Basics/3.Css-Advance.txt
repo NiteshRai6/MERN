@@ -8,7 +8,7 @@ CSS Advance Topics :
 
 
 
-7. CSS Combinators, Pseudo-class & Pseudo Element :
+7. CSS Combinators, Pseudo-class & Pseudo Element : (**imp**)
 
 A. CSS Combinators :
 A combinator is something that explains the relationship between the selectors.
@@ -271,13 +271,13 @@ There are two types of length units: absolute and relative.
 The absolute length units are fixed and a length expressed in any of these will appear as exactly that size.
 Absolute length units are not recommended for use on screen, because screen sizes vary so much. However, they can be used if the output medium is known, such as for print layout.
 
-Unit	Description
-cm	centimeters
-mm	millimeters
-in	inches (1in = 96px = 2.54cm)
-px *	pixels (1px = 1/96th of 1in)
-pt	points (1pt = 1/72 of 1in)
-pc	picas (1pc = 12 pt)
+Unit : Description
+cm : centimeters
+mm : millimeters
+in : inches (1in = 96px = 2.54cm)
+px * : pixels (1px = 1/96th of 1in)
+pt : points (1pt = 1/72 of 1in)
+pc : picas (1pc = 12 pt)
 
 * Pixels (px) are relative to the viewing device. For low-dpi devices, 1px is one device pixel (dot) of the display. For printers and high resolution screens 1px implies multiple device pixels.
 
@@ -363,7 +363,7 @@ The property has three parts:
 The image to use as the border
 Where to slice the image
 Define whether the middle sections should be repeated or stretched
-#borderimg {
+#border-img {
   border: 10px solid transparent;
   padding: 15px;
   border-image: url(border.png) 30 round;
@@ -553,7 +553,7 @@ column-rule-style : Specifies the style of the rule between columns
 column-rule-width : Specifies the width of the rule between columns
 column-span : Specifies how many columns an element should span across
 column-width : Specifies a suggested, optimal width for the columns
-columns :A shorthand property for setting column-width and column-count
+columns : A shorthand property for setting column-width and column-count
 div {
   column-rule: 1px solid lightblue;
 }
@@ -582,7 +582,7 @@ var(--name, value);
 name : Required. The variable name (must start with two dashes)
 value : Optional. The fallback value (used if the variable is not found)
 
-First of all: CSS variables can have a global or local scope.
+First of all, CSS variables can have a global or local scope.
 Global variables can be accessed/used through the entire document, while local variables can be used only inside the selector where it is declared.
 To create a variable with global scope, declare it inside the :root selector. The :root selector matches the document's root element.
 To create a variable with local scope, declare it inside the selector that is going to use it.
@@ -604,7 +604,7 @@ h2 { border-bottom: 2px solid var(--blue); }
 }
 
 
-11. CSS Transforms, Transitions & Animations :
+11. CSS Transforms, Transitions & Animations : (**imp**)
 
 A. 2D Transforms :
 CSS transforms allow you to move, rotate, scale, and skew elements.
@@ -864,7 +864,7 @@ div {
 }
 
 
-12. Media Queries, Flexbox & Grid :
+12. Media Queries, Flexbox & Grid : (**imp**)
 
 A. Media Queries :
 The @media rule, introduced in CSS2, made it possible to define different style rules for different media types.
@@ -902,7 +902,7 @@ The mediatype is optional (if omitted, it will be set to all). However, if you u
 
 The result of the query is true if the specified media type matches the type of device the document is being displayed on and all media features in the media query are true. When a media query is true, the corresponding style sheet or style rules are applied, following the normal cascading rules.
 
-Meaning of the not, only, and and keywords:
+Meaning of the not, only, & and keywords:
 not: This keyword inverts the meaning of an entire media query.
 only: This keyword prevents older browsers that do not support media queries from applying the specified styles. It has no effect on modern browsers.
 and: This keyword combines a media type and one or more media features.
@@ -939,7 +939,7 @@ align-content
 * The flex-direction property defines in which direction the container wants to stack the flex items.
 The column value stacks the flex items vertically (from top to bottom).
 The column-reverse value stacks the flex items vertically (but from bottom to top).
-The row value stacks the flex items horizontally (from left to right).
+The row value stacks the flex items horizontally (from left to right). (default)
 The row-reverse value stacks the flex items horizontally (but from right to left).
 Example>
 .flex-container {
@@ -995,6 +995,7 @@ The stretch value stretches the flex lines to take up the remaining space (this 
 The center value displays the flex lines in the middle of the container.
 The flex-start value displays the flex lines at the start of the container.
 The flex-end value displays the flex lines at the end of the container.
+Note : Must specify height of flex container to use align-content property.
 Example>
 .flex-container {
   display: flex;
@@ -1062,6 +1063,7 @@ Example>
 
 * The align-self property specifies the alignment for the selected item inside the flexible container.
 The align-self property overrides the default alignment set by the container's align-items property.
+Note: If height of specific item less than other items of flex container then you can see the affect of align-self property.
 Example>
 <div class="flex-container">
   <div>1</div>
@@ -1082,8 +1084,8 @@ The horizontal lines of grid items are called rows.
 The spaces between each column/row are called gaps.
 
 You can adjust the gap size by using one of the following properties:
-column-gap
 row-gap
+column-gap
 gap
 
 The gap property is a shorthand property for the row-gap and the column-gap.
@@ -1177,6 +1179,12 @@ Example>
   display: grid;
   height: 400px;
   align-content: center / space-evenly / space-around / space-between / start / end;
+}
+
+* To horizontally & vertically center the grid items : Example>
+.grid-container{
+  display: grid;
+  place-items: center;
 }
 
 * Grid Item :

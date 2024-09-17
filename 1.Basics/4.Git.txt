@@ -1,5 +1,7 @@
-* Most commonly used Git commands :
+* Git :
 Git is a distributed version control system that helps developers track changes in their codebase, collaborate with others, and maintain a history of their work.
+
+* Most commonly used Git commands :
 
 1. git init :
 Initializes a new Git repository in the current directory. This is the first command used to create a new repository.
@@ -67,4 +69,107 @@ Downloads commits, files, and references from a remote repository into your loca
 Example>
 git fetch <remote>
 
-13. 
+13. git remote :
+Manages the remote connections (URLs) for a repository. It allows you to add, remove, or list remote repositories.
+Examples>
+git remote -v               # List all remotes with URLs
+git remote add origin <url> # Add a new remote
+git remote rm origin        # Remove a remote
+
+14. git rebase :
+Reapplies commits on top of another base tip. It's used to move or combine a sequence of commits to a new base commit.
+Example>
+git rebase <branch_name>
+
+15. git reset :
+Resets the current branch to a specific commit, discarding changes. It can be used to unstage files or discard changes.
+Examples>
+git reset --soft <commit_hash>   # Moves HEAD to a specific commit but keeps changes staged
+git reset --hard <commit_hash>   # Completely resets to a specific commit 
+                                   and discards all changes
+
+16. git revert :
+Creates a new commit that undoes the changes from a previous commit, but doesn't modify the commit history.
+Example>
+git revert <commit_hash>
+
+17. git stash :
+Temporarily saves your modified and staged changes without committing them, so you can work on something else. You can apply the stash later.
+Example>
+git stash        # Stashes current changes
+git stash apply  # Reapplies the stashed changes
+git stash pop    # Reapplies the stashed changes and removes them from the stash list
+
+18. git tag :
+Marks specific commits with a version number or tag name, typically used for marking release points.
+Examples>
+git tag <tag_name>           # Creates a lightweight tag
+git tag -a <tag_name> -m "Message" # Creates an annotated tag
+
+19. git diff :
+Shows the differences between files in the working directory, staging area, or between commits.
+Examples>
+git diff                    # Shows unstaged changes
+git diff --staged            # Shows staged changes
+git diff <commit_hash> <commit_hash>  # Compare two commits
+
+20. git rm :
+Removes a file from the working directory and stages the removal for the next commit.
+Example>
+git rm <file_name>           # Removes the file
+git rm --cached <file_name>  # Removes the file from the staging area but 
+                              keeps it locally
+
+21. git blame :
+Shows who made changes to each line of a file, providing a line-by-line history of changes.
+Example>
+git blame <file_name>
+
+22. git cherry-pick :
+Applies changes from a specific commit to the current branch, useful for taking only specific commits without merging a whole branch.
+Example>
+git cherry-pick <commit_hash>
+
+23. git submodule :
+Manages submodules, which are repositories within a repository. Useful for managing external dependencies.
+Examples>
+git submodule add <repository_url>   # Adds a submodule
+git submodule update --init          # Initializes and updates all submodules
+
+24. git archive :
+Creates a tar or zip archive of the current repository or a subset of it.
+Example>
+git archive --format=zip HEAD > archive.zip
+
+25. git gc (garbage collection) :
+Optimizes the repository by cleaning up unnecessary files and optimizing the local repository.
+Example>
+git gc
+
+26. git config :
+Sets configuration options for Git, such as username, email, and editor. These configurations can be global or project-specific.
+Examples>
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+
+* Roll-back :
+To roll back a commit in Git, you have several options depending on the situation and what you want to achieve.
+
+A. If you've committed changes but haven't pushed them yet and want to undo the commit while keeping your changes in the working directory :
+git reset --soft HEAD^
+
+B. If you want to undo the last commit and discard the changes completely :
+git reset --hard HEAD^
+
+C. If you've already pushed your changes to a remote repository and need to undo a commit, it’s generally better to create a new commit that reverts the changes rather than modifying the commit history :
+git revert <commit_hash>
+
+D. If you want to remove a specific commit (not necessarily the most recent one) but keep the history intact :
+git rebase -i <commit_hash>^
+Replace <commit_hash> with the hash of the commit before the one you want to remove.
+A text editor will open with a list of commits. You can remove the commit by deleting the line or changing the word pick to drop.
+Save and close the editor. Git will rebase and apply the remaining commits.
+
+
+                        ** End **
+
