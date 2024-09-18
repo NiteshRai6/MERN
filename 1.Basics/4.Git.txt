@@ -25,7 +25,6 @@ git add .            # Adds all changes in the current directory
 5. git commit :
 Records the changes in the repository with a message describing what changes were made.
 Example>
-Example>
 git commit -m "Your commit message"
 git commit           # Opens the default text editor to enter the message
 
@@ -84,7 +83,8 @@ git rebase <branch_name>
 15. git reset :
 Resets the current branch to a specific commit, discarding changes. It can be used to unstage files or discard changes.
 Examples>
-git reset --soft <commit_hash>   # Moves HEAD to a specific commit but keeps changes staged
+git reset --soft <commit_hash>   # Moves HEAD to a specific commit but 
+                                   keeps changes staged
 git reset --hard <commit_hash>   # Completely resets to a specific commit 
                                    and discards all changes
 
