@@ -62,7 +62,7 @@ let sum = value + 1;
 console.log(sum);
 Output : TypeError: Cannot mix BigInt and other types, use explicit conversions
 
-10.A Boolean data can only have one of two values: true or false.
+10. A Boolean data can only have one of two values: true or false.
 Except these 6 values, all values are truthy values in JavaScript :
 false, undefined, null, NaN, '', 0
 built-in boolean methods :
@@ -141,8 +141,8 @@ let student = {
     class: 10
 };
 
-14. the typeof operator to find the data type of a variable.
-typeof returned object for the null type. This has been a known issue in JavaScript since its first release.
+14. typeof operator is used to find the data type of a variable.
+typeof returns object for the null type. This has been a known issue in JavaScript since its first release.
 
 JavaScript determines the type of a variable based on the value assigned to it.
 As a result, changing the value of a variable can also change its type, provided the new value is of a different type.

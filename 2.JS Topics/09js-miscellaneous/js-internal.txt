@@ -121,8 +121,6 @@ Call Stack: Manages function calls and executes them.
 Memory Management: Allocates and frees memory automatically through garbage collection.
 Event Loop: Handles asynchronous operations by moving callbacks to the call stack when it's empty.
 Web APIs: Provide asynchronous capabilities like timers and HTTP requests.
-Understanding these concepts is essential for writing efficient and performant JavaScript code.
-
 
 #Part 2 :
 JavaScript is a high-level, dynamic programming language that is primarily used for client-side scripting on the web. It can also be used on the server side with environments like Node.js. Understanding how JavaScript works internally involves diving into its runtime environment, execution context, and the JavaScript engine itself. Here's a detailed explanation:

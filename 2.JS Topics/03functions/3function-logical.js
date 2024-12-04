@@ -106,7 +106,7 @@
 // const ascii = string.codePointAt();
 // console.log(`The ASCII value of ${string} = ${ascii}`);
 
-// Note : charCodeAt() is UTF-16, codePointAt() is Unicode. charCodeAt() returns a number between 0 and 65535. Both methods return an integer representing the UTF-16 code of a character, but only codePointAt() can return the full value of a Unicode value greather 0xFFFF (65535). 
+// Note : charCodeAt() is UTF-16, codePointAt() is Unicode. charCodeAt() returns a number between 0 and 65535. Both methods return an integer representing the UTF-16 code of a character, but only codePointAt() can return the full value of a Unicode value greater than 0xFFFF (65535).
 
 // Q6.JavaScript Program to set a default parameter value for a function ? 
 // function sum(x = 4, y = x - 2) {
@@ -146,7 +146,7 @@
 // console.log('This executes before.');
 
 // Q8. JavaScript Program to Perform Function Overloading ?
-// In programming, function overloading refers to the concept where multiple functions with the same names can have different implementations.However, in JavaScript, if there are multiple functions with the same name, the function that is defined at the last gets executed.
+// In programming, function overloading refers to the concept where multiple functions with the same names can have different implementations. However, in JavaScript, if there are multiple functions with the same name, the function that is defined at the last gets executed.
 // The function overloading feature can be implemented in some other ways.
 // Example 1: Using if/else-if Statement :
 // function sum() {

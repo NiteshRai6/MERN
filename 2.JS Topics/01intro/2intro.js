@@ -117,6 +117,9 @@
 //     [id]: 20
 // }
 // console.log(person);
+// for (let i in person) {
+//     console.log(i);
+// }
 
 // 13. var++ vs ++var :
 // for (let i = 0; i < 3; i++) {
